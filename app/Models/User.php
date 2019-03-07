@@ -24,4 +24,9 @@ class User extends Authenticatable
     protected $hidden = [
         'remember_token',
     ];
+
+    public function approval()
+    {
+        return $this->hasOne(Approval::class);
+    }
 }
