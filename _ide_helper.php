@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.3 on 2019-03-07 18:24:35.
+ * Generated for Laravel 5.8.3 on 2019-03-07 18:49:45.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14411,6 +14411,135 @@ namespace Illuminate\Support {
  
 }
 
+namespace Vatsim\OAuthLaravel { 
+
+    /**
+     * 
+     *
+     */ 
+    class SSOFacade {
+        
+        /**
+         * Get current return format from VATSIm
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function getFormat()
+        {
+                        /** @var \Vatsim\OAuth\SSO $instance */
+                        return $instance->getFormat();
+        }
+        
+        /**
+         * Change the output format (returned by VATSIM)
+         *
+         * @param bool|string $change json|xml
+         * @return string 
+         * @throws SSOException
+         * @static 
+         */ 
+        public static function setFormat($change = null)
+        {
+                        /** @var \Vatsim\OAuth\SSO $instance */
+                        return $instance->setFormat($change);
+        }
+        
+        /**
+         * Gets current signature
+         *
+         * @return object 
+         * @static 
+         */ 
+        public static function getSignature()
+        {
+                        /** @var \Vatsim\OAuth\SSO $instance */
+                        return $instance->getSignature();
+        }
+        
+        /**
+         * Set the signing method to be used to encrypt request signature.
+         *
+         * @param string $signature Signature encryption method: RSA|HMAC
+         * @param null|string $private_key openssl RSA private key (only needed if using RSA)
+         * @return \Vatsim\OAuth\SSO 
+         * @throws SSOException
+         * @static 
+         */ 
+        public static function setSignature($signature, $private_key = null)
+        {
+                        /** @var \Vatsim\OAuth\SSO $instance */
+                        return $instance->setSignature($signature, $private_key);
+        }
+        
+        /**
+         * 
+         *
+         * @param $returnUrl
+         * @param \Closure $success
+         * @param \Closure|null $error
+         * @return bool|mixed 
+         * @throws SSOException
+         * @static 
+         */ 
+        public static function login($returnUrl, $success, $error = null)
+        {
+                        /** @var \Vatsim\OAuth\SSO $instance */
+                        return $instance->login($returnUrl, $success, $error);
+        }
+        
+        /**
+         * Request a login token from VATSIM (required to send someone for an SSO login)
+         *
+         * @param bool|string $return_url URL for VATSIM to return memers to after login
+         * @return bool|object 
+         * @throws SSOException
+         * @static 
+         */ 
+        public static function requestToken($return_url = false)
+        {
+                        /** @var \Vatsim\OAuth\SSO $instance */
+                        return $instance->requestToken($return_url);
+        }
+        
+        /**
+         * 
+         *
+         * @param $key
+         * @param $secret
+         * @param $verifier
+         * @param \Closure $success
+         * @param \Closure|null $error
+         * @return mixed 
+         * @throws SSOException
+         * @static 
+         */ 
+        public static function validate($key, $secret, $verifier, $success, $error = null)
+        {
+                        /** @var \Vatsim\OAuth\SSO $instance */
+                        return $instance->validate($key, $secret, $verifier, $success, $error);
+        }
+        
+        /**
+         * Obtains a user's login details from a token key and secret
+         *
+         * @param string $tokenKey The token key provided by VATSIM
+         * @param string $tokenSecret The secret associated with the token
+         * @param string $tokenVerifier
+         * @return object 
+         * @throws SSOException
+         * @static 
+         */ 
+        public static function checkLogin($tokenKey, $tokenSecret, $tokenVerifier)
+        {
+                        /** @var \Vatsim\OAuth\SSO $instance */
+                        return $instance->checkLogin($tokenKey, $tokenSecret, $tokenVerifier);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -17022,6 +17151,8 @@ namespace  {
     class URL extends \Illuminate\Support\Facades\URL {}
 
     class Validator extends \Illuminate\Support\Facades\Validator {}
+
+    class VatsimSSO extends \Vatsim\OAuthLaravel\SSOFacade {}
 
     class View extends \Illuminate\Support\Facades\View {}
  
