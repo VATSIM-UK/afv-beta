@@ -2,19 +2,14 @@
 
 namespace App\Events;
 
-use App\Models\Approval;
 use App\Models\User;
-use Illuminate\Broadcasting\Channel;
+use App\Models\Approval;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class UserApproved
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, SerializesModels;
 
     protected $approval;
 
@@ -31,15 +26,5 @@ class UserApproved
     public function getUser(): User
     {
         return $this->approval->user;
-    }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    public function broadcastOn()
-    {
-        return new PrivateChannel('channel-name');
     }
 }
