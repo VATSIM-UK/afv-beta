@@ -29,4 +29,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Approval::class);
     }
+
+    public function getHasRequestAttribute()
+    {
+        return !is_null($this->approval);
+    }
 }
