@@ -14,7 +14,7 @@
     <div class="mx-auto text-center">
 
         <div class="">
-            <img src="#"
+            <img src="images/logo.png"
                  class="h-32"/>
 
             <h1 class="text-5xl font-bold">Audio For VATSIM</h1>
