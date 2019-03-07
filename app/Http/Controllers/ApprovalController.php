@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\UserApproved;
+use App\Models\User;
 use App\Models\Approval;
+use App\Events\UserApproved;
 use Illuminate\Http\Request;
 
 class ApprovalController extends Controller
@@ -21,16 +22,17 @@ class ApprovalController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param User $user
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(User $user, Request $request)
     {
-        $data = $this->validate($request, [
-            'user_id' => 'required'
-        ]);
+        if ($user->approval == null) {
+            return redirect('/')->withError('User not found.');
+        }
 
-        $approval = Approval::create(array_merge($data, ['approved_at' => now()]));
+        $approval = $user->approval->setAsApproved();
 
         event(new UserApproved($approval));
 

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Events\UserApproved;
+use App\Models\Approval;
 use App\Models\User;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Event;
@@ -27,12 +28,21 @@ class ApprovalTest extends TestCase
     /** @test */
     public function a_user_can_be_approved()
     {
-        $this->post(route('users.approve', $this->user), [
-            'user_id' => $this->user->id
-        ])->assertSessionHas('success', 'User(s) successfully approved!');
+        $approval = factory(Approval::class)->create(['user_id' => $this->user->id]);
+        $this->patch(route('users.approve', $this->user))
+            ->assertRedirect()->assertSessionHas('success', 'User(s) successfully approved!');
 
         Event::assertDispatched(UserApproved::class, function ($event) {
             return $event->getUser()->id === $this->user->id;
         });
+    }
+
+    /** @test */
+    public function a_user_is_not_approved_if_they_havent_requested_it()
+    {
+        $this->patch(route('users.approve', $this->user))
+            ->assertRedirect()->assertSessionHas('error');
+
+        Event::assertNotDispatched(UserApproved::class);
     }
 }

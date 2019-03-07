@@ -16,6 +16,14 @@ class Approval extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function setAsApproved()
+    {
+        $this->approved_at = now();
+        $this->save();
+
+        return $this;
+    }
+
     public function scopeApproved(Builder $query)
     {
         return $query->whereNotNull('approved_at');
