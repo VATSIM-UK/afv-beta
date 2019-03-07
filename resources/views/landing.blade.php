@@ -57,8 +57,8 @@
 @if(session()->has("success"))
     <script language="javascript">
         Swal.fire({
-            title: 'Success!',
-            html: "{!! session("success") !!}",
+            title: "{!! session('success')[0] !!}",
+            html: "{!! session('success')[1] !!}",
             type: 'success'
         })
     </script>
