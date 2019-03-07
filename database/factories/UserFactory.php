@@ -11,7 +11,6 @@ $factory->define(User::class, function (Faker $faker) {
         'name_first' => $faker->firstName,
         'name_last' => $faker->lastName,
         'rating_atc' => $faker->randomElement(['OBS', 'S1', 'S2', 'S3', 'C1']),
-        'rating_pilot' => $faker->randomElement(['P1']),
         'region' => 'EUR',
         'division' => 'GBR',
         'last_login' => now(),
