@@ -22,6 +22,8 @@ class LoginController extends Controller
 
     protected $sso;
 
+    public $redirectTo = '/testing';
+
     /**
      * Create a new controller instance.
      *
@@ -53,7 +55,7 @@ class LoginController extends Controller
     public function verifyLogin(Request $request)
     {
         $session = $request->session()->get('vatsimauth');
-        $intended = '/';
+        $intended = route('landing');
 
         return $this->sso->validate(
             $session['key'],
@@ -93,6 +95,6 @@ class LoginController extends Controller
     {
         auth()->logout();
 
-        return redirect('/');
+        return redirect(route('landing'));
     }
 }

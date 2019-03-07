@@ -1,14 +1,22 @@
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@responsive {
+  .bg-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/background.jpg') no-repeat center center;
+    background-size: cover;
+  }
 
-// Variables
-@import 'variables';
+  .btn {
+    @apply font-bold py-2 px-4 rounded;
+  }
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+  .btn-blue {
+    @apply bg-blue text-white;
+  }
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  .btn-blue:hover {
+    @apply bg-blue-dark;
+  }
 }
