@@ -77,7 +77,6 @@ class LoginController extends Controller
         $account->name_first = utf8_decode($user->name_first);
         $account->name_last = utf8_decode($user->name_last);
         $account->rating_atc = $user->rating->short;
-        $account->rating_pilot = $user->pilot_rating->rating;
         $account->email = $user->email;
         $account->region = $user->region->code;
         $account->division = $user->division->code;

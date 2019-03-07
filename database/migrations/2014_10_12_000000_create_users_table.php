@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('name_first');
             $table->string('name_last');
             $table->string('rating_atc');
-            $table->string('rating_pilot');
             $table->string('email');
             $table->string('region');
             $table->string('division');
