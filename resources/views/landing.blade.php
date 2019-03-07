@@ -35,7 +35,7 @@
 
         @auth
             <div class="pb-6">
-                <a class="no-underline" href="{{ route('auth.login') }}">
+                <a class="no-underline" href="{{ route('request') }}">
                     <btn class="btn btn-blue">Register For Beta</btn>
                 </a>
             </div>
@@ -55,6 +55,31 @@
 
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+@if(session()->has("success"))
+    <script language="javascript">
+        Swal.fire({
+            title: 'Success!',
+            html: "{!! session("success") !!}",
+            type: 'success'
+        })
+    </script>
+@endif
+
+@if(session()->has("error"))
+    <script language="javascript">
+        Swal.fire({
+            title: 'Error!',
+            html: "{!! session("error") !!}",
+            type: 'error'
+        })
+    </script>
+@endif
 
 </body>
 </html>
