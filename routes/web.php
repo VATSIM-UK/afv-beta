@@ -6,6 +6,7 @@ Route::get('complete-login', 'Auth\LoginController@completeLogin')->name('auth.l
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::resource('requests', 'UserRequestController')->only(['store']);
 Route::post('users/approval', 'ApprovalController@store')->name('users.approve');
 
 Route::get('/', function () {

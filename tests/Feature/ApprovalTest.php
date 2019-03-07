@@ -28,7 +28,7 @@ class ApprovalTest extends TestCase
     public function a_user_can_be_approved()
     {
         $this->post(route('users.approve', $this->user), [
-            'user_id' => $this->user->id,
+            'user_id' => $this->user->id
         ])->assertSessionHas('success', 'User(s) successfully approved!');
 
         Event::assertDispatched(UserApproved::class, function ($event) {

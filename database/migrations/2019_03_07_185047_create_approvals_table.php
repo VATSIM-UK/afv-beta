@@ -16,7 +16,7 @@ class CreateApprovalsTable extends Migration
         Schema::create('approvals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('approved_at');
+            $table->timestamp('approved_at')->nullable();
         });
     }
 
