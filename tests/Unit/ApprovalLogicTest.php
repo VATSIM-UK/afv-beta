@@ -71,4 +71,10 @@ class ApprovalLogicTest extends TestCase
             $this->assertNull($item->approved_at);
         });
     }
+
+    /** @test */
+    public function approved_at_is_casted_to_timestamp()
+    {
+        $this->assertInstanceOf(\DateTime::class, $this->approval->approved_at);
+    }
 }

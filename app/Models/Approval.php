@@ -9,6 +9,7 @@ class Approval extends Model
 {
     protected $guarded = [];
     public $timestamps = false;
+    protected $dates = ['approved_at' => 'timestamp'];
 
     public function user()
     {
