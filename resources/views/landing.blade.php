@@ -13,7 +13,7 @@
 <div class="flex items-center h-screen text-white">
     <div class="mx-auto text-center">
 
-        <div class="">
+        <div class="pb-6">
             <img src="images/logo.png"
                  class="h-32"/>
 
@@ -34,7 +34,7 @@
         </div>
 
         @auth
-            <div class="">
+            <div class="pb-6">
                 <a class="no-underline" href="{{ route('auth.login') }}">
                     <btn class="btn btn-blue">Register For Beta</btn>
                 </a>
