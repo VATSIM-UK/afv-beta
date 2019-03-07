@@ -6,52 +6,45 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <title>AFV Beta</title>
+    <title>AFV Test</title>
 </head>
 <body class="bg-image font-sans select-none">
 
 <div class="flex items-center h-screen text-white">
     <div class="mx-auto text-center">
 
-        <div class="pb-6">
+        <div class="pb-4">
             <img src="images/logo.png"
                  class="h-32"/>
 
             <h1 class="text-5xl font-bold">Audio For VATSIM</h1>
-            <h2 class="text-xl font-bold pb-5">Beta Signup</h2>
-        </div>
-
-        <div class="">
-            <h2 class="text-xl pb-5">
-                Hi
-                @if(Auth::check())
-                    {{ auth()->user()->name_first }}
-                @else
-                    there
-                @endif
-                👋
-            </h2>
         </div>
 
         @auth
-            <div class="pb-6">
+            <div class="py-4">
+                <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new voice
+                    system?</p>
+            </div>
+
+            <div class="py-4">
                 <a class="no-underline" href="{{ route('request') }}">
-                    <btn class="btn btn-blue">Register For Beta</btn>
+                    <btn class="btn btn-blue">Sign Me Up!</btn>
                 </a>
+            </div>
+
+            <div>
+                <a href="{{ route('auth.logout') }}" class="no-underline"><p class="text-white text-xs">No
+                        thanks!</p></a>
             </div>
         @endauth
 
-        <div class="py-6">
-            @if(Auth::check())
-                <a class="no-underline" href="{{ route('auth.logout') }}">
-                    <btn class="btn btn-blue">Logout</btn>
-                </a>
-            @else
+        @guest
+            <div class="py-4">
                 <a class="no-underline" href="{{ route('auth.login') }}">
-                    <btn class="btn btn-blue">Login</btn>
+                    <btn class="btn btn-blue">Login With VATSIM SSO</btn>
                 </a>
-            @endif
-        </div>
+            </div>
+        @endguest
 
     </div>
 </div>
