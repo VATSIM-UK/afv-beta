@@ -6,3 +6,5 @@ Route::get('complete-login', 'Auth\LoginController@completeLogin')->name('auth.l
 Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout');
 
 Route::get('/', 'LandingController')->name('landing');
+
+Route::get('request', 'UserRequestController@store')->name('request');

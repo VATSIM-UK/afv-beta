@@ -11,6 +11,6 @@ class LandingController extends Controller
 {
     public function __invoke()
     {
-        return view('landing')->with('success', 'Test');
+        return view('landing');
     }
 }
