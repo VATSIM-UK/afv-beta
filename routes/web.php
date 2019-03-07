@@ -1,7 +1,15 @@
 <?php
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('login', 'Auth\LoginController@login');
+Route::get('verify-login', 'Auth\LoginController@verifyLogin')->name('auth.login.verify');
+Route::get('complete-login', 'Auth\LoginController@completeLogin')->name('auth.login.complete');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/', function () {
+    if (Auth::check()) {
+        echo auth()->user()->name_first;
+    } else {
+        echo 'No user';
+    }
+});
