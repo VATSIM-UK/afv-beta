@@ -45,4 +45,30 @@ class ApprovalLogicTest extends TestCase
             return $this->user->id === $notification->user->id;
         });
     }
+
+    /** @test */
+    public function approved_approvals_can_be_scoped()
+    {
+        $approvals = factory(Approval::class, 3)->create();
+        $pendingApprovals = factory(Approval::class, 2)->state('pending')->create();
+
+        $this->assertCount(4, Approval::approved()->get());
+
+        Approval::approved()->each(function ($item, $key) {
+            $this->assertNotNull($item->approved_at);
+        });
+    }
+    
+    /** @test */
+    public function pending_approvals_can_be_scoped()
+    {
+        $approvals = factory(Approval::class, 2)->create();
+        $pendingApprovals = factory(Approval::class, 2)->state('pending')->create();
+
+        $this->assertCount(2, Approval::pending()->get());
+
+        Approval::pending()->each(function ($item, $key) {
+            $this->assertNull($item->approved_at);
+        });
+    }
 }
