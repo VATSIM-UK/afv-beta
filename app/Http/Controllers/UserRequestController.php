@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Approval;
+use App\Events\UserExpressedInterest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UserRequestController extends Controller
 {
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -19,8 +21,11 @@ class UserRequestController extends Controller
             return redirect('/')->withError('You have already made a request to signup to the beta.');
         }
         // create an approval which is pending
-        Approval::create(['user_id' => auth()->id()]);
+        $approval = Approval::create(['user_id' => auth()->id()]);
 
-        return redirect()->back()->withSuccess("Thanks for registering! <br /> We will send you an follow up email if you are invited to the beta.");
+        event(new UserExpressedInterest($approval));
+
+        return redirect()->back()
+            ->withSuccess("Thanks for registering! <br /> We will send you an follow up email if you are invited to the beta.");
     }
 }
