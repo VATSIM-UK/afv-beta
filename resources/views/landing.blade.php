@@ -10,43 +10,52 @@
 </head>
 <body class="bg-image font-sans select-none">
 
-<div class="flex items-center h-screen text-white">
-    <div class="mx-auto text-center">
+<div class="flex flex-col justify-between h-screen">
+    <div class="flex items-center h-screen text-white sm:mb-4 lg:mb-0">
+        <div class="mx-auto text-center">
 
-        <div class="pb-4">
-            <img src="images/logo.png"
-                 class="h-32"/>
+            <div class="pb-4">
+                <img src="images/logo.png"
+                     class="h-32"/>
 
-            <h1 class="text-5xl font-bold">Audio For VATSIM</h1>
+                <h1 class="text-5xl font-bold">Audio For VATSIM</h1>
+            </div>
+
+            @auth
+                <div class="py-4">
+                    <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new voice
+                        system?</p>
+                </div>
+
+                <div class="py-4">
+                    <a class="no-underline" href="{{ route('request') }}">
+                        <btn class="btn btn-blue">Sign Me Up!</btn>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="{{ route('auth.logout') }}" class="no-underline"><p class="text-white text-xs">No
+                            thanks!</p></a>
+                </div>
+            @endauth
+
+            @guest
+                <div class="py-4">
+                    <a class="no-underline" href="{{ route('auth.login') }}">
+                        <btn class="btn btn-blue">Login With VATSIM SSO</btn>
+                    </a>
+                </div>
+            @endguest
+
         </div>
-
-        @auth
-            <div class="py-4">
-                <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new voice
-                    system?</p>
-            </div>
-
-            <div class="py-4">
-                <a class="no-underline" href="{{ route('request') }}">
-                    <btn class="btn btn-blue">Sign Me Up!</btn>
-                </a>
-            </div>
-
-            <div>
-                <a href="{{ route('auth.logout') }}" class="no-underline"><p class="text-white text-xs">No
-                        thanks!</p></a>
-            </div>
-        @endauth
-
-        @guest
-            <div class="py-4">
-                <a class="no-underline" href="{{ route('auth.login') }}">
-                    <btn class="btn btn-blue">Login With VATSIM SSO</btn>
-                </a>
-            </div>
-        @endguest
-
     </div>
+
+    <footer class="flex items-center bg-grey-light p-2 opacity-75">
+        <div class="flex-1">
+            <p class="flex justify-center items-center tracking-wide">
+                A <img src="images/vatsim_0.png" width="8%"> Network Site</p>
+        </div>
+    </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
