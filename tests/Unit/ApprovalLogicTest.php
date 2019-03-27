@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use App\Models\User;
 use App\Models\Approval;
 use App\Events\UserApproved;
-use App\Events\Listeners\SendApprovalNotification;
+use App\Listeners\SendApprovalNotification;
 use App\Notifications\ApprovalWelcomeEmail;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Notification;

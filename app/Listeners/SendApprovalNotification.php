@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events\Listeners;
+namespace App\Listeners;
 
 use App\Events\UserApproved;
 
