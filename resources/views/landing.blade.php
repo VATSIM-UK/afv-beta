@@ -23,19 +23,30 @@
 
             @auth
                 <div class="py-4">
-                    <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new voice
-                        system?</p>
+                    @if(auth()->user()->pending)
+                        <p><strong>{{ auth()->user()->name_first }}</strong>, thanks for expressing your interest in the
+                            beta!<br/>We'll be in touch soon.</p>
+                    @elseif(auth()->user()->approved)
+                        <p><strong>{{ auth()->user()->name_first }}</strong>, you've been approved for the Audio For
+                            VATSIM Beta!</p>
+                    @else
+                        <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new
+                            voice
+                            system?</p>
+                    @endif
                 </div>
 
-                <div class="py-4">
-                    <a class="no-underline" href="{{ route('request') }}">
-                        <btn class="btn btn-blue">Sign Me Up!</btn>
-                    </a>
-                </div>
+                @if(!auth()->user()->has_request)
+                    <div class="py-4">
+                        <a class="no-underline" href="{{ route('request') }}">
+                            <btn class="btn btn-blue">Sign Me Up!</btn>
+                        </a>
+                    </div>
+                @endif
 
                 <div>
-                    <a href="{{ route('auth.logout') }}" class="no-underline"><p class="text-white text-xs">No
-                            thanks!</p></a>
+                    <a href="{{ route('auth.logout') }}" class="no-underline"><p class="text-white text-xs">Logout</p>
+                    </a>
                 </div>
             @endauth
 
