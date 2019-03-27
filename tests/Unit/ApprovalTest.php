@@ -9,14 +9,14 @@ use App\Listeners\SendApprovalNotification;
 use App\Notifications\ApprovalWelcomeEmail;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Notification;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ApprovalLogicTest extends TestCase
+class ApprovalTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $approval, $user;
+    protected $approval;
+    protected $user;
 
     protected function setUp(): void
     {
@@ -49,8 +49,8 @@ class ApprovalLogicTest extends TestCase
     /** @test */
     public function approved_approvals_can_be_scoped()
     {
-        $approvals = factory(Approval::class, 3)->create();
-        $pendingApprovals = factory(Approval::class, 2)->state('pending')->create();
+        factory(Approval::class, 3)->create();
+        factory(Approval::class, 2)->state('pending')->create();
 
         $this->assertCount(4, Approval::approved()->get());
 
@@ -58,12 +58,12 @@ class ApprovalLogicTest extends TestCase
             $this->assertNotNull($item->approved_at);
         });
     }
-    
+
     /** @test */
     public function pending_approvals_can_be_scoped()
     {
-        $approvals = factory(Approval::class, 2)->create();
-        $pendingApprovals = factory(Approval::class, 2)->state('pending')->create();
+        factory(Approval::class, 2)->create();
+        factory(Approval::class, 2)->state('pending')->create();
 
         $this->assertCount(2, Approval::pending()->get());
 
@@ -79,10 +79,19 @@ class ApprovalLogicTest extends TestCase
     }
 
     /** @test */
-    public function can_detect_whether_a_user_has_made_a_request()
+    public function it_can_detect_whether_a_user_has_made_a_request()
     {
         $user = factory(User::class)->create();
         $this->assertTrue($this->user->has_request);
         $this->assertFalse($user->has_request);
+    }
+
+    /** @test */
+    public function it_can_return_approval_as_boolean()
+    {
+        $pending = factory(Approval::class)->state('pending')->create();
+
+        $this->assertFalse($pending->approved);
+        $this->assertTrue($this->approval->approved);
     }
 }
