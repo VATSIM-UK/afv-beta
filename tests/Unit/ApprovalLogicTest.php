@@ -5,18 +5,18 @@ namespace Tests\Unit;
 use App\Models\User;
 use App\Models\Approval;
 use App\Events\UserApproved;
-use App\Listeners\SendApprovalNotification;
+use App\Events\Listeners\SendApprovalNotification;
 use App\Notifications\ApprovalWelcomeEmail;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Notification;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ApprovalLogicTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $approval, $user;
+    protected $approval;
+    protected $user;
 
     protected function setUp(): void
     {
@@ -58,7 +58,7 @@ class ApprovalLogicTest extends TestCase
             $this->assertNotNull($item->approved_at);
         });
     }
-    
+
     /** @test */
     public function pending_approvals_can_be_scoped()
     {

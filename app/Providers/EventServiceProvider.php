@@ -16,7 +16,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\UserApproved' => [
-            'App\Listeners\SendApprovalNotification'
+            'App\Events\Listeners\SendApprovalNotification'
         ],
         'App\Events\UserExpressedInterest' => [
             'App\Events\Listeners\SendInterestConfirmationEmail'
