@@ -32,8 +32,8 @@ class InterestConfirmationEmail extends Notification
         return (new MailMessage)
             ->subject('AFV Voice Beta - Request Confirmation')
             ->greeting("Hello, $notifiable->name_first!")
-            ->line('This email is to confirm your expression of interest in the AFV Voice Beta')
-            ->line('Thank you for the interest in the beta program - 
-                                    you should receive a follow-up email soon if you have been selected');
+            ->line('Thanks for signing up for the voice beta.  We will be selecting people to load test the new voice infrastructure in stages.')
+            ->line('You will receive further information when selected by email - thanks again for your support!')
+            ->salutation('Audio For VATSIM Team');
     }
 }
