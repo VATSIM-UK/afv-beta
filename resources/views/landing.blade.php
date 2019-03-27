@@ -36,11 +36,13 @@
                     @endif
                 </div>
 
-                <div class="py-4">
-                    <a class="no-underline" href="{{ route('request') }}">
-                        <btn class="btn btn-blue">Sign Me Up!</btn>
-                    </a>
-                </div>
+                @if(!auth()->user()->has_request)
+                    <div class="py-4">
+                        <a class="no-underline" href="{{ route('request') }}">
+                            <btn class="btn btn-blue">Sign Me Up!</btn>
+                        </a>
+                    </div>
+                @endif
 
                 <div>
                     <a href="{{ route('auth.logout') }}" class="no-underline"><p class="text-white text-xs">Logout</p>
