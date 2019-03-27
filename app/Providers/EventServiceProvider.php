@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserApproved' => [
             'App\Listeners\SendApprovalNotification'
         ],
+        'App\Events\UserExpressedInterest' => [
+            'App\Events\Listeners\SendInterestConfirmationEmail'
+        ]
     ];
 
     /**

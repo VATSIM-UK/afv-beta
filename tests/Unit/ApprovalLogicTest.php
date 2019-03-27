@@ -77,4 +77,12 @@ class ApprovalLogicTest extends TestCase
     {
         $this->assertInstanceOf(\DateTime::class, $this->approval->approved_at);
     }
+
+    /** @test */
+    public function can_detect_whether_a_user_has_made_a_request()
+    {
+        $user = factory(User::class)->create();
+        $this->assertTrue($this->user->has_request);
+        $this->assertFalse($user->has_request);
+    }
 }
