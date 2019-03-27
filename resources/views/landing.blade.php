@@ -43,8 +43,8 @@
                 </div>
 
                 <div>
-                    <a href="{{ route('auth.logout') }}" class="no-underline"><p class="text-white text-xs">No
-                            thanks!</p></a>
+                    <a href="{{ route('auth.logout') }}" class="no-underline"><p class="text-white text-xs">Logout</p>
+                    </a>
                 </div>
             @endauth
 
