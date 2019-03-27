@@ -34,4 +34,14 @@ class User extends Authenticatable
     {
         return !is_null($this->approval);
     }
+
+    public function getApprovedAttribute()
+    {
+        return optional($this->approval()->first())->approved;
+    }
+
+    public function getPendingAttribute()
+    {
+        return $this->has_request && !$this->approved;
+    }
 }

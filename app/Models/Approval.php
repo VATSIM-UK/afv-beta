@@ -24,6 +24,11 @@ class Approval extends Model
         return $this;
     }
 
+    public function getApprovedAttribute()
+    {
+        return (bool)$this->approved_at;
+    }
+
     public function scopeApproved(Builder $query)
     {
         return $query->whereNotNull('approved_at');
