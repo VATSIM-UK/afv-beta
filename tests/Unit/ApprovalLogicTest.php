@@ -9,14 +9,14 @@ use App\Listeners\SendApprovalNotification;
 use App\Notifications\ApprovalWelcomeEmail;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ApprovalTest extends TestCase
+class ApprovalLogicTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $approval;
-    protected $user;
+    protected $approval, $user;
 
     protected function setUp(): void
     {
@@ -58,7 +58,7 @@ class ApprovalTest extends TestCase
             $this->assertNotNull($item->approved_at);
         });
     }
-
+    
     /** @test */
     public function pending_approvals_can_be_scoped()
     {

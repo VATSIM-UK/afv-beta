@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class UserRequestTest extends TestCase
+class UserRequestLogicTest extends TestCase
 {
     use RefreshDatabase;
 
