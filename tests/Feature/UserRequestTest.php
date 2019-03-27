@@ -27,9 +27,10 @@ class UserRequestTest extends TestCase
     /** @test */
     public function a_user_can_make_a_request_to_sign_up_to_the_beta()
     {
-        $this->actingAs($this->user)->post(route('requests.store'))
-            ->assertSessionHas('success',
-                "Thanks for registering! <br /> We will send you an follow up email if you are invited to the beta.");
+        $this->actingAs($this->user)
+            ->followingRedirects()
+            ->post(route('requests.store'))
+            ->assertSee('Thanks For Registering!');
     }
 
     /** @test */
