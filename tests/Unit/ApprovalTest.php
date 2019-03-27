@@ -11,7 +11,7 @@ use Tests\TestCase;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ApprovalLogicTest extends TestCase
+class ApprovalTest extends TestCase
 {
     use RefreshDatabase;
 
