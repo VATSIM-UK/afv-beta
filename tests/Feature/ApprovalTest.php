@@ -7,7 +7,6 @@ use App\Models\Approval;
 use App\Models\User;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ApprovalTest extends TestCase
@@ -28,7 +27,7 @@ class ApprovalTest extends TestCase
     /** @test */
     public function a_user_can_be_approved()
     {
-        $approval = factory(Approval::class)->create(['user_id' => $this->user->id]);
+        factory(Approval::class)->create(['user_id' => $this->user->id]);
         $this->patch(route('users.approve', $this->user))
             ->assertRedirect()->assertSessionHas('success', 'User(s) successfully approved!');
 
