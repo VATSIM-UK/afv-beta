@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use App\Models\Approval;
 use App\Events\UserExpressedInterest;
 use App\Notifications\InterestConfirmationEmail;
-use App\Events\Listeners\SendInterestConfirmationEmail;
+use App\Listeners\SendInterestConfirmationEmail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
