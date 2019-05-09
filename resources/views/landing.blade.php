@@ -62,7 +62,7 @@
                                 </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    1) Download the standalone client from Here, once downloaded run the client and follow the instructions.
+                                    1) Download the standalone client from <a href="https://s3.ca-central-1.amazonaws.com/vatsim/Audio+For+VATSIM.msi">Here</a>, once downloaded run the client and follow the instructions.
                                 </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
