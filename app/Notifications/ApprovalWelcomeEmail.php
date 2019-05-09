@@ -32,6 +32,6 @@ class ApprovalWelcomeEmail extends Notification
         return (new MailMessage)
             ->line('Thanks for signing up for the Audio for VATSIM beta testing.')
             ->line('We are pleased to invite you to join us in the beta.')
-            ->line('For instructions on how to join please go to http://afv.vatsim.net/ for more info.');
+            ->line('For instructions on how to join please go to https://afv-beta.vatsim.net/ for more info.');
     }
 }
