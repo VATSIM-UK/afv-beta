@@ -27,8 +27,104 @@
                         <p><strong>{{ auth()->user()->name_first }}</strong>, thanks for expressing your interest in the
                             beta!<br/>We'll be in touch soon.</p>
                     @elseif(auth()->user()->approved)
-                        <p><strong>{{ auth()->user()->name_first }}</strong>, you've been approved for the Audio For
-                            VATSIM Beta!</p>
+                        <div class="text-left max-w-md">
+                            <h2 class="py-4">Welcome!</h2>
+                            <p class="py-4">The first round of Audio for VATSIM (AFV) will be taking place on a
+                                standalone server
+                                along side the existing network in order to minimize disruption to live users on the old
+                                voice codec.<br/>
+                                <br/>
+                                You can chat with the new voice team via discord at <a
+                                        href="https://discord.gg/wTdWD5s">https://discord.gg/wTdWD5s</a> for any help
+                                and advice during the setup process.</p>
+
+                            <h2 class="py-4">Pilots</h2>
+                            <h4>vPilot Users</h4>
+                            <p class="py-4">To use new voice as a vPilot user is very simple! Download the vPilot Beta
+                                from <a
+                                        href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vPilotAFVBeta-Setup-2.2.2.1.exe">here</a>.
+                            </p>
+
+                            <h4>FS9, FSX, P3D, X-Squawkbox Users, Swift</h4>
+                            <p class="py-4">As your client has not been updated to use new voice at this time you will
+                                need to download the simple standalone voice client from <a
+                                        href="https://www.dropbox.com/s/hzbvgho0u1059at/Audio%20For%20VATSIM.msi?dl=0">here</a>,
+                                once downloaded, connect
+                                your client to the <strong>AFV-BETA</strong> (100.26.210.105) server, run the client and
+                                follow the
+                                instructions.
+                            </p>
+
+                            <h2 class="py-4">Controllers</h2>
+                            <p class="py-4">
+                                In order to finalise the ATC components of AFV you will be running a standalone client
+                                which will allow us to push updates out during testing.<br/>
+
+                            <ol>
+                                <li>Download the standalone client from <a
+                                            href="https://www.dropbox.com/s/hzbvgho0u1059at/Audio%20For%20VATSIM.msi?dl=0">here</a>,
+                                    once downloaded run the client and
+                                    follow the instructions.
+                                </li>
+                                <li>Connect your controller client to the AFV Beta server at 100.26.210.105.</li>
+                                <li>Setup a text Primary Frequency, and a text ATIS in order for AFV to work. Do not
+                                    setup a voice channel in your controller client.
+                                </li>
+                            </ol>
+
+                            You can choose the location and strength of your transceivers by setting visibility points
+                            and range in your controller client. (.vis1, .vis2 etc in Euroscope).
+                            </p>
+
+                            <h2 class="py-4">Supervisors</h2>
+                            <p class="py-4">You will get a copy of the supervisor client from Tim Barber in order to
+                                help supervise the events.
+                            </p>
+
+                            <h2 class="py-4">ATIS Bots</h2>
+                            <p class="py-4">A few sample ATIS bots have been setup to supply automatically generated
+                                ATISes. If a controller logs on then these ATISes get replaced with those of a
+                                controller.<br/>
+                                <br/>
+                                There will be a website for divisions to configure their ATIS bots with rules such as
+                                runway alternations, preferred runways or custom voice files as the beta
+                                progresses.<br/>
+                                <br/>
+                                For now please use the reporting tool to report any weird phrases spoken by the ATIS
+                                bot, they have provided many hours of comedy audio during the development!
+                            </p>
+
+                            <h2 class="py-4">Live Map</h2>
+                            <p class="py-4">See who is connected to new voice at <a href="https://afv-map.vatsim.net">https://afv-map.vatsim.net</a>
+                                and feel free to try things out with friends on the new beta.
+                            </p>
+
+                            <h2 class="py-4">Formal Testing Schedule</h2>
+                            <p class="py-4">We plan to run several rounds of testing at specific regions and airports,
+                                these will be advertised here and via an email before the events.<br/>
+                                <br/>
+                                <strong>Friday 10th May 1800z-1930z</strong> - Fly around the UK with Top down cover
+                                from London and
+                                Aerodrome control at EGLL/EGKK/EGSS/EGCC etc.
+                            </p>
+
+                            <h2 class="py-4">Current Known Issues</h2>
+                            <ol>
+                                <li>
+                                    When ‘de-tuning’ from an ATIS Frequency it could take 5 seconds for the audio to
+                                    stop. This will be fixed before release
+                                </li>
+                            </ol>
+
+                            <h2 class="py-4">Reporting Issues</h2>
+                            <p class="py-4">For live support please contact us via the discord link at the top of this
+                                post.<br/>
+                                We have a feedback form <strong><a
+                                            href="https://forms.gle/rQ4LChwn4EvSCLWZ9">here</a></strong> for you to
+                                report issues and post your thoughts on AFV
+                            </p>
+
+                        </div>
                     @else
                         <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new
                             voice
