@@ -11,7 +11,7 @@ class UserApproved
 {
     use Dispatchable, SerializesModels;
 
-    protected $approval;
+    public $approval;
 
     /**
      * Create a new event instance.

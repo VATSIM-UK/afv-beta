@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\UserApproved;
+use App\Notifications\ApprovalWelcomeEmail;
 
 class SendApprovalNotification
 {
@@ -14,6 +15,6 @@ class SendApprovalNotification
      */
     public function handle(UserApproved $event)
     {
-        //
+        $event->approval->user->notify(new ApprovalWelcomeEmail());
     }
 }

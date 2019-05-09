@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\UserApproved;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -20,6 +21,8 @@ class Approval extends Model
     {
         $this->approved_at = now();
         $this->save();
+
+        event(new UserApproved($this));
 
         return $this;
     }
