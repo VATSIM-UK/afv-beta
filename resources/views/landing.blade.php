@@ -120,7 +120,7 @@
                                 </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    2) Windows 7 users will need to add this registry key in order to enable TLS 1.2 if they havn’’t already done so or they will get a ‘Connect Failed’ when connecting to voice
+                                    2) Windows 7 users will need to add <a href="https://s3.ca-central-1.amazonaws.com/vatsim/TLS_1.2.reg">this registry key</a> in order to enable TLS 1.2 if they haven’t already done so or they will get a ‘Connect Failed’ when connecting to voice
                                 </p>
                                 <br />
                                 <div class="font-bold text-xl mb-2 text-grey-darkest">Reporting Issues</div>
