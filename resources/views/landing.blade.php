@@ -44,10 +44,10 @@ This means that you will only be able to see controllers and pilots who are part
                                 <div class="font-bold text-xl mb-2 text-grey-darkest">Pilots</div>
                                 <br />
                                 <p class="text-black font-bold text-lg text-left">
-                                    vPilot Users
+                                    vPilot 
                                 </p>
                                 <p class="text-grey-darker text-base text-left">
-                                    To use new voice as a vPilot user is very simple!  Download the vPilot Beta from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vPilotAFVBeta-Setup-2.2.2.3.exe">Here</a> and run the relevant vPilot (AFV Beta) Shortcuts.  You DO NOT need the beta client listed below.<BR>
+                                    To use new voice as a vPilot user is very simple!  Download the vPilot Beta from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vPilotAFVBeta-Setup-2.2.2.3.exe">Here</a> and run the relevant vPilot (AFV Beta) Shortcuts. <BR> You DO NOT need the beta client listed below.<BR>
 									You may choose any server when connecting as this vpilot beta as you will be automatically routed to the AFV-BETA server.
 									
                                 </p>
@@ -70,8 +70,9 @@ This means that you will only be able to see controllers and pilots who are part
 									2) Before connecting follow the instructions below for your ATC client then click Connect.
 
                                 </p>
-								 <div class="class="text-black font-bold text-lg text-left">Euroscope Users</div>
-								
+								   <p class="text-black font-bold text-lg text-left">
+                                    Euroscope
+                                </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
                                     1) Download the Latest Euroscope from <a href="http://185.51.64.10/~euroscop/install/EuroScopeBeta32a20.zip">Here</A> 
@@ -84,8 +85,9 @@ This means that you will only be able to see controllers and pilots who are part
 								</p>	
 								<BR>
 									
-								<div class="class="text-black font-bold text-lg text-left"">VRC Users</div>
-								
+								   <p class="text-black font-bold text-lg text-left">
+                                    VRC
+                                </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
                                     1) Download the Latest VRC from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/VRC-AFVBeta.exe">Here</A> 
@@ -98,8 +100,9 @@ This means that you will only be able to see controllers and pilots who are part
 								</p>	
 								<BR>
 								
-								<div class="class="text-black font-bold text-lg text-left">vSTARS Users</div>
-								
+								   <p class="text-black font-bold text-lg text-left">
+                                    vSTARS
+                                </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
                                     1) Download the Latest vSTARS from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vSTARS-Setup-1.1.8.1.exe">Here</A> 
@@ -111,11 +114,12 @@ This means that you will only be able to see controllers and pilots who are part
 								</p>	
 								<BR>
 								
-									<div class="text-black font-bold text-lg text-left">vERAM Users</div>
-								
+							   <p class="text-black font-bold text-lg text-left">
+                                    vERAM
+                                </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    1) Download the Latest vSTARS from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vERAM-Setup-1.0.7072.31690.exe">Here</A> 
+                                    1) Download the Latest vERAM from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vERAM-Setup-1.0.7072.31690.exe">Here</A> 
 									2) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
 									<BR><BR>
 									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
