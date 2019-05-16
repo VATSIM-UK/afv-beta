@@ -32,7 +32,9 @@
                                 <div class="font-bold text-2xl mb-2 text-grey-darkest">Welcome!</div>
                                 <br />
                                 <p class="text-grey-darker text-base text-left">
-                                    The first round of Audio for Vatsim (AFV) will be taking place on a standalone server along side the existing network in order to minimize disruption to live users on the old voice codec.
+                                    The first round of Audio For VATSIM testing will be taking place on a standalone server to minimize disruption to other users of the network.
+<BR>
+This means that you will only be able to see controllers and pilots who are part of the AFV testing program, and will not be able to use AFV on the live VATSIM network.
                                 </p>
                                 <br />
                                 <p class="text-grey-darker text-base text-left">
@@ -45,7 +47,9 @@
                                     vPilot Users
                                 </p>
                                 <p class="text-grey-darker text-base text-left">
-                                    To use new voice as a vPilot user is very simple!  Download the vPilot Beta from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vPilotAFVBeta-Setup-2.2.2.1.exe">Here</a>.  You DO NOT need the beta client listed below.
+                                    To use new voice as a vPilot user is very simple!  Download the vPilot Beta from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vPilotAFVBeta-Setup-2.2.2.3.exe">Here</a> and run the relevant vPilot (AFV Beta) Shortcuts.  You DO NOT need the beta client listed below.<BR>
+									You may choose any server when connecting as this vpilot beta as you will be automatically routed to the AFV-BETA server.
+									
                                 </p>
                                 <br />
                                 <p class="text-black font-bold text-lg text-left">
@@ -62,20 +66,66 @@
                                 </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    1) Download the standalone client from <a href="https://s3.ca-central-1.amazonaws.com/vatsim/Audio+For+VATSIM.msi">Here</a>, once downloaded run the client and follow the instructions.
+                                    1) Download the standalone client from <a href="https://s3.ca-central-1.amazonaws.com/vatsim/Audio+For+VATSIM.msi">Here</a>, once downloaded run the client and follow the instructions to setup AFV.
+									2) Before connecting follow the instructions below for your ATC client then click Connect.
+
                                 </p>
+								 <div class="class="text-black font-bold text-lg text-left">Euroscope Users</div>
+								
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    2) Connect your controller client to the AFV Beta server at 100.26.210.105.
-                                </p>
+                                    1) Download the Latest Euroscope from <a href="http://185.51.64.10/~euroscop/install/EuroScopeBeta32a20.zip">Here</A> 
+									2) User the shortcut <a href=""> Here</A> to launch Euroscope Disabling all old voice
+									3) Connect to the AFV Beta server by typing afv-beta-fsd.vatsim.net into the server<BR>
+									<BR><BR>
+									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
+									Your AFV transceiver locations will follow your .vis points
+									Note: You will need to run the AudioForVATSIM Client alongside the controller client.
+								</p>	
+								<BR>
+									
+								<div class="class="text-black font-bold text-lg text-left"">VRC Users</div>
+								
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    3) Setup a text Primary Frequency, and a text ATIS in order for AFV to work. Do not setup a voice channel in your controller client.
-                                </p>
+                                    1) Download the Latest VRC from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/VRC-AFVBeta.exe">Here</A> 
+									2) Copy this into your VRC install folder and run it.
+									3) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
+									<BR><BR>
+									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
+									Your AFV transceiver locations will follow your .vis points
+									Note: You will need to run the AudioForVATSIM Client alongside the controller client.
+								</p>	
+								<BR>
+								
+								<div class="class="text-black font-bold text-lg text-left">vSTARS Users</div>
+								
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    You can choose the location and strength of your transceivers by setting visibility points and range in your controller client. (.vis1, .vis2 etc in Euroscope)
-                                </p>
+                                    1) Download the Latest vSTARS from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vSTARS-Setup-1.1.8.1.exe">Here</A> 
+									2) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
+									<BR><BR>
+									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
+									Your AFV transceiver locations will follow your .vis points
+									Note: You will need to run the AudioForVATSIM Client alongside the controller client.
+								</p>	
+								<BR>
+								
+									<div class="text-black font-bold text-lg text-left">vERAM Users</div>
+								
+                                <br>
+                                <p class="text-grey-darker text-base text-left">
+                                    1) Download the Latest vSTARS from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vERAM-Setup-1.0.7072.31690.exe">Here</A> 
+									2) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
+									<BR><BR>
+									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
+									Your AFV transceiver locations will follow your .vis points
+									Note: You will need to run the AudioForVATSIM Client alongside the controller client.
+								</p>	
+								<BR>
+                                
+								
+								<br>
                                 <br />
                                 <div class="font-bold text-xl mb-2 text-grey-darkest">Supervisors</div>
                                 <br />
