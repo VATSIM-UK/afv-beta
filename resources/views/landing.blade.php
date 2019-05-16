@@ -76,8 +76,8 @@ This means that you will only be able to see controllers and pilots who are part
                                 </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    1) Download the Latest Euroscope from <a href="http://185.51.64.10/~euroscop/install/EuroScopeBeta32a20.zip">Here</A> 
-									2) User the shortcut <a href="https://www.dropbox.com/s/pq4gwibza71ruw5/EuroScope%20%28AFV%29.zip?dl=0"> Here</A> to launch Euroscope Disabling all old voice
+                                    1) Download the Latest Euroscope from <a href="http://185.51.64.10/~euroscop/install/EuroScopeBeta32a20.zip">Here</A> <BR>
+									2) Use the shortcut <a href="https://www.dropbox.com/s/pq4gwibza71ruw5/EuroScope%20%28AFV%29.zip?dl=0"> Here</A> to launch Euroscope Disabling all old voice<BR>
 									3) Connect to the AFV Beta server by typing afv-beta-fsd.vatsim.net into the server<BR>
 									<BR><BR>
 									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
@@ -92,12 +92,12 @@ This means that you will only be able to see controllers and pilots who are part
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
                                     1) Download the Latest VRC from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/VRC-AFVBeta.exe">Here</A> 
-									2) Copy this into your VRC install folder and run it.
+									2) Copy this into your VRC install folder and run it.<BR>
 									3) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
 									<BR><BR>
 									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
-									Your AFV transceiver locations will follow your .vis points
-									Note: You will need to run the AudioForVATSIM Client alongside the controller client.
+									Your AFV transceiver locations will follow your .vis points<BR>
+									Note: You will need to run the AudioForVATSIM Client alongside the controller client.<BR>
 								</p>	
 								<BR>
 								
@@ -110,8 +110,8 @@ This means that you will only be able to see controllers and pilots who are part
 									2) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
 									<BR><BR>
 									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
-									Your AFV transceiver locations will follow your .vis points
-									Note: You will need to run the AudioForVATSIM Client alongside the controller client.
+									Your AFV transceiver locations will follow your .vis points<BR>
+									Note: You will need to run the AudioForVATSIM Client alongside the controller client.<BR>
 								</p>	
 								<BR>
 								
@@ -124,8 +124,8 @@ This means that you will only be able to see controllers and pilots who are part
 									2) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
 									<BR><BR>
 									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
-									Your AFV transceiver locations will follow your .vis points
-									Note: You will need to run the AudioForVATSIM Client alongside the controller client.
+									Your AFV transceiver locations will follow your .vis points<BR>
+									Note: You will need to run the AudioForVATSIM Client alongside the controller client.<BR>
 								</p>	
 								<BR>
                                 
