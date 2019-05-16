@@ -70,6 +70,7 @@ This means that you will only be able to see controllers and pilots who are part
 									2) Before connecting follow the instructions below for your ATC client then click Connect.
 
                                 </p>
+								<BR>
 								   <p class="text-black font-bold text-lg text-left">
                                     Euroscope
                                 </p>
