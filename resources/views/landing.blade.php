@@ -46,7 +46,7 @@ This means that you will only be able to see controllers and pilots who are part
                                 <p class="text-black font-bold text-lg text-left">
                                     vPilot 
                                 </p>
-                                <p class="text-grey-darker text-base text-left">
+                                <p class="text-grey-darker text-base text-left"><BR>
                                     To use new voice as a vPilot user is very simple!  Download the vPilot Beta from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vPilotAFVBeta-Setup-2.2.2.3.exe">Here</a> and run the relevant vPilot (AFV Beta) Shortcuts. <BR> You DO NOT need the beta client listed below.<BR>
 									You may choose any server when connecting as this vpilot beta as you will be automatically routed to the AFV-BETA server.
 									
@@ -55,7 +55,7 @@ This means that you will only be able to see controllers and pilots who are part
                                 <p class="text-black font-bold text-lg text-left">
                                     FS9, FSX, P3D, X-Squawkbox Users, Swift
                                 </p>
-                                <p class="text-grey-darker text-base text-left">
+                                <p class="text-grey-darker text-base text-left"><BR>
                                     As your client has not been updated to use new voice at this time you will need to download the simple standalone voice client from <a href="https://s3.ca-central-1.amazonaws.com/vatsim/Audio+For+VATSIM.msi">Here</a>, once downloaded, connect your client to the AFV-BETA (100.26.210.105) server, run the client and follow the instructions
                                 </p>
                                 <br />
