@@ -91,7 +91,7 @@ This means that you will only be able to see controllers and pilots who are part
                                 </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    1) Download the Latest VRC from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/VRC-AFVBeta.exe">Here</A> 
+                                    1) Download the Latest VRC from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/VRC-AFVBeta.exe">Here</A> <BR>
 									2) Copy this into your VRC install folder and run it.<BR>
 									3) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
 									<BR><BR>
@@ -106,7 +106,7 @@ This means that you will only be able to see controllers and pilots who are part
                                 </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    1) Download the Latest vSTARS from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vSTARS-Setup-1.1.8.1.exe">Here</A> 
+                                    1) Download the Latest vSTARS from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vSTARS-Setup-1.1.8.1.exe">Here</A> <BR>
 									2) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
 									<BR><BR>
 									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
@@ -120,7 +120,7 @@ This means that you will only be able to see controllers and pilots who are part
                                 </p>
                                 <br>
                                 <p class="text-grey-darker text-base text-left">
-                                    1) Download the Latest vERAM from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vERAM-Setup-1.0.7072.31690.exe">Here</A> 
+                                    1) Download the Latest vERAM from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vERAM-Setup-1.0.7072.31690.exe">Here</A> <BR>
 									2) Connect to the AFV Beta server by selecting the AFV-BETA Server<BR>
 									<BR><BR>
 									You may setup a text ATIS and AFV will create the voice files for you automatically.<BR>
