@@ -10,7 +10,12 @@
 </head>
 <body class="bg-image font-sans select-none">
 
+@auth
 <div class="flex flex-col justify-between h-full">
+@endauth
+@guest
+<div class="flex flex-col justify-between h-screen">
+@endguest
     <div class="flex items-center h-full text-white sm:mb-4 lg:mb-0">
         <div class="mx-auto text-center">
 
