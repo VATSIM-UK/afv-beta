@@ -14,7 +14,7 @@
     6) That's it, you're now up and running. Enjoy!<br /><br />
 </p>
 
-<img src="/images/demos/es_comms.png" class="w-auto rounded"><br /><br />
+<img src="/images/demos/es_comms_full.png" class="w-auto rounded"><br /><br />
 
 <p class="text-grey-darker text-base text-left">
     <i>Remember: All the 'RCV VOI' and 'XMT VOI' checkboxes shall be <u>unmarked</u> in the communications dialog (that includes your PRIM and ATIS frequencies too).</i><br /><br />
