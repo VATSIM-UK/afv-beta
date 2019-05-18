@@ -25,7 +25,7 @@
     <div class="flex items-center h-full text-white sm:mb-4 lg:mb-0">
         <div class="mx-auto text-center pt-4">
 
-            <div>
+            <div class="select-none">
                 <img src="images/logo.png" class="h-32"/>
                 <h1 class="text-5xl font-bold">Audio For VATSIM</h1>
             </div>

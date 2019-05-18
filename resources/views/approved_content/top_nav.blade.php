@@ -1,5 +1,5 @@
 <!-- NAV TOP -->
-<ul class="nav rounded-t justify-content-center nav-justified bg-blue">
+<ul class="nav rounded-t select-none justify-content-center nav-justified bg-blue">
   <li class="nav-item">
     <a class="nav-link text-white" href="#pClients">PILOTS</a>
   </li>
@@ -12,7 +12,7 @@
 </ul>
 <!-- #END# NAV TOP -->
 <!-- NAV MIDDLE -->
-<ul class="nav justify-content-center nav-justified bg-blue">
+<ul class="nav select-none justify-content-center nav-justified bg-blue">
   <li class="nav-item">
     <a class="nav-link text-white" href="#atis">ATIS BOTS</a>
   </li>
