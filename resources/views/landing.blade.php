@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href=" {{ mix('css/app.css') }} ">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <title>AFV Test</title>
+    <title>VATSIM AFV Beta</title>
 </head>
 <body class="bg-image font-sans select-none">
 
@@ -71,7 +71,9 @@
                                 Want to chat with the rest of the testing team? Need help from the devs? Join us at <a href="https://discord.gg/wTdWD5s">https://discord.gg/wTdWD5s</a>!
                             </p>
                             <!-- #END# WELCOME -->
-
+                            
+                            <br />
+                            
                             <!-- Live MAP -->
                             <div class="py-2 pt-4">
                                 <a href="https://afv-map.vatsim.net/" class="no-underline"><p class="btn btn-blue text-white text-md">AFV Live Map</p>
@@ -80,12 +82,24 @@
                             <!-- #END# LIVE MAP -->
 
                             <!-- SECTION SPACING -->
+                            <br />
                             <hr/>
-                            <br/>
+                            <br />
                             <!-- #END# SECTION SPACING -->
 
                             <!-- PILOT CLIENTS -->
                             <div class="font-bold text-2xl mb-2 text-grey-darkest underline" id="pClients">PILOT CLIENTS</div>
+
+                            <!-- PClients Nav -->
+                            <ul class="nav justify-content-center nav-justified bg-grey-dark">
+                              <li class="nav-item">
+                                <a class="nav-link text-white underline" href="#vPilot">vPilot</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link text-white underline" href="#otherPCls">Others</a>
+                              </li>
+                            </ul>
+                            <!-- #END# PClients Nav -->
 
                             <br />
 
@@ -94,7 +108,7 @@
                                 vPilot
                             </p>
                             <p class="text-grey-darker text-base text-left">
-                                To use new voice as a vPilot user is very simple!  Download the vPilot Beta from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vPilotAFVBeta-Setup-2.2.2.3.exe">Here</a> and run the relevant vPilot (AFV Beta) Shortcuts.
+                                To use new voice as a vPilot user is very simple! Download the vPilot Beta from <a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vPilotAFVBeta-Setup-2.2.2.3.exe">Here</a> and run the relevant vPilot (AFV Beta) Shortcuts.
                                 You may choose any server when connecting, as this client will automatically route you to the AFV-Beta server.<br />
                                 You DO NOT need the standalone client listed below.<br /><br />
                             </p>
@@ -119,36 +133,87 @@
                             <!-- #END# SECTION SPACING -->
 
                             <!-- CONTROLLER Clients -->
-                            <div class="font-bold text-2xl mb-2 text-grey-darkest underline" id="cClients">CONTROLLER CLIENTS (ALL)</div>
+                            <div class="font-bold text-2xl mb-2 text-grey-darkest underline" id="cClients">CONTROLLER CLIENTS</div>
+
+                            <!-- CClients Nav -->
+                            <ul class="nav justify-content-center nav-justified bg-grey-dark">
+                              <li class="nav-item">
+                                <a class="nav-link text-white underline" href="#euroscope">Euroscope</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link text-white underline" href="#vATC">VRC, vStars, vERAM</a>
+                              </li>
+                            </ul>
+                            <!-- #END# CClients Nav -->
+                            <br />
+
+                            <!-- All ATC Clients -->
+                            <p class="text-black font-bold text-lg text-left italic" id="allCClients">
+                                Applies to all clients
+                            </p>
+                            <p class="text-grey-darker text-base text-left">
+				        	    <i>- To get an ATIS station online, all you have to do is connect it to the network as you normally would,
+                                    but without needing to start it on voice as well. In other words, you only have to connect the text ATIS and AFV
+                                    servers will automatically read it on voice for pilots.</i><br/>
+                                <i>- If you want to listen to other controllers, you will have to tune your primary frequency to the same as theirs.
+                                    This will be changed during the development so that it can be done the same way as it's done with old voice.
+                                    Remember you have to be in range.</i><br />
+                                <i>- Your radio range and transceiver positions are calculated from your vis points. Wherever you have a vis point,
+                                    you have a radio antenna which range is equal to that of your ATC client.</i><br /><br />
+				        	</p>
+                            <!-- #END# All ATC Clients -->
 
                             <br />
 
+                            <!-- Euroscope -->
+                            <p class="text-black font-bold text-lg text-left italic" id="euroscope">
+                                Euroscope
+                            </p>
                             <p class="text-grey-darker text-base text-left">
                                 1) Download the standalone voice client from <a href="https://s3.ca-central-1.amazonaws.com/vatsim/Audio+For+VATSIM.msi">Here</a>.
-                                    Run it and follow the instructions to setup AFV.<br />
-                                2) Download the latest version of your ATC client:<br />
+                                   Run it and follow the instructions to setup AFV.<br />
+                                2) Download the latest Euroscope version from <a href="http://185.51.64.10/~euroscop/install/EuroScopeBeta32a20.zip">Here</a> and update your client.
+                                   Remember to back your files up first just in case.<br />
+                                3) Download the shortcut <a href="https://www.dropbox.com/s/pq4gwibza71ruw5/EuroScope%20%28AFV%29.zip?dl=0"> Here</a>.
+                                   Whenever you want to connect to the AFV Beta server, you will have to launch it with this shortcut.
+                                   For connection to the live network, proceed as you normally would.<br />
+                                4) Connect to the AFV Beta server by typing the address (afv-beta-fsd.vatsim.net) into the server field or selecting the AFV-Beta server from the list (if available).<br />
+                                5) Run the standalone voice client alongside Euroscope and connect it as well.<br />
+                                6) That's it, you're now up and running. Enjoy!<br /><br />
+                            </p>
+
+                            <img src="/images/demos/es_comms.png" class="w-auto"><br /><br />
+
+                            <p class="text-grey-darker text-base text-left">
+                                <i>Remember: All the 'RCV VOI' and 'XMT VOI' checkboxes shall be <u>unmarked</u> in the communications dialog (that includes your PRIM and ATIS frequencies too).</i><br /><br />
+				        	</p>
+                            <!-- #END# Euroscope -->
+
+                            <br />
+
+                            <!-- VRC, vStars, vERAM -->
+                            <p class="text-black font-bold text-lg text-left italic" id="vATC">
+                                VRC, vStars, vERAM
+                            </p>
+                            <p class="text-grey-darker text-base text-left">
+                                1) Download the standalone voice client from <a href="https://s3.ca-central-1.amazonaws.com/vatsim/Audio+For+VATSIM.msi">Here</a>.
+                                   Run it and follow the instructions to setup AFV.<br />
+                                2) Make a backup of your current client directory (that includes <u>all files and executables</u>).<br />
+                                3) Download the latest client version and replace your current one with it:<br />
                             </p>
                             <ul class="text-grey-darker text-base text-left">
-                              <li><a href="http://185.51.64.10/~euroscop/install/EuroScopeBeta32a20.zip">Euroscope</a></li>
                               <li><a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/VRC-AFVBeta.exe">VRC</a></li>
                               <li><a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vSTARS-Setup-1.1.8.1.exe">vStars</a></li>
                               <li><a href="http://vpilot.metacraft.com/Assets/Files/Installers/AfvBeta/vERAM-Setup-1.0.7072.31690.exe">vERAM</a></li>
                             </ul>
                             <p class="text-grey-darker text-base text-left">
-				        		3) If using Euroscope, use the shortcut <a href="https://www.dropbox.com/s/pq4gwibza71ruw5/EuroScope%20%28AFV%29.zip?dl=0"> Here</A> to launch Euroscope disabling old voice. If using any client other than Euroscope, copy the downloaded file into the client's install folder and run it.<br />
-				        		4) Connect to the AFV Beta server by typing the address (afv-beta-fsd.vatsim.net) into the server field or selecting the AFV-Beta server from the list.<br />
-                                5) Run the standalone voice client alongside. All voice communications will run through it.<br /><br />
-
-                                <i>Note: To get an ATIS station online, all you have to do is connect it to the network as you normally would,
-                                but <b>you don't have to start the voice playback</b>. In other words, you only have to connect the 'text-ATIS' and then AFV
-                                servers will automatically read it on voice </i>😲.<br/><br/>
-
-                                <i>If you want to listen to other controllers, you will have to tune your primary frequency to the same as theirs.
-                                This will be changed during the development so that it can be done the same way as with old voice.</i><br /><br />
-
-                                <i>Your radio range and transceiver positions are calculated from your vis points. Wherever you have a vis point,
-                                you have a radio antenna with the same range as your ATC client.</i>
+                                4) Run your updated client and connect to the AFV Beta server by selecting any server from the list. You will be automatically connected to the AFV Beta server.<br />
+                                5) Once it's connected, run the standalone voice client from step 1 alongside and connect it too.<br />
+                                6) That's it, you're now up and running. Enjoy!<br />
+                                <br />
+                                <i>If you want to connect to the live VATSIM Network, you will need to run the old executable which you backed up in step 2.</i><br />
 				        	</p>
+                            <!-- #END# VRC, vStars, vERAM -->
                             <!-- #END# CONTROLLER Clients -->
 
                             <!-- SECTION SPACING -->
@@ -178,6 +243,8 @@
                                 A few sample ATIS bots have been setup to supply automatically generated ATISes. If a controller logs on then these ATISes get replaced with those of a controller.
                                 As the beta progresses, there will be a website for divisions to configure their ATIS bots with rules such as runway configurations or the possibility of uploading custom voice files.<br /><br />
                             </p>
+
+                            <br />
 
                             <audio controls>
                                 <source src="/audio/atis_demo.mp3" type="audio/mpeg">
@@ -232,22 +299,20 @@
                         </div>
                     </div>
                     @else
-                        <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new
-                            voice
-                            system?</p>
+                        <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new voice system?</p>
                     @endif
                 </div>
 
                 @if(!auth()->user()->has_request)
                     <div class="py-4">
                         <a class="no-underline" href="{{ route('request') }}">
-                            <btn class="btn btn-blue">Sign Me Up!</btn>
+                            <btn class="btn btn-blue text-white">Sign Me Up!</btn>
                         </a>
                     </div>
                 @endif
 
                 
-                <div class="py-4 pt-2">
+                <div class="py-2 pb-4">
                     <a href="{{ route('auth.logout') }}" class="no-underline"><p class="btn btn-blue text-white text-xs">Logout</p>
                     </a>
                 </div>
@@ -256,7 +321,7 @@
             @guest
                 <div class="py-4">
                     <a class="no-underline" href="{{ route('auth.login') }}">
-                        <btn class="btn btn-blue">Login With VATSIM SSO</btn>
+                        <btn class="btn btn-blue text-white">Login With VATSIM SSO</btn>
                     </a>
                 </div>
             @endguest
@@ -266,7 +331,7 @@
     <footer class="flex items-center bg-grey-light p-2 opacity-75">
         <div class="flex-1">
             <p class="flex justify-center items-center tracking-wide">
-                A <img src="images/vatsim_0.png" width="8%"> Network Site</p>
+                A <img src="images/logo.png" width="9%"> Network Site</p>
         </div>
     </footer>
 </div>
