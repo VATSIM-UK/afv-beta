@@ -6,7 +6,7 @@
 </p>
 
 <div class="row col-14 pt-4">
-	<div class="col-xs-16 col-sm-16 col-md-6 col-lg-6">
+	<div class="col-xs-16 col-sm-16 col-md-6 col-lg-6 mb-xs-4 mb-sm-4">
 		@include('approved_content.next_test')
 	</div>
 	<div class="col-xs-16 col-sm-16 col-md-6 col-lg-6">
