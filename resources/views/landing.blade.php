@@ -33,9 +33,9 @@
             @auth
                 <div class="py-4">
                     @if(auth()->user()->pending)
-                        <p><strong>{{ auth()->user()->name_first }}</strong>, thanks for expressing your interest in the
-                            beta!<br/>We'll be in touch soon.</p>
-                    @elseif(auth()->user()->approved)
+                        <p><strong>{{ auth()->user()->name_first }}</strong>, thanks for expressing your interest in the beta!<br/>We'll be in touch soon.</p>
+                    
+					@elseif(auth()->user()->approved)
 					<!-- NAV -->
 					@include('approved_content.top_nav')
 					<!-- #END# NAV -->
@@ -46,7 +46,7 @@
 							<!-- #END# INTRO -->
 
 							
-                            <br />
+							<br />
                             <hr/>
                             <br />
 							

@@ -7,13 +7,13 @@
     Known Issues
 </p>
 <p class="text-grey-darker text-base text-left">
-    1) When ‘de-tuning’ from an ATIS Frequency it could take 5 seconds for the audio to stop. This will be fixed before release. <br />
+    1) When <i>de-tuning</i> from an ATIS Frequency it could take 5 seconds for the audio to stop. This will be fixed before release.<br />
     2) Windows 7 users will need to add <a href="https://s3.ca-central-1.amazonaws.com/vatsim/TLS_1.2.reg">this registry key</a> in order to enable TLS 1.2 if they haven’t already done so or they will get a ‘Connect Failed’ when connecting to voice. <br />
-    3) Errounious blocking tone with receiving on COM1 and COM2 at the same time.<br />
-    4) Wrong RX Light Lights Up <br />
-    5) AFV Standalone Doesn't Connect to X-Plane <br />
-    6) Audio Calibration <br />
-	7) Headsets not showing up (Scarlet, Razen, VoiceMeeta)<br />
+    3) Erroneous blocking tone with receiving on COM1 and COM2 at the same time.<br />
+    4) Wrong RX light lights up. <br />
+    5) AFV Standalone doesn't connect to X-Plane. <br />
+    6) Audio calibration. <br />
+	7) Headsets not showing up (Scarlet, Razen, VoiceMeeta). <br />
 </p>
 <!-- #END# Known Issues -->
 

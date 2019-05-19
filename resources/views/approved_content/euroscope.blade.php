@@ -11,8 +11,14 @@
        For connection to the live network, proceed as you normally would.<br />
     4) Connect to the AFV Beta server by typing the address (afv-beta-fsd.vatsim.net) into the server field or selecting the AFV-Beta server from the list (if available).<br />
     5) Run the standalone voice client alongside Euroscope and connect it as well.<br />
-    6) That's it, you're now up and running. Enjoy!<br /><br />
+    6) That's it, you're now up and running. Enjoy!<br />
+	<br />
+	<i>To get an ATIS station online, all you have to do is connect it to the network as you normally would,
+	but without starting it on voice as well. In other words, you only have to connect the text ATIS and AFV
+	servers will automatically read it on voice for pilots.</i>
 </p>
+
+<br/>
 
 <img src="/images/demos/es_comms_full.png" class="w-auto rounded"><br /><br />
 

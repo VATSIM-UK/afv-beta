@@ -13,12 +13,9 @@
 <br />
 
 <p class="text-black font-bold text-lg text-left italic" id="allCClients">
-    Applies to all clients
+    All ATC Clients
 </p>
 <p class="text-grey-darker text-base text-left">
-    - To get an ATIS station online, all you have to do is connect it to the network as you normally would,
-     but without needing to start it on voice as well. In other words, you only have to connect the text ATIS and AFV
-     servers will automatically read it on voice for pilots.<br/>
     - If you want to listen to other controllers, you will have to tune your primary frequency to the same as theirs.
      This will be changed during the development so that it can be done the same way as it's done with old voice.
      Remember you have to be in range.<br />

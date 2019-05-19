@@ -18,4 +18,5 @@
     6) That's it, you're now up and running. Enjoy!<br />
     <br />
     <i>If you want to connect to the live VATSIM Network, you will need to run the old executable which you backed up in step 2.</i><br />
+	<i>We are working on getting vATIS to work with AFV, but for now you'll have to wait. Sowwy :(</i><br />
 </p>
