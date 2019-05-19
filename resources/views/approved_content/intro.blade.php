@@ -6,10 +6,10 @@
 </p>
 
 <div class="row col-14 pt-4">
-	<div class="col-6">
+	<div class="col-xs-16 col-sm-16 col-md-6 col-lg-6">
 		@include('approved_content.next_test')
 	</div>
-	<div class="col-6">
+	<div class="col-xs-16 col-sm-16 col-md-6 col-lg-6">
 		<iframe src="https://discordapp.com/widget?id=551514966058860544&theme=light" height="250"></iframe>
 	</div>
 </div>

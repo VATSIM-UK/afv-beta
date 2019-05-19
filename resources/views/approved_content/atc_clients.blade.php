@@ -1,7 +1,7 @@
 <div class="font-bold text-2xl mb-2 text-grey-darkest underline" id="cClients">CONTROLLER CLIENTS</div>
 
 <!-- Nav -->
-<ul class="nav justify-content-center nav-justified bg-grey-dark">
+<ul class="nav rounded justify-content-center nav-justified bg-grey-dark">
   <li class="nav-item">
     <a class="nav-link text-white underline" href="#euroscope">Euroscope</a>
   </li>
