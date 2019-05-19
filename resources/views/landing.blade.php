@@ -6,6 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+	<link rel="stylesheet" href="{{ mix('css/custom.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <title>VATSIM AFV Beta</title>
 </head>
@@ -36,6 +37,15 @@
                         <p><strong>{{ auth()->user()->name_first }}</strong>, thanks for expressing your interest in the beta!<br/>We'll be in touch soon.</p>
                     
 					@elseif(auth()->user()->approved)
+					
+					<!-- Live MAP -->
+					<div class="pb-4">
+						<a href="https://afv-map.vatsim.net/" class="no-underline">
+							<p class="btn btn-outline-light text-md">View Live Map</p>
+						</a>
+					</div>
+					<!-- #END# LIVE MAP -->
+					
 					<!-- NAV -->
 					@include('approved_content.top_nav')
 					<!-- #END# NAV -->
