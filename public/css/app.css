@@ -6131,7 +6131,8 @@ table {
 }
 
 .bg-image {
-  background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url("/images/background.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url("/images/background.jpg") no-repeat center center;
+  background-attachment: fixed;
   background-size: cover;
 }
 
