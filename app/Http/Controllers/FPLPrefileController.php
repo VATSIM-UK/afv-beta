@@ -147,12 +147,11 @@ class FPLPrefileController extends Controller
             $sock = fsockopen("127.0.0.1", 4194);
         } catch (Exception $e){
             return $e;
-            die();
         }
         if (!$sock) {
             return "Couldn't connect to FSD port";
         }
-        
+
         fputs($sock, $packet . "\r\n");
         $result = fgets($sock, 4096);
         fclose($sock);
