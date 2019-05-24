@@ -131,7 +131,7 @@ class FPLPrefileController extends Controller
         $plan[] .= $this->FP['fobmin'];
         $plan[] .= $this->FP['alternate'];
         $plan[] .= "+VFPS+" . $this->FP['voice'] . $this->FP['remarks'];
-        $plan[] .= $FP['route'];
+        $plan[] .= $this->FP['route'];
 
         $plan = implode(':', $plan);
 
