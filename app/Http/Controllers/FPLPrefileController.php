@@ -143,7 +143,7 @@ class FPLPrefileController extends Controller
     {
         $packet = $this->get_fsd_packet();
 
-        $sock = fsockopen("127.0.0.1", 4194);
+        $sock = @fsockopen("127.0.0.1", 4194);
         if (!$sock) {
             return "Couldn't connect to FSD port";
         }
