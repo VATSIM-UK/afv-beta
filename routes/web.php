@@ -14,4 +14,7 @@ Route::get('/', 'LandingController')->name('landing');
 
 Route::get('request', 'UserRequestController@store')->name('request');
 
-//Route::get('/prefile/send', 'FlightPlanPrefile@send')->name('prefile');
+Route::middleware('auth')->group(function () {
+    Route::get('/prefile', 'FPLPrefileController@show')->name('prefile');
+    Route::post('/prefile', 'FPLPrefileController@test')->name('prefile.post');
+});
