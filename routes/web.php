@@ -13,3 +13,5 @@ Route::middleware('web')->group(function () {
 Route::get('/', 'LandingController')->name('landing');
 
 Route::get('request', 'UserRequestController@store')->name('request');
+
+//Route::get('/prefile/send', 'FlightPlanPrefile@send')->name('prefile');
