@@ -57,18 +57,22 @@ class FPLPrefileController extends Controller
     private function prepare($key, $value)
     {
         // Field is empty and required (not optional)
-        if (empty($value) && !array_key_exists($key, $this->optional_fields))
+        if (empty($value) && !in_array($key, $this->optional_fields)){
             $this->errors[$key] = $this->fields[$key];
+        }
             
         // Field contains 'unauthorized' characters
-        else if (strstr($value, ":") !== false)
+        else if (strpos($value, ":") !== false){
             $this->errors[$key] =  $this->fields[$key];
+        }
 
         // If remarks, remove special prefile indicators
         else if ($key == "remarks"){
             $value = preg_replace("|/[VRT]/|", "", $value); // Voice capabilities
             $value = preg_replace("/\+VFPS\+/", "", $value); // Prefile indicator
         }
+
+        
 
         return $this->clean_blanks($value);
     }
@@ -162,8 +166,9 @@ class FPLPrefileController extends Controller
 
         $this->set_fp_content($request);
         
-        if (!$this->is_valid_plan()) // There's an error with some field
+        if (!$this->is_valid_plan()){ // There's an error with some field
             return $this->get($request, true);
+        }
         
         return $this->submit_to_fsd();
     }

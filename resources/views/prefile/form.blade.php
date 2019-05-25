@@ -11,6 +11,8 @@
 		.error  {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; color: #ff0000;}
 		a       {color: #4475ae; text-decoration: none;}
 		a:hover {color: #000080; text-decoration: none;}
+		input	{text-align: center;}
+		input.filled	{color: #777777;}
     </style>
 </head>
     <body text="#000000" bgcolor="#ecf9ff" style="margin: 0px;">
@@ -18,7 +20,11 @@
             <table width="750" cellspacing="0" cellpadding="2" border="1" style="height: calc(100vh - 10px); width: calc(100% - 10px); margin: 5px;">
                 <tbody>
                     <tr>
-                        <td colspan="2" align="center"><img src="/images/logo.png" width="175" height="64"></td>
+                        <td colspan="2" align="center">
+                            <a href="{{ route('landing') }}">
+                                <img src="/images/logo.png" width="175" height="64">
+                            </a>
+                        </td>
                         <td colspan="5">
                             <table width="100%" border="0">
                                 <tbody>
@@ -90,7 +96,7 @@
                             {{ Form::text('9', $fp_data['destination'], (array_key_exists('destination', $errors)) ? ['style' => 'border: medium solid red; text-transform: uppercase;'] : ['style' => 'text-transform: uppercase;'] ) }}
                         </td>
                         <td width="107" align="center">
-                            {{ Form::number('10', $fp_data['etehrs'], (array_key_exists('etehrs', $errors)) ? ['style' => 'border: medium solid red;'] : null ) }}
+                            {{ Form::number('10a', $fp_data['etehrs'], (array_key_exists('etehrs', $errors)) ? ['style' => 'border: medium solid red;'] : null ) }}
                             {{ Form::number('10b', $fp_data['etemin'], (array_key_exists('etemin', $errors)) ? ['style' => 'border: medium solid red;'] : null ) }}
                         </td>
                         <td width="124">
@@ -119,7 +125,7 @@
                             </table>
                         </th>
                         <th width="124">    {{ Form::label('13', '13. ALTERNATE AIRPORT (optional)') }}             </th>
-                        <th colspan="2">    {{ Form::label('14', '14. PILOT\'S NAME & AIRCRAFT HOME BASE') }}    </th>
+                        <th colspan="2">    {{ Form::label('14', '14. PILOT\'S NAME') }}    </th>
                         <th width="87">     {{ Form::label('15', '15. VATSIM ID') }}                                </th>
                         <th width="124">    {{ Form::label('16', '16. VATSIM PASSWORD') }}                          </th>
                     </tr>
@@ -138,10 +144,10 @@
                             {{ Form::text('13', $fp_data['alternate'], (array_key_exists('alternate', $errors)) ? ['style' => 'border: medium solid red; text-transform: uppercase;'] : ['style' => 'text-transform: uppercase;'] ) }}
                         </td>
                         <td colspan="2" align="center">
-                            {{ Form::text('14', $fp_data['name'], (array_key_exists('name', $errors)) ? ['style' => 'border: medium solid red; text-transform: uppercase; width: 100%'] : ['style' => 'text-transform: uppercase; width: 100%;'] ) }}
+                            {{ Form::text('14', Auth::User()->name_first . ' ' . Auth::User()->name_last, ['style' => 'text-transform: uppercase; width: 100%', 'class'=>'filled', 'readonly' => 'readonly'] ) }}
                         </td>
                         <td width="87" align="center">
-                            {{ Form::number('15', $fp_data['cid'], (array_key_exists('cid', $errors)) ? ['style' => 'border: medium solid red;'] : null ) }}
+                            {{ Form::number('15', Auth::User()->id, ['class'=>'filled', 'readonly' => 'readonly'] ) }}
                         </td>
                         <td width="124" align="center">
                             {{ Form::input('password', '16', $fp_data['pwd'], (array_key_exists('pwd', $errors)) ? ['style' => 'border: medium solid red;'] : null ) }}
