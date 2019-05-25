@@ -33,15 +33,14 @@ class FPLPrefileController extends Controller
         "remarks"
     );
 
-    private $required = []; // Unfilled required fields
-    private $colons = []; // Fields with one or more colons
+    private $errors = []; // Unfilled required fields
     private $FP = [];
 
     /* is_valid_plan                                                                     */
     /*          Checks if it's ok or not for this plan to be submitted                   */
     private function is_valid_plan()
     {
-        return (empty($this->required) && empty($this->colons));
+        return (empty($this->errors));
     }
 
 
@@ -59,11 +58,11 @@ class FPLPrefileController extends Controller
     {
         // Field is empty and required (not optional)
         if (empty($value) && !array_key_exists($key, $this->optional_fields))
-            $this->required[] = $this->fields[$key];
+            $this->errors[$key] = $this->fields[$key];
             
         // Field contains 'unauthorized' characters
         else if (strstr($value, ":") !== false)
-            $this->colons[] = $this->fields[$key];
+            $this->errors[$key] =  $this->fields[$key];
 
         // If remarks, remove special prefile indicators
         else if ($key == "remarks"){
@@ -94,7 +93,7 @@ class FPLPrefileController extends Controller
         $this->FP['destination']  = $this->prepare("destination", $request->input("9", ""));
         $this->FP['etehrs']       = $this->prepare("etehrs", $request->input("10a", ""));
         $this->FP['etemin']       = $this->prepare("etemin", $request->input("10b", ""));
-        $this->FP['voice']        = $this->prepare("voice", $request->input("voice", ""));
+        $this->FP['voice']        = $this->prepare("voice", $request->input("11a", ""));
         $this->FP['remarks']      = $this->prepare("remarks", $request->input("11", ""));
         $this->FP['fobhrs']       = $this->prepare("fobhrs", $request->input("12a", ""));
         $this->FP['fobmin']       = $this->prepare("fobmin", $request->input("12b", ""));
@@ -156,26 +155,36 @@ class FPLPrefileController extends Controller
     }
 
 
-    public function post(Request $request)
+    public function submit(Request $request)
     {
+        if ($request->input('submit') === null) // If not submitting, then populating the fields
+            return $this->get($request, true);
+
         $this->set_fp_content($request);
         
         if (!$this->is_valid_plan()) // There's an error with some field
-            return "NOCALL";
+            return $this->get($request, true);
         
         return $this->submit_to_fsd();
     }
 
 
-    public function show(Request $request)
+    public function get(Request $request, $show_errors = false)
     {
-        return view('prefile.form');
+        $this->set_fp_content($request);
+        $fp_data = $this->FP;
+        if ($show_errors){
+            $errors = $this->errors;
+            return view('prefile.form', compact('fp_data', 'errors'));
+        } else{
+            return view('prefile.form', compact('fp_data'));
+        }
     }
 
     
     public function test(Request $request)
     {
-        echo $this->post($request);
+        echo $this->submit($request);
         die();
     }
 }
