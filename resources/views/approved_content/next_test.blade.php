@@ -5,6 +5,6 @@
 	Feel free to mess around with your friends!-->
 	<b>Day:</b> Thursday, 30th May<br/>
 	<b>Start:</b> 2100z<br/>
-	<b>Ending:</b> Unknown<br/>
-	<b>Place:</b> To Be Decided<!--<a href="https://minniecenter.org/">ZMP ARTCC</a>--><br/>
+	<b>Ending:</b> 000<u>1</u>z<br/>
+	<b>Place:</b> <a href="https://minniecenter.org/">ZMP ARTCC</a><br/>
 </div>
