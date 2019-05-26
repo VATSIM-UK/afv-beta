@@ -102,8 +102,8 @@ class FPLPrefileController extends Controller
         $this->FP['fobhrs']       = $this->prepare("fobhrs", $request->input("12a", ""));
         $this->FP['fobmin']       = $this->prepare("fobmin", $request->input("12b", ""));
         $this->FP['alternate']    = $this->prepare("alternate", $request->input("13", ""));
-        $this->FP['name']         = $this->prepare("name", $request->input("14", ""));
-        $this->FP['cid']          = $this->prepare("cid", $request->input("15", ""));
+        $this->FP['name']         = $this->prepare("name", Auth::User()->name_first . ' ' . Auth::User()->name_last);
+        $this->FP['cid']          = $this->prepare("cid", Auth::User()->id);
         $this->FP['pwd']          = $this->prepare("pwd", $request->input("16", ""));
     }
 
