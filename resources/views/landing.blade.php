@@ -14,18 +14,9 @@
 </head>
 <body class="bg-image font-sans">
 
-@auth
-@if(auth()->user()->approved)
-<div class="flex flex-col justify-between h-full">
-@else
-<div class="flex flex-col justify-between h-screen">
-@endif
-@endauth
 
-@guest
-<div class="flex flex-col justify-between h-screen">
-@endguest
-    <div class="flex items-center h-full text-white sm:mb-4 lg:mb-0">
+<div class="flex flex-col justify-between min-h-screen">
+    <div class="flex items-center h-full min-h-screen text-white sm:mb-4 lg:mb-0">
         <div class="mx-auto text-center pt-4">
 
             <div class="select-none">
