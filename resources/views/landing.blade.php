@@ -128,13 +128,16 @@
 
         </div>
     </div>
-    <footer class="flex items-center bg-grey-light p-2 opacity-75 select-none">
+	
+	@guest
+    <footer class="flex items-center bg-grey-light p-2 opacity-75 select-none fixed-bottom">
         <div class="flex-1">
             <p class="flex justify-center items-center tracking-wide">
                 A <img src="images/logo.png" width="9%"> Network Site
 			</p>
         </div>
     </footer>
+	@endguest
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>

@@ -18,3 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/prefile', 'FPLPrefileController@get')->name('prefile');
     Route::post('/prefile', 'FPLPrefileController@test')->name('prefile.submit');
 });
+
+
+// For testing purposes of the new dataserver - FSExpo
+Route::get('vatsim-data', function(){
+    return(Storage::get('vatsim-data.json'));
+});
