@@ -3,18 +3,54 @@
 <br />
 
 <!-- Known Issues -->
-<p class="text-black font-bold text-lg text-left italic" id="knownIssues">
+<div class="card">
+  <div class="card-header text-black font-bold text-lg text-left italic">
     Known Issues
-</p>
-<p class="text-grey-darker text-base text-left">
-    1) When <i>de-tuning</i> from an ATIS Frequency it could take 5 seconds for the audio to stop. This will be fixed before release.<br />
-    2) Windows 7 users will need to add <a href="https://s3.ca-central-1.amazonaws.com/vatsim/TLS_1.2.reg">this registry key</a> in order to enable TLS 1.2 if they haven’t already done so or they will get a ‘Connect Failed’ when connecting to voice. <br />
-    3) Erroneous blocking tone with receiving on COM1 and COM2 at the same time.<br />
-    4) Wrong RX light lights up. <br />
-    5) AFV Standalone doesn't connect to X-Plane. <br />
-    6) Audio calibration. <br />
-	7) Headsets not showing up (Scarlet, Razen, VoiceMeeta). <br />
-</p>
+  </div>
+</div>
+
+@if (!count($issues['issues']))
+<div class="card">
+  <div class="card-body text-green text-base text-left">
+    <h6 class="card-title font-bold">None</h6>
+    <p class="card-text">We have somehow managed to solve all that was wrong. Hip Hip Hooray!</p>
+  </div>
+</div>
+@else
+    @foreach ($issues['issues'] as $issue)
+        @if ($issue['open'])
+        <div class="card">
+          <div class="card-body text-grey-darker text-base text-left">
+            <h6 class="card-title font-bold">{{ $issue['title'] }}</h6>
+            <p class="card-text">{{ $issue['body'] }}</p>
+          </div>
+        </div>
+        @endif
+    @endforeach
+@endif
+<!-- #END# Known Issues -->
+
+<br />
+
+
+<!-- Knowledge Base -->
+@if (count($issues['knowledge_base']))
+<div class="card">
+  <div class="card-header text-black font-bold text-lg text-left italic">
+    Knowledge Base
+  </div>
+</div>
+@foreach ($issues['knowledge_base'] as $issue)
+    @if ($issue['open'])
+    <div class="card">
+      <div class="card-body text-grey-darker text-base text-left">
+        <h6 class="card-title font-bold">{{ $issue['title'] }}</h6>
+        <p class="card-text">{{ $issue['body'] }}</p>
+      </div>
+    </div>
+    @endif
+@endforeach
+@endif
 <!-- #END# Known Issues -->
 
 <br />

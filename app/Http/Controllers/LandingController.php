@@ -11,6 +11,11 @@ class LandingController extends Controller
 {
     public function __invoke()
     {
-        return view('landing');
+        if(!auth()->user()) return view('landing');
+
+        if (auth()->user()->approved)
+            return view('landing')->withIssues(GitIssuesController::getIssues());
+        else
+            return view('landing');
     }
 }
