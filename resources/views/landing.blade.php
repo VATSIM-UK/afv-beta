@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-	<link rel="stylesheet" href="{{ mix('css/custom.css') }}">
-	<!--<link rel="stylesheet" href="/css/app.css">
-	<link rel="stylesheet" href="/css/custom.css">-->
+    <link rel="stylesheet" href=" mix('css/app.css') ">
+	<link rel="stylesheet" href=" mix('css/custom.css') ">
+	<link rel="stylesheet" href="/css/app.css">
+	<link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <title>AFV | Audio For VATSIM Beta</title>
 </head>
@@ -51,74 +51,61 @@
 					<!-- NAV -->
 					@include('approved_content.top_nav')
 					<!-- #END# NAV -->
+					
                     <div class="max-w-xl rounded-b overflow-hidden shadow-lg bg-grey-lighter opacity-90">
 						<div class="px-6 py-4">
-                            <!-- INTRO -->
-                            @include('approved_content.intro')
-							<!-- #END# INTRO -->
-
-							
-							<br />
-                            <hr/>
-                            <br />
-							
-
-                            <!-- PILOT CLIENTS -->
-                            @include('approved_content.pilot_clients')
-                            <br />
-                            <!-- vPilot -->
-                            @include('approved_content.vPilot')
-                            <!-- Other PClients -->
-							@include('approved_content.pilot_clients_other')
-                            <!-- #END# Pilot Clients -->
-
-
-                            <br/>
-                            <hr/>
-                            <br/>
-
-							
-                            <!-- CONTROLLER Clients -->
-                            <!-- General Info -->
-                            @include('approved_content.atc_clients')
-                            <br />
-                            <!-- Euroscope -->
-                            @include('approved_content.euroscope')
-                            <br />
-                            <!-- VRC, vStars, vERAM -->
-                            @include('approved_content.vrc_vStars_vERAM')
-                            <!-- #END# CONTROLLER Clients -->
-
-
-                            <br/>
-                            <hr/>
-                            <br/>
-							
-
-                            <!-- SUPS -->
-                            @include('approved_content.sups')
-							
-
-                            <br/>
-                            <hr/>
-                            <br/>
-							
-
-                            <!-- ATIS -->
-                            @include('approved_content.atis')
-
-							
-                            <br/>
-                            <hr/>
-                            <br/>
-							
-
-                            <!-- ISSUES -->
-							@include('approved_content.issues')
-							
-							<br />
-							<hr />
-                        </div>
+							<div class="tab-content" id="pills-tabContent">
+								
+								<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+									<!-- INTRO -->
+									@include('approved_content.intro')
+									<!-- #END# INTRO -->
+								</div>
+								
+								<!-- PILOT CLIENTS -->
+								<div class="tab-pane fade" id="pClients" role="tabpanel" aria-labelledby="pilots-tab">
+									@include('approved_content.pilot_clients')
+								
+									<!-- vPilot -->
+									@include('approved_content.vPilot')
+									<!-- Other PClients -->
+									@include('approved_content.pilot_clients_other')
+								</div>	
+								<!-- #END# Pilot Clients -->
+								
+								<!-- CONTROLLER Clients -->
+								<div class="tab-pane fade" id="cClients" role="tabpanel" aria-labelledby="controllers-tab">
+									<!-- General Info -->
+									@include('approved_content.atc_clients')
+									<br />
+									<!-- Euroscope -->
+									@include('approved_content.euroscope')
+									<br />
+									<!-- VRC, vStars, vERAM -->
+									@include('approved_content.vrc_vStars_vERAM')
+								</div>									
+								<!-- #END# CONTROLLER Clients -->
+								
+								<!-- SUPS -->
+								<div class="tab-pane fade" id="sups" role="tabpanel" aria-labelledby="sups-tab">
+								@include('approved_content.sups')
+								</div>
+								<!-- #END# SUPS -->
+								
+								<!-- ATIS -->
+								<div class="tab-pane fade" id="atis" role="tabpanel" aria-labelledby="atis-tab">
+								@include('approved_content.atis')
+								</div>
+								<!-- #END# ATIS -->
+	
+								<!-- ISSUES -->
+								<div class="tab-pane fade" id="issues" role="tabpanel" aria-labelledby="issues-tab">
+								@include('approved_content.issues')
+								</div>
+								<!-- #END# ISSUES -->
+								
+							</div>
+						</div>
                     </div>
                     @else
                         <p><strong>{{ auth()->user()->name_first }}</strong>, do you want the chance to try our new voice system?</p>
@@ -164,6 +151,9 @@
 <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 @if(session()->has("success"))
     <script language="javascript">
         Swal.fire({
