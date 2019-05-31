@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands;
 
-use App\Mail\BetaUpdate;
-use App\Models\User;
-use Illuminate\Console\Command;
 use Mail;
+use App\Models\User;
+use App\Mail\BetaUpdate;
+use Illuminate\Console\Command;
 
 class SendUpdateEmail extends Command
 {

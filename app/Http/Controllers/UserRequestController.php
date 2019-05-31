@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Approval;
-use App\Events\UserExpressedInterest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Events\UserExpressedInterest;
 
 class UserRequestController extends Controller
 {

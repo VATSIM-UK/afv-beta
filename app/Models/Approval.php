@@ -29,7 +29,7 @@ class Approval extends Model
 
     public function getApprovedAttribute()
     {
-        return (bool)$this->approved_at;
+        return (bool) $this->approved_at;
     }
 
     public function scopeApproved(Builder $query)

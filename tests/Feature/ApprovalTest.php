@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Events\UserApproved;
-use App\Models\Approval;
-use App\Models\User;
 use Tests\TestCase;
+use App\Models\User;
+use App\Models\Approval;
+use App\Events\UserApproved;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
