@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use App\Models\Approval;
-use App\Models\User;
 use Tests\TestCase;
+use App\Models\User;
+use App\Models\Approval;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase

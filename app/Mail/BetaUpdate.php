@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class BetaUpdate extends Mailable
 {
@@ -28,6 +27,6 @@ class BetaUpdate extends Mailable
      */
     public function build()
     {
-        return $this->from("noreply@vatsim.net")->subject("Beta Team Application Update")->markdown('emails.beta.update');
+        return $this->from('noreply@vatsim.net')->subject('Beta Team Application Update')->markdown('emails.beta.update');
     }
 }

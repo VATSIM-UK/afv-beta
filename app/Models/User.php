@@ -32,7 +32,7 @@ class User extends Authenticatable
 
     public function getHasRequestAttribute()
     {
-        return !is_null($this->approval);
+        return ! is_null($this->approval);
     }
 
     public function getApprovedAttribute()
@@ -42,6 +42,6 @@ class User extends Authenticatable
 
     public function getPendingAttribute()
     {
-        return $this->has_request && !$this->approved;
+        return $this->has_request && ! $this->approved;
     }
 }

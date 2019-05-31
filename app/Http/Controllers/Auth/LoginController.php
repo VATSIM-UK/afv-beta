@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use Carbon\Carbon;
 use Exception;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use Carbon\Carbon;
+use App\Models\User;
 use Vatsim\OAuth\SSO;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 /**
  * This controller handles authenticating users for the application and
@@ -46,9 +46,10 @@ class LoginController extends Controller
     {
         return $this->sso->login(route('auth.login.verify'), function ($key, $secret, $url) use ($request) {
             $request->session()->put('vatsimauth', compact('key', 'secret'));
+
             return redirect($url);
         }, function ($error) {
-            throw new Exception('Could not authenticate: ' . $error['message']);
+            throw new Exception('Could not authenticate: '.$error['message']);
         });
     }
 
@@ -64,6 +65,7 @@ class LoginController extends Controller
             function ($user) use ($request, $intended) {
                 $request->session()->forget('vatsimauth');
                 $this->completeLogin($user);
+
                 return redirect($intended);
             },
             function ($error) use ($request) {

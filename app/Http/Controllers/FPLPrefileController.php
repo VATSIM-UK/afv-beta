@@ -2,37 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Http\Request;
 
 class FPLPrefileController extends Controller
 {
-    private $fields = array(
-        "type" => "AIRCRAFT TYPE",
-        "callsign" => "CALLSIGN",
-        "actype" => "AIRCRAFT TYPE",
-        "tas" => "TRUE AIRSPEED",
-        "origin" => "DEPARTURE FIELD",
-        "etd" => "ESTIMATED DEPARTURE TIME",
-        "altitude" => "ALTITUDE",
-        "route" => "ROUTE",
-        "destination" => "ARRIVAL FIELD",
-        "etehrs" => "ESTIMATED TIME ENROUTE (HOURS)",
-        "etemin" => "ESTIMATED TIME ENROUTE (MINUTES)",
-        "voice" => "VOICE CAPABILITIES",
-        "remarks" => "REMARKS",
-        "fobhrs" => "FUEL ON BOARD (HOURS)",
-        "fobmin" => "FUEL ON BOARD (MINUTES)",
-        "alternate" => "ALTERNATE ARRIVAL FIELD",
-        "name" => "FULL NAME",
-        "cid" => "CID",
-        "pwd" => "PASSWORD",
-    );
+    private $fields = [
+        'type' => 'AIRCRAFT TYPE',
+        'callsign' => 'CALLSIGN',
+        'actype' => 'AIRCRAFT TYPE',
+        'tas' => 'TRUE AIRSPEED',
+        'origin' => 'DEPARTURE FIELD',
+        'etd' => 'ESTIMATED DEPARTURE TIME',
+        'altitude' => 'ALTITUDE',
+        'route' => 'ROUTE',
+        'destination' => 'ARRIVAL FIELD',
+        'etehrs' => 'ESTIMATED TIME ENROUTE (HOURS)',
+        'etemin' => 'ESTIMATED TIME ENROUTE (MINUTES)',
+        'voice' => 'VOICE CAPABILITIES',
+        'remarks' => 'REMARKS',
+        'fobhrs' => 'FUEL ON BOARD (HOURS)',
+        'fobmin' => 'FUEL ON BOARD (MINUTES)',
+        'alternate' => 'ALTERNATE ARRIVAL FIELD',
+        'name' => 'FULL NAME',
+        'cid' => 'CID',
+        'pwd' => 'PASSWORD',
+    ];
 
-    private $optional_fields = array(
-        "alternate",
-        "remarks"
-    );
+    private $optional_fields = [
+        'alternate',
+        'remarks',
+    ];
 
     private $errors = []; // Unfilled required fields
     private $FP = [];
@@ -41,43 +41,38 @@ class FPLPrefileController extends Controller
     /*          Checks if it's ok or not for this plan to be submitted                   */
     private function is_valid_plan()
     {
-        return (empty($this->errors));
+        return empty($this->errors);
     }
-
 
     /* clean_blanks                                                                     */
     /*          Removes any blank characters (string terminator, tabs, etc...)          */
     private static function clean_blanks($var)
     {
-        return str_replace(array("\n", "\t", "\r"), '', $var);
+        return str_replace(["\n", "\t", "\r"], '', $var);
     }
-
 
     /* prepare                                                                          */
     /*          Prepares each field so it can be directly submitted to FSD              */
     private function prepare($key, $value)
     {
         // Field is empty and required (not optional)
-        if (empty($value) && !in_array($key, $this->optional_fields)){
+        if (empty($value) && ! in_array($key, $this->optional_fields)) {
             $this->errors[$key] = $this->fields[$key];
         }
-            
+
         // Field contains 'unauthorized' characters
-        else if (strpos($value, ":") !== false){
-            $this->errors[$key] =  $this->fields[$key];
+        elseif (strpos($value, ':') !== false) {
+            $this->errors[$key] = $this->fields[$key];
         }
 
         // If remarks, remove special prefile indicators
-        else if ($key == "remarks"){
-            $value = preg_replace("|/[VRT]/|", "", $value); // Voice capabilities
-            $value = preg_replace("/\+VFPS\+/", "", $value); // Prefile indicator
+        elseif ($key == 'remarks') {
+            $value = preg_replace('|/[VRT]/|', '', $value); // Voice capabilities
+            $value = preg_replace("/\+VFPS\+/", '', $value); // Prefile indicator
         }
-
-        
 
         return $this->clean_blanks($value);
     }
-
 
     /* set_fp_content                                                                   */
     /*          Copy values from request variables to $FP so that they can be used      */
@@ -86,28 +81,27 @@ class FPLPrefileController extends Controller
     /*          Fields have still not been 'cleaned' from anything other than blanks,   */
     /*          like ':', for example.                                                  */
     private function set_fp_content(Request $request)
-    {    
-        $this->FP['type']         = $this->prepare("type", $request->input("1", "I"));
-        $this->FP['callsign']     = $this->prepare("callsign", $request->input("2", ""));
-        $this->FP['actype']       = $this->prepare("actype", $request->input("3", ""));
-        $this->FP['tas']          = $this->prepare("tas", $request->input("4", ""));
-        $this->FP['origin']       = $this->prepare("origin", $request->input("5", ""));
-        $this->FP['etd']          = $this->prepare("etd", $request->input("6", ""));
-        $this->FP['altitude']     = $this->prepare("altitude", $request->input("7", ""));
-        $this->FP['route']        = $this->prepare("route", $request->input("8", ""));
-        $this->FP['destination']  = $this->prepare("destination", $request->input("9", ""));
-        $this->FP['etehrs']       = $this->prepare("etehrs", $request->input("10a", ""));
-        $this->FP['etemin']       = $this->prepare("etemin", $request->input("10b", ""));
-        $this->FP['voice']        = $this->prepare("voice", $request->input("11a", ""));
-        $this->FP['remarks']      = $this->prepare("remarks", $request->input("11", ""));
-        $this->FP['fobhrs']       = $this->prepare("fobhrs", $request->input("12a", ""));
-        $this->FP['fobmin']       = $this->prepare("fobmin", $request->input("12b", ""));
-        $this->FP['alternate']    = $this->prepare("alternate", $request->input("13", ""));
-        $this->FP['name']         = $this->prepare("name", Auth::User()->name_first . ' ' . Auth::User()->name_last);
-        $this->FP['cid']          = $this->prepare("cid", Auth::User()->id);
-        $this->FP['pwd']          = $this->prepare("pwd", $request->input("16", ""));
+    {
+        $this->FP['type'] = $this->prepare('type', $request->input('1', 'I'));
+        $this->FP['callsign'] = $this->prepare('callsign', $request->input('2', ''));
+        $this->FP['actype'] = $this->prepare('actype', $request->input('3', ''));
+        $this->FP['tas'] = $this->prepare('tas', $request->input('4', ''));
+        $this->FP['origin'] = $this->prepare('origin', $request->input('5', ''));
+        $this->FP['etd'] = $this->prepare('etd', $request->input('6', ''));
+        $this->FP['altitude'] = $this->prepare('altitude', $request->input('7', ''));
+        $this->FP['route'] = $this->prepare('route', $request->input('8', ''));
+        $this->FP['destination'] = $this->prepare('destination', $request->input('9', ''));
+        $this->FP['etehrs'] = $this->prepare('etehrs', $request->input('10a', ''));
+        $this->FP['etemin'] = $this->prepare('etemin', $request->input('10b', ''));
+        $this->FP['voice'] = $this->prepare('voice', $request->input('11a', ''));
+        $this->FP['remarks'] = $this->prepare('remarks', $request->input('11', ''));
+        $this->FP['fobhrs'] = $this->prepare('fobhrs', $request->input('12a', ''));
+        $this->FP['fobmin'] = $this->prepare('fobmin', $request->input('12b', ''));
+        $this->FP['alternate'] = $this->prepare('alternate', $request->input('13', ''));
+        $this->FP['name'] = $this->prepare('name', Auth::User()->name_first.' '.Auth::User()->name_last);
+        $this->FP['cid'] = $this->prepare('cid', Auth::User()->id);
+        $this->FP['pwd'] = $this->prepare('pwd', $request->input('16', ''));
     }
-
 
     /* get_fsd_packet                                                   */
     /*          Get values from $FP in FSD packet format                */
@@ -117,7 +111,7 @@ class FPLPrefileController extends Controller
         assert($this->is_valid_plan());
 
         $plan = [];
-        $plan[] = "FILE";
+        $plan[] = 'FILE';
 
         $plan[] .= $this->FP['cid'];
         $plan[] .= $this->FP['pwd'];
@@ -134,7 +128,7 @@ class FPLPrefileController extends Controller
         $plan[] .= $this->FP['fobhrs'];
         $plan[] .= $this->FP['fobmin'];
         $plan[] .= $this->FP['alternate'];
-        $plan[] .= "+VFPS+" . $this->FP['voice'] . $this->FP['remarks'];
+        $plan[] .= '+VFPS+'.$this->FP['voice'].$this->FP['remarks'];
         $plan[] .= $this->FP['route'];
 
         $plan = implode(':', $plan);
@@ -142,52 +136,51 @@ class FPLPrefileController extends Controller
         return strtoupper($plan);
     }
 
-
     private function submit_to_fsd()
     {
         $packet = $this->get_fsd_packet();
 
-        $sock = fsockopen("127.0.0.1", 4194);
-        if (!$sock) {
+        $sock = fsockopen('127.0.0.1', 4194);
+        if (! $sock) {
             return "Couldn't connect to FSD port";
         }
 
-        fputs($sock, $packet . "\r\n");
+        fwrite($sock, $packet."\r\n");
         $result = fgets($sock, 4096);
         fclose($sock);
         $result = preg_replace("/[\r\n]/", '', $result);
+
         return $result;
     }
 
-
     public function submit(Request $request)
     {
-        if ($request->input('submit') === null) // If not submitting, then populating the fields
-            return $this->get($request, true);
-
-        $this->set_fp_content($request);
-        
-        if (!$this->is_valid_plan()){ // There's an error with some field
+        if ($request->input('submit') === null) { // If not submitting, then populating the fields
             return $this->get($request, true);
         }
-        
+
+        $this->set_fp_content($request);
+
+        if (! $this->is_valid_plan()) { // There's an error with some field
+            return $this->get($request, true);
+        }
+
         return $this->submit_to_fsd();
     }
-
 
     public function get(Request $request, $show_errors = false)
     {
         $this->set_fp_content($request);
         $fp_data = $this->FP;
-        if ($show_errors){
+        if ($show_errors) {
             $errors = $this->errors;
+
             return view('prefile.form', compact('fp_data', 'errors'));
-        } else{
+        } else {
             return view('prefile.form', compact('fp_data'));
         }
     }
 
-    
     public function test(Request $request)
     {
         echo $this->submit($request);

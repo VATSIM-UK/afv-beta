@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use App\Models\User;
 use App\Models\Approval;
 use App\Events\UserExpressedInterest;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
 class UserRequestTest extends TestCase
 {
@@ -40,7 +40,6 @@ class UserRequestTest extends TestCase
         $this->actingAs($this->user)->post(route('requests.store'))
             ->assertSessionHas('error', 'You have already made a request to signup to the beta.');
     }
-
 
     /** @test */
     public function an_email_is_sent_to_a_user_once_they_have_expressed_interest()
