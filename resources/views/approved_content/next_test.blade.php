@@ -7,4 +7,9 @@
 	<b>Start:</b> 1900z<br/>
 	<b>Ending:</b> 2100z<br/>
 	<b>Location:</b> Leeds (EGNM) and Newcastle (EGNT)<br/>
+	<hr />
+	<b>Day:</b> Friday, 7th June<br/>
+	<b>Start:</b> 2000z<br/>
+	<b>Ending:</b> 2200z<br/>
+	<b>Location:</b> Heathrow (EGLL) from/to Oslo-Gardermoen (ENGM)<br/>
 </div>

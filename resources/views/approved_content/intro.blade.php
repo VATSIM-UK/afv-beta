@@ -10,8 +10,8 @@
 		@include('approved_content.next_test')
 	</div>
 	<div class="col-xs-16 col-sm-16 col-md-6 col-lg-6">
-		<iframe src="https://discordapp.com/widget?id=551514966058860544&theme=light" height="250"></iframe>
+		<iframe src="https://discordapp.com/widget?id=551514966058860544&theme=light" style="height:100%; min-height:240px;"></iframe>
 	</div>
 </div>
 
-
+<div class="text-sm mt-4 text-grey underline" id="reminder">Minimum Requirements: Headset with Mic</div>
