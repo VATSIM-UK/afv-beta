@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FPLPrefileController extends Controller
 {
@@ -37,6 +38,8 @@ class FPLPrefileController extends Controller
     private $errors = []; // Unfilled required fields
     private $FP = [];
 
+
+
     /* is_valid_plan                                                                     */
     /*          Checks if it's ok or not for this plan to be submitted                   */
     private function is_valid_plan()
@@ -44,12 +47,14 @@ class FPLPrefileController extends Controller
         return empty($this->errors);
     }
 
+
     /* clean_blanks                                                                     */
     /*          Removes any blank characters (string terminator, tabs, etc...)          */
     private static function clean_blanks($var)
     {
         return str_replace(["\n", "\t", "\r"], '', $var);
     }
+
 
     /* prepare                                                                          */
     /*          Prepares each field so it can be directly submitted to FSD              */
@@ -73,6 +78,7 @@ class FPLPrefileController extends Controller
 
         return $this->clean_blanks($value);
     }
+
 
     /* set_fp_content                                                                   */
     /*          Copy values from request variables to $FP so that they can be used      */
@@ -103,6 +109,7 @@ class FPLPrefileController extends Controller
         $this->FP['pwd'] = $this->prepare('pwd', $request->input('16', ''));
     }
 
+
     /* get_fsd_packet                                                   */
     /*          Get values from $FP in FSD packet format                */
     /*          is_valid_plan() must be true before calling this        */
@@ -132,18 +139,19 @@ class FPLPrefileController extends Controller
         $plan[] .= $this->FP['route'];
 
         $plan = implode(':', $plan);
-
         return strtoupper($plan);
     }
 
+
+    /* submit_to_fsd                                                                    */
+    /*          This function handles any connection to FSD. It sends the flightplan    */
+    /*          and returns the response fom the server.                                */
     private function submit_to_fsd()
     {
         $packet = $this->get_fsd_packet();
 
         $sock = fsockopen('127.0.0.1', 4194);
-        if (! $sock) {
-            return "Couldn't connect to FSD port";
-        }
+        if (! $sock) return "CONNERR";
 
         fwrite($sock, $packet."\r\n");
         $result = fgets($sock, 4096);
@@ -153,37 +161,68 @@ class FPLPrefileController extends Controller
         return $result;
     }
 
+
+    /* submit                                                                        */
+    /*          This function will be called when a POST request WITH CSRF Token     */
+    /*          is submitted. It will validate (not verify!) all fields and if all   */
+    /*          values is ok, it will submit it to FSD and handle the response.      */
+    /*          If any field can't be validated, it will display the prefile page    */
+    /*          with any errors being marked.                                        */
     public function submit(Request $request)
     {
-        if ($request->input('submit') === null) { // If not submitting, then populating the fields
-            return $this->get($request, true);
-        }
-
         $this->set_fp_content($request);
 
-        if (! $this->is_valid_plan()) { // There's an error with some field
-            return $this->get($request, true);
-        }
+        if (! $this->is_valid_plan()) return $this->get($request, true); // Invalid fields
 
-        return $this->submit_to_fsd();
+        $response = $this->submit_to_fsd(); // Everything correct, so send to FSD
+        $fields = explode(":", $response); 
+        
+        switch($fields[0]){
+            case "OK":
+                return $this->get($request)->withSuccess("Flightplan submitted!");
+            case "CALLINUSE":
+                return $this->get($request)->withError("Someone seems to be using that callsign already :(");
+            case "CID":
+                return $this->get($request)->withError("Please check your CID/Password");
+            default:
+                unset($this->FP['pwd']); // Remove password so it's not logged
+                Log::error("PrefileError | FPLData (NoPWD) - " . $this->FP->toJson() . " | FSDResponse - $response");
+                return $this->get($request)->withError("We're having trouble submitting your flightplan :(");
+        }
     }
 
+
+    /* get                                                                       */
+    /*          This function will be called when a GET request is submitted     */
+    /*          It will prefill the flightplan with GET parameters or default    */
+    /*          values if not set. If show_errors is true (a.k.a. function was   */
+    /*          called after post request, it will display errors (if any) to    */
+    /*          the user.                                                        */
     public function get(Request $request, $show_errors = false)
     {
-        $this->set_fp_content($request);
+        if ($this->FP === []) $this->set_fp_content($request); // Only fill if not done yet (A.K.A. only if this function called directly)
+
         $fp_data = $this->FP;
+
         if ($show_errors) {
             $errors = $this->errors;
-
             return view('prefile.form', compact('fp_data', 'errors'));
-        } else {
-            return view('prefile.form', compact('fp_data'));
         }
+        else return view('prefile.form', compact('fp_data'));
     }
 
-    public function test(Request $request)
+
+    /* post                                                                     */
+    /*          This function will be called when a POST request is submitted.  */
+    /*          It will prefill the flightplan if CSRF token is not set with    */
+    /*          POST parameters or default values if not. If CSRF token is set, */
+    /*          it will submit the form.                                        */
+    public function post(Request $request)
     {
-        echo $this->submit($request);
-        die();
+        // POST Request to populate fields
+        if ($request->input('submit') === null) return $this->get($request);
+
+        // POST Request to submit flightplan
+        else return $this->submit($request);
     }
 }

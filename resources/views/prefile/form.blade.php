@@ -156,6 +156,35 @@
                 </tbody>
             </table>
         {{ Form::close() }}
-    
 
-</body></html>
+        @if(session()->has("success") || session()->has("error"))
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        @endif
+
+        @if(session()->has("success"))
+        <script>
+            Swal.fire({
+              title: "Great!",
+              text: "{{ session('success') }}",
+              type: "success",
+              confirmButtonText: "I don't care, go away!"
+            })
+        </script>
+        @endif
+
+        @if(session()->has("error"))
+        <script>
+            Swal.fire({
+              title: "Uh, oh...",
+              text: "{{ session('error') }}",
+              type: "error",
+              confirmButtonText: "#BlameAidan!"
+            })
+        </script>
+        @endif
+
+    </body>
+</html>
