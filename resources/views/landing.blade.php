@@ -31,9 +31,9 @@
                     
 					@elseif(auth()->user()->approved)
 					
-                    <div class="row pb-4 justify-content-center">
+                    <div class="row col-14 justify-content-center">
 					    <!-- Live MAP -->
-					    <div class="col-3 px-4 text-right">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2 text-right">
 					    	<a href="https://afv-map.vatsim.net/" class="no-underline">
 					    		<p class="btn btn-outline-light text-md w-100">Live Map</p>
 					    	</a>
@@ -41,7 +41,7 @@
 					    <!-- #END# LIVE MAP -->
 
                         <!-- PREFILE -->
-					    <div class="col-3 px-4 text-left">
+					    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2 text-left">
 					    	<a href="{{ route('prefile') }}" class="no-underline">
 					    		<p class="btn btn-outline-light text-md w-100">Prefile</p>
 					    	</a>
