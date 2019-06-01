@@ -37,7 +37,7 @@ class FPLPrefileController extends Controller
 
     private $errors = []; // Unfilled required fields
     private $FP = [];
-    
+
 
     /* is_valid_plan                                                                     */
     /*          Checks if it's ok or not for this plan to be submitted                   */
@@ -183,14 +183,14 @@ class FPLPrefileController extends Controller
 
         switch ($fields[0]) {
             case 'OK':
-                return $this->get($request)->withSuccess('Flightplan correctly submitted');
+                return $this->get($request)->withSuccess("Flightplan submitted");
             case 'CALLINUSE':
-                return $this->get($request)->withError('Someone seems to be using that callsign already :(');
+                return $this->get($request)->withError("Someone seems to be using that callsign already :(");
             case 'CID':
-                return $this->get($request)->withError('Please check your CID/Password');
+                return $this->get($request)->withError("Please check your CID/Password");
             default:
                 unset($this->FP['pwd']); // Remove password so it's not logged
-                Log::error('PrefileError | FPLData (NoPWD) - '.$this->FP->toJson()." | FSDResponse - $response");
+                Log::error("PrefileError | FPLData (NoPWD) - " . print_r($this->FP, true) . " | FSDResponse - " . $response);
 
                 return $this->get($request)->withError("We're having trouble submitting your flightplan :(");
         }
