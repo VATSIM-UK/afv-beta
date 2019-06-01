@@ -37,6 +37,7 @@ class FPLPrefileController extends Controller
 
     private $errors = []; // Unfilled required fields
     private $FP = [];
+    
 
     /* is_valid_plan                                                                     */
     /*          Checks if it's ok or not for this plan to be submitted                   */
@@ -45,12 +46,14 @@ class FPLPrefileController extends Controller
         return empty($this->errors);
     }
 
+
     /* clean_blanks                                                                     */
     /*          Removes any blank characters (string terminator, tabs, etc...)          */
     private static function clean_blanks($var)
     {
         return str_replace(["\n", "\t", "\r"], '', $var);
     }
+
 
     /* prepare                                                                          */
     /*          Prepares each field so it can be directly submitted to FSD              */
@@ -74,6 +77,7 @@ class FPLPrefileController extends Controller
 
         return $this->clean_blanks($value);
     }
+
 
     /* set_fp_content                                                                   */
     /*          Copy values from request variables to $FP so that they can be used      */
@@ -103,6 +107,7 @@ class FPLPrefileController extends Controller
         $this->FP['cid'] = $this->prepare('cid', Auth::User()->id);
         $this->FP['pwd'] = $this->prepare('pwd', $request->input('16', ''));
     }
+
 
     /* get_fsd_packet                                                   */
     /*          Get values from $FP in FSD packet format                */
@@ -137,6 +142,7 @@ class FPLPrefileController extends Controller
         return strtoupper($plan);
     }
 
+
     /* submit_to_fsd                                                                    */
     /*          This function handles any connection to FSD. It sends the flightplan    */
     /*          and returns the response fom the server.                                */
@@ -157,6 +163,7 @@ class FPLPrefileController extends Controller
         return $result;
     }
 
+
     /* submit                                                                        */
     /*          This function will be called when a POST request WITH CSRF Token     */
     /*          is submitted. It will validate (not verify!) all fields and if all   */
@@ -176,7 +183,7 @@ class FPLPrefileController extends Controller
 
         switch ($fields[0]) {
             case 'OK':
-                return $this->get($request)->withSuccess('Flightplan submitted!');
+                return $this->get($request)->withSuccess('Flightplan correctly submitted');
             case 'CALLINUSE':
                 return $this->get($request)->withError('Someone seems to be using that callsign already :(');
             case 'CID':
@@ -188,6 +195,7 @@ class FPLPrefileController extends Controller
                 return $this->get($request)->withError("We're having trouble submitting your flightplan :(");
         }
     }
+
 
     /* get                                                                       */
     /*          This function will be called when a GET request is submitted     */
@@ -212,6 +220,7 @@ class FPLPrefileController extends Controller
         }
     }
 
+
     /* post                                                                     */
     /*          This function will be called when a POST request is submitted.  */
     /*          It will prefill the flightplan if CSRF token is not set with    */
@@ -219,14 +228,10 @@ class FPLPrefileController extends Controller
     /*          it will submit the form.                                        */
     public function post(Request $request)
     {
-        // POST Request to populate fields
-        if ($request->input('submit') === null) {
-            return $this->get($request);
-        }
+        // Populate fields (To-Do)
+        if ($request->input('submit') === null) return $this->get($request);
 
-        // POST Request to submit flightplan
-        else {
-            return $this->submit($request);
-        }
+        // Submit flightplan
+        else return $this->submit($request);
     }
 }
