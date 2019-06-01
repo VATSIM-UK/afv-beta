@@ -6,7 +6,7 @@
     <a class="nav-link text-white underline" href="#euroscope">Euroscope</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white underline" href="#vATC">VRC, vStars, vERAM</a>
+    <a class="nav-link text-white underline" href="#vATC">VRC, vSTARS, vERAM</a>
   </li>
 </ul>
 

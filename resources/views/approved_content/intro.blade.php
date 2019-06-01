@@ -15,3 +15,4 @@
 </div>
 
 <div class="text-sm mt-4 text-grey-darkest underline" id="reminder">Minimum Requirements: Headset with Mic</div>
+<div class="text-xs text-grey"><i>(Added with ❤️ for Benny)</i></div>
