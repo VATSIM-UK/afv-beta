@@ -168,7 +168,7 @@
         <script>
             Swal.fire({
               title: "Great!",
-              text: "{{ $success }}",
+              text: "{!! $success !!}",
               type: "success",
               confirmButtonText: "I don't care, go away!"
             })
@@ -179,7 +179,7 @@
         <script>
             Swal.fire({
               title: "Uh, oh...",
-              text: "{{ $error }}",
+              text: "{!! $error !!}",
               type: "error",
               confirmButtonText: "#BlameAidan!"
             })
