@@ -157,14 +157,14 @@
             </table>
         {{ Form::close() }}
 
-        @if(session()->has("success") || session()->has("error"))
+        @if(isset($success) || isset($error))
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <script src="sweetalert2.all.min.js"></script>
         <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
         <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
         @endif
 
-        @if(session()->has("success"))
+        @if(isset(success))
         <script>
             Swal.fire({
               title: "Great!",
@@ -175,7 +175,7 @@
         </script>
         @endif
 
-        @if(session()->has("error"))
+        @if(isset($error))
         <script>
             Swal.fire({
               title: "Uh, oh...",
