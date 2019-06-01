@@ -164,7 +164,7 @@
         <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
         @endif
 
-        @if(isset(success))
+        @if(isset($success))
         <script>
             Swal.fire({
               title: "Great!",
