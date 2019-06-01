@@ -182,14 +182,7 @@ class FPLPrefileController extends Controller
             case 'CID':
                 return $this->get($request)->withError('Please check your CID/Password');
             default:
-                try {
-                    unset($this->FP['pwd']); // Remove password so it's not logged
-                    Log::error('PrefileError | FPLData (NoPWD) - '.print_r($this->FP, true).' | FSDResponse - '.$response);
-                } catch (Exception $e) { //Debug
-                    print_r($e);
-                    die();
-                }
-
+                Log::error(Auth::User()->id . " - PrefileError | FSDResponse - " . $response);
                 return $this->get($request)->withError("We're having trouble submitting your flightplan :(");
         }
     }
