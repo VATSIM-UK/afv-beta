@@ -19,5 +19,5 @@ Route::post('/prefile', 'FPLPrefileController@post')->name('prefile.submit');
 
 // For testing purposes of the new dataserver - FSExpo
 Route::get('vatsim-data', function () {
-    return Storage::get('vatsim-data.json');
+    return response(Storage::get('vatsim-data.json'))->header('Content-Type', 'application/json');
 });
