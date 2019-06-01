@@ -83,25 +83,30 @@ class FPLPrefileController extends Controller
     /*          like ':', for example.                                                  */
     private function set_fp_content(Request $request)
     {
-        $this->FP['type'] = $this->prepare('type', $request->input('1', 'I'));
-        $this->FP['callsign'] = $this->prepare('callsign', $request->input('2', ''));
-        $this->FP['actype'] = $this->prepare('actype', $request->input('3', ''));
-        $this->FP['tas'] = $this->prepare('tas', $request->input('4', ''));
-        $this->FP['origin'] = $this->prepare('origin', $request->input('5', ''));
-        $this->FP['etd'] = $this->prepare('etd', $request->input('6', ''));
-        $this->FP['altitude'] = $this->prepare('altitude', $request->input('7', ''));
-        $this->FP['route'] = $this->prepare('route', $request->input('8', ''));
-        $this->FP['destination'] = $this->prepare('destination', $request->input('9', ''));
-        $this->FP['etehrs'] = $this->prepare('etehrs', $request->input('10a', ''));
-        $this->FP['etemin'] = $this->prepare('etemin', $request->input('10b', ''));
-        $this->FP['voice'] = $this->prepare('voice', $request->input('11a', ''));
-        $this->FP['remarks'] = $this->prepare('remarks', $request->input('11', ''));
-        $this->FP['fobhrs'] = $this->prepare('fobhrs', $request->input('12a', ''));
-        $this->FP['fobmin'] = $this->prepare('fobmin', $request->input('12b', ''));
-        $this->FP['alternate'] = $this->prepare('alternate', $request->input('13', ''));
-        $this->FP['name'] = $this->prepare('name', Auth::User()->name_first.' '.Auth::User()->name_last);
-        $this->FP['cid'] = $this->prepare('cid', Auth::User()->id);
-        $this->FP['pwd'] = $this->prepare('pwd', $request->input('16', ''));
+        $this->FP['type']           = $this->prepare('type',        $request->input('1', 'I'));
+        $this->FP['callsign']       = $this->prepare('callsign',    $request->input('2', ''));
+        $this->FP['actype']         = $this->prepare('actype',      $request->input('3', ''));
+        $this->FP['tas']            = $this->prepare('tas',         $request->input('4', ''));
+        $this->FP['origin']         = $this->prepare('origin',      $request->input('5', ''));
+        $this->FP['etd']            = $this->prepare('etd',         $request->input('6', ''));
+        $this->FP['altitude']       = $this->prepare('altitude',    $request->input('7', ''));
+        $this->FP['route']          = $this->prepare('route',       $request->input('8', ''));
+        $this->FP['destination']    = $this->prepare('destination', $request->input('9', ''));
+        $this->FP['etehrs']         = $this->prepare('etehrs',      $request->input('10a', ''));
+        $this->FP['etemin']         = $this->prepare('etemin',      $request->input('10b', ''));
+        $this->FP['voice']          = $this->prepare('voice',       $request->input('11a', ''));
+        $this->FP['remarks']        = $this->prepare('remarks',     $request->input('11', ''));
+        $this->FP['fobhrs']         = $this->prepare('fobhrs',      $request->input('12a', ''));
+        $this->FP['fobmin']         = $this->prepare('fobmin',      $request->input('12b', ''));
+        $this->FP['alternate']      = $this->prepare('alternate',   $request->input('13', ''));
+        $this->FP['pwd']            = $this->prepare('pwd',         $request->input('16', ''));
+        if (Auth::check()){
+            $this->FP['name']           = $this->prepare('name',    Auth::User()->name_first.' '.Auth::User()->name_last);
+            $this->FP['cid']            = $this->prepare('cid',     Auth::User()->id);
+        } else{
+            $this->FP['name']           = $this->prepare('name',    '');
+            $this->FP['cid']            = $this->prepare('cid',     '');
+        }
     }
 
     /* get_fsd_packet                                                   */
@@ -165,8 +170,10 @@ class FPLPrefileController extends Controller
     /*          with any errors being marked.                                        */
     public function submit(Request $request)
     {
-        $this->set_fp_content($request);
+        if (! Auth::check()) return $this->get($request);
+        if (! auth()->user()->approved) return $this->get($request);
 
+        $this->set_fp_content($request);
         if (! $this->is_valid_plan()) {
             return $this->get($request, true);
         } // Invalid fields
@@ -196,15 +203,25 @@ class FPLPrefileController extends Controller
     /*          the user.                                                        */
     public function get(Request $request, $show_errors = false)
     {
+        
         if ($this->FP === []) {
             $this->set_fp_content($request);
         } // Only fill if not done yet (A.K.A. only if this function called directly)
 
         $fp_data = $this->FP;
+        
+        if (!Auth::check()) {
+            $error = 'You must be logged in to prefile';
+            return view('prefile.form', compact('fp_data', 'error'));
+        }
+
+        if (! auth()->user()->approved) {
+            $error = 'You don\'t seem to be approved for the beta';
+            return view('prefile.form', compact('fp_data', 'error'));
+        }
 
         if ($show_errors) {
             $errors = $this->errors;
-
             return view('prefile.form', compact('fp_data', 'errors'));
         } else {
             return view('prefile.form', compact('fp_data'));

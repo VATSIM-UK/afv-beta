@@ -144,10 +144,10 @@
                             {{ Form::text('13', $fp_data['alternate'], (array_key_exists('alternate', $errors)) ? ['style' => 'border: medium solid red; text-transform: uppercase;'] : ['style' => 'text-transform: uppercase;'] ) }}
                         </td>
                         <td colspan="2" align="center">
-                            {{ Form::text('14', Auth::User()->name_first . ' ' . Auth::User()->name_last, ['style' => 'text-transform: uppercase; width: 100%', 'class'=>'filled', 'readonly' => 'readonly'] ) }}
+                            {{ Form::text('14', $fp_data['name'], ['style' => 'text-transform: uppercase; width: 100%', 'class'=>'filled', 'readonly' => 'readonly'] ) }}
                         </td>
                         <td width="87" align="center">
-                            {{ Form::number('15', Auth::User()->id, ['class'=>'filled', 'readonly' => 'readonly'] ) }}
+                            {{ Form::number('15', $fp_data['cid'], ['class'=>'filled', 'readonly' => 'readonly'] ) }}
                         </td>
                         <td width="124" align="center">
                             {{ Form::input('password', '16', $fp_data['pwd'], (array_key_exists('pwd', $errors)) ? ['style' => 'border: medium solid red;'] : null ) }}
@@ -181,7 +181,7 @@
               title: "Uh, oh...",
               text: "{!! $error !!}",
               type: "error",
-              confirmButtonText: "#BlameAidan!"
+              confirmButtonText: "#BlameAidan"
             })
         </script>
         @endif
