@@ -77,12 +77,6 @@
 								</div>									
 								<!-- #END# CONTROLLER Clients -->
 								
-								<!-- SUPS -->
-								<div class="tab-pane fade" id="sups" role="tabpanel" aria-labelledby="sups-tab">
-								@include('approved_content.sups')
-								</div>
-								<!-- #END# SUPS -->
-								
 								<!-- ATIS -->
 								<div class="tab-pane fade" id="atis" role="tabpanel" aria-labelledby="atis-tab">
 								@include('approved_content.atis')

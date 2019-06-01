@@ -10,9 +10,6 @@
 	<a class="nav-link text-white" id="controllers-tab" data-toggle="pill" href="#cClients" role="tab" aria-controls="cClients" aria-selected="false">CONTROLLERS</a>
   </li>
   <li class="nav-item border-left">
-	<a class="nav-link text-white" id="sups-tab" data-toggle="pill" href="#sups" role="tab" aria-controls="sups" aria-selected="false">SUPERVISORS</a>
-  </li>
-  <li class="nav-item border-left">
 	<a class="nav-link text-white" id="atis-tab" data-toggle="pill" href="#atis" role="tab" aria-controls="atis" aria-selected="false">ATIS BOTS</a>
   </li>
   <li class="nav-item border-left border-right">
