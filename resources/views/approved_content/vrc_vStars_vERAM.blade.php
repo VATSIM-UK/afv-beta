@@ -19,7 +19,7 @@
 <img src="/images/demos/vClients.jpeg" class="w-auto rounded py-4">
 
 <p class="text-grey-darker text-base text-left">
-    4) Select any server to connect as they all connect to the AFV Beta Server.  Connect to the sever and prime <b>your frequency only</b>. Do not select any other audio options on the communications panel.<br />
+    4) Select any server to connect as they all connect to the AFV Beta Server (ie. USA-C).  Connect to the sever and prime <b>your frequency only</b>. Do not select any other audio options on the communications panel.<br />
     5) Start the AFV Standalone client from step 1 and connect it as well. You should then be connected!<br />
 </p>
 <p class="text-grey-darker text-base text-left pt-4">
