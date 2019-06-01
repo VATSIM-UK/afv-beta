@@ -31,14 +31,24 @@
                     
 					@elseif(auth()->user()->approved)
 					
-					<!-- Live MAP -->
-					<div class="pb-4">
-						<a href="https://afv-map.vatsim.net/" class="no-underline">
-							<p class="btn btn-outline-light text-md">View Live Map</p>
-						</a>
+                    <div class="row pb-4 justify-content-center">
+					    <!-- Live MAP -->
+					    <div class="col-3 px-4 text-right">
+					    	<a href="https://afv-map.vatsim.net/" class="no-underline">
+					    		<p class="btn btn-outline-light text-md w-100">Live Map</p>
+					    	</a>
+					    </div>
+					    <!-- #END# LIVE MAP -->
+
+                        <!-- PREFILE -->
+					    <div class="col-3 px-4 text-left">
+					    	<a href="{{ route('prefile') }}" class="no-underline">
+					    		<p class="btn btn-outline-light text-md w-100">Prefile</p>
+					    	</a>
+					    </div>
+					    <!-- #END# PREFILE -->
 					</div>
-					<!-- #END# LIVE MAP -->
-					
+
 					<!-- NAV -->
 					@include('approved_content.top_nav')
 					<!-- #END# NAV -->
