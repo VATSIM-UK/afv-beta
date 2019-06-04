@@ -12,7 +12,7 @@ Route::middleware('web')->group(function () {
 
 Route::get('/', 'LandingController')->name('landing');
 
-Route::get('request', 'UserRequestController@store')->name('request');
+Route::get('request', 'UserRequestController@store')->middleware('auth')->name('request');
 
 Route::get('/prefile', 'FPLPrefileController@get')->name('prefile');
 Route::post('/prefile', 'FPLPrefileController@post')->name('prefile.submit');
