@@ -1,0 +1,92 @@
+body{
+	background-color: #5c82e9;
+}
+
+
+.error-code{
+	color: #fff;
+	font-size: 180px;
+	font-weight: 900;
+	letter-spacing: 25px;
+	margin: 0;
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.error-code{
+		font-size: 270px;
+	}
+}
+
+
+.error-text{
+	color: #fff;
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: 5px;
+	text-align: left;
+	margin: 0;
+	/*margin: 10px 0 0 0;*/
+}
+
+
+.text-left-xs {
+    text-align: left;
+}
+.text-center-xs {
+    text-align: center;
+}
+.text-right-xs {
+    text-align: right;
+}
+.text-justify-xs {
+    text-align: justify;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .text-left-sm {
+		text-align: left;
+	}
+	.text-center-sm {
+		text-align: center;
+	}
+	.text-right-sm {
+		text-align: right;
+	}
+	.text-justify-sm {
+		text-align: justify;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .text-left-md {
+		text-align: left;
+	}
+	.text-center-md {
+		text-align: center;
+	}
+	.text-right-md {
+		text-align: right;
+	}
+	.text-justify-md {
+		text-align: justify;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .text-left-lg {
+		text-align: left;
+	}
+	.text-center-lg {
+		text-align: center;
+	}
+	.text-right-lg {
+		text-align: right;
+	}
+	.text-justify-lg {
+		text-align: justify;
+	}
+}

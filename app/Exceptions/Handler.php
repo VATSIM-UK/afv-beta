@@ -46,6 +46,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        try{
+            return response()->view('errors.default', compact('exception'));
+        }catch(Exception $e){
+            return parent::render($request, $exception);
+        }
     }
 }
