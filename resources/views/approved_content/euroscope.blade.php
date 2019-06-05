@@ -13,13 +13,14 @@
     5) Run the standalone voice client alongside Euroscope and connect it as well.<br />
     6) That's it, you're now up and running. Enjoy!<br />
 	<br />
-	<i>To get an ATIS station online, all you have to do is connect it to the network as you normally would,
+	<b><i>To get an ATIS station online, all you have to do is connect it to the network as you normally would,
 	but without starting it on voice as well. In other words, you only have to connect the text ATIS and AFV
-	servers will automatically read it on voice for pilots.</i>
+	servers will automatically read it on voice for pilots.</b></i>
 </p>
 
 <img src="/images/demos/es_comms_full.png" class="w-auto rounded py-4">
 
 <p class="text-grey-darker text-base text-left">
-    <i>Remember: All the 'RCV VOI' and 'XMT VOI' checkboxes shall be <u>unmarked</u> in the communications dialog (that includes your PRIM and ATIS frequencies too).</i><br /><br />
+    <i>Remember: All the 'RCV VOI' and 'XMT VOI' checkboxes shall be <u>unmarked</u> in the communications dialog (that includes your PRIM and ATIS frequencies too).</i><br />
 </p>
+<br />

@@ -8,6 +8,9 @@
   <li class="nav-item">
     <a class="nav-link text-white underline" href="#vATC">VRC, vSTARS, vERAM</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link text-white underline" href="#vATIS">vATIS</a>
+  </li>
 </ul>
 
 <br />
@@ -19,6 +22,6 @@
     - If you want to listen to other controllers, you will have to tune your primary frequency to the same as theirs.
      This will be changed during the development so that it can be done the same way as it's done with old voice.
      Remember you have to be in range.<br />
-    - Your radio range and transceiver positions are calculated from your vis points. Wherever you have a vis point,
-     you have a radio antenna which range is equal to that of your ATC client.<br /><br />
+    - Your radio range and transceiver positions are calculated first from the position of your vis points.
+    Only in cases in which this is not enough should you define 'extra transmitters' with the standalone client.<br /><br />
 </p>

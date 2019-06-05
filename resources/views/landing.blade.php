@@ -84,14 +84,11 @@
 									<br />
 									<!-- VRC, vStars, vERAM -->
 									@include('approved_content.vrc_vStars_vERAM')
+                                    <br />
+									<!-- vATIS -->
+									@include('approved_content.vATIS')
 								</div>									
 								<!-- #END# CONTROLLER Clients -->
-								
-								<!-- ATIS -->
-								<div class="tab-pane fade" id="atis" role="tabpanel" aria-labelledby="atis-tab">
-								@include('approved_content.atis')
-								</div>
-								<!-- #END# ATIS -->
 	
 								<!-- ISSUES -->
 								<div class="tab-pane fade" id="issues" role="tabpanel" aria-labelledby="issues-tab">

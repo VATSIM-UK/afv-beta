@@ -22,6 +22,4 @@
     4) Select any server to connect as they all connect to the AFV Beta Server (ie. USA-C).  Connect to the server and prime <b>your frequency only</b>. Do not select any other audio options on the communications panel.<br />
     5) Start the AFV Standalone client from step 1 and connect it as well. You should then be connected!<br />
 </p>
-<p class="text-grey-darker text-base text-left pt-4">
-	<i>We are working on getting vATIS to work with AFV, but for now you'll have to wait. Sowwy :(</i><br />
-</p>
+<br />
