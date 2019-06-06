@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Approval;
 
 class ApprovalsPageController extends Controller
 {
-
     public function __invoke()
     {
         $data = [];
@@ -16,5 +14,4 @@ class ApprovalsPageController extends Controller
 
         return view('admin.approvals')->withApprovals($data);
     }
-
 }

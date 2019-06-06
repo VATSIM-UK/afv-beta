@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Models\User;
+use Illuminate\Console\Command;
 
 class AddAdminUsers extends Command
 {
@@ -41,8 +41,9 @@ class AddAdminUsers extends Command
         $cid = $this->argument('cid');
         $user = User::where('id', $cid);
 
-        if ($user == null){
-            echo "User not found";
+        if ($user == null) {
+            echo 'User not found';
+
             return;
         }
 
