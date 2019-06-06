@@ -33,9 +33,9 @@ class ApprovalController extends Controller
              if (! $approval) {
                  return redirect()->back()->withError('User not found.');
              } // User not found
-             else {
-                 return redirect()->back()->withError('User is not approved.');
-             } // Can't revoke a non-approved user
+            else {
+                return redirect()->back()->withError('User is not approved.');
+            } // Can't revoke a non-approved user
         } else {
             $approval = $approval->first();
         } // Get the approval
