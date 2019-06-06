@@ -35,6 +35,11 @@ class User extends Authenticatable
         return ! is_null($this->approval);
     }
 
+    public function getFullNameAttribute()
+    {
+        return $this->name_first . ' ' . $this->name_last;
+    }
+
     public function getApprovedAttribute()
     {
         return optional($this->approval()->first())->approved;

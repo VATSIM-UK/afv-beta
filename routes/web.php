@@ -21,3 +21,9 @@ Route::post('/prefile', 'FPLPrefileController@post')->name('prefile.submit');
 Route::get('vatsim-data', function () {
     return response(Storage::get('vatsim-data.json'))->header('Content-Type', 'application/json');
 });
+
+Route::middleware('admin')->group(function () {
+    Route::get('admin', 'ApprovalsPageController')->name('admin');
+    Route::patch('users/{cid}/approve', 'ApprovalController@approve')->name('users.approve');
+    Route::delete('users/{cid}/revoke', 'ApprovalController@revoke')->name('users.revoke');
+});

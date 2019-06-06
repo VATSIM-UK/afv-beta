@@ -27,6 +27,14 @@ class Approval extends Model
         return $this;
     }
 
+    public function setAsPending()
+    {
+        $this->approved_at = null;
+        $this->save();
+
+        return $this;
+    }
+
     public function getApprovedAttribute()
     {
         return (bool) $this->approved_at;

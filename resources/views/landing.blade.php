@@ -49,6 +49,16 @@
 					    <!-- #END# PREFILE -->
 					</div>
 
+                    @if(auth()->user()->admin)
+                    <div class="row col-14 justify-content-center">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2">
+                            <a href="{{ route('admin') }}" class="no-underline">
+					        	<p class="btn btn-outline-warning text-md w-100">Approvals</p>
+					        </a>
+                        </div>
+                    </div>
+                    @endif
+
 					<!-- NAV -->
 					@include('approved_content.top_nav')
 					<!-- #END# NAV -->
