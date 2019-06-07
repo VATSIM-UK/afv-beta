@@ -370,7 +370,7 @@ class ImportUsers extends Command
         $array = explode("\n", $users);
         foreach ($array as $user) {
             ApprovalAlias::updateOrCreate(
-                ['user_id' => $user->id],
+                ['user_id' => $user],
                 ['approved_at' => null]
             );
         }
