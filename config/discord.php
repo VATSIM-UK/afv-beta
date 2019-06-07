@@ -20,6 +20,6 @@ return [
     /*
      * The URL of your server to which the user should be redirected
      */
-    'redirectUri' => env('DISCORD_REDIRECT_URI', '{your-server-uri-to-this-script-here}')
+    'redirectUri' => env('DISCORD_REDIRECT_URI', '{your-server-uri-to-this-script-here}'),
 
 ];
