@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Approval as ApprovalAlias;
 use Illuminate\Console\Command;
+use App\Models\Approval as ApprovalAlias;
 
 class ImportUsers extends Command
 {
@@ -38,7 +38,7 @@ class ImportUsers extends Command
      */
     public function handle()
     {
-        $users = "810193
+        $users = '810193
 811074
 811883
 812494
@@ -366,7 +366,7 @@ class ImportUsers extends Command
 1448440
 1448507
 1448891
-1454350";
+1454350';
         $array = explode("\n", $users);
         foreach ($array as $user) {
             ApprovalAlias::updateOrCreate(
