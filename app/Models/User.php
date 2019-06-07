@@ -38,7 +38,7 @@ class User extends Authenticatable
 
     public function getFullNameAttribute()
     {
-        return $this->name_first . ' ' . $this->name_last;
+        return $this->name_first.' '.$this->name_last;
     }
 
     public function getApprovedAttribute()
