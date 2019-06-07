@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Discord_Account;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -49,4 +50,5 @@ class User extends Authenticatable
     {
         return $this->has_request && ! $this->approved;
     }
+
 }
