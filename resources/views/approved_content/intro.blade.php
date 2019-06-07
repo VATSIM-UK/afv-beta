@@ -10,7 +10,7 @@
 		@include('approved_content.next_test')
 	</div>
 	<div class="col-xs-14 col-sm-14 col-md-6 col-lg-6">
-		<iframe src="https://discordapp.com/widget?id=551514966058860544&theme=light" style="height:100%; min-height:240px;"></iframe>
+		<iframe src="https://discordapp.com/widget?id=551514966058860544&theme=light" style="height:100%; min-height:260px;"></iframe>
 	</div>
 </div>
 
