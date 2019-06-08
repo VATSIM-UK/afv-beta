@@ -38,7 +38,7 @@ class DiscordOAuth2Controller extends Controller
     public function login()
     {
         $options = [
-            'scope' => $this->scopes
+            'scope' => $this->scopes,
         ];
         $authUrl = $this->provider->getAuthorizationUrl($options);
         //$authUrl = $this->provider->getAuthorizationUrl();
