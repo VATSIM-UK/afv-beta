@@ -18,7 +18,7 @@ class DiscordOAuth2Controller extends Controller
      */
     private $provider;
 
-    private $scopes = ['bot', 'identify', 'guilds'];
+    private $scopes = ['identify', 'guilds'];
 
     /**
      * DiscordOAuth2Controller constructor.
@@ -38,8 +38,7 @@ class DiscordOAuth2Controller extends Controller
     public function login()
     {
         $options = [
-            'scope' => $this->scopes,
-            'permissions' => 470019126
+            'scope' => $this->scopes
         ];
         $authUrl = $this->provider->getAuthorizationUrl($options);
         //$authUrl = $this->provider->getAuthorizationUrl();
