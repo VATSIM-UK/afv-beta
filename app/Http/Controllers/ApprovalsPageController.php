@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Approval;
 use App\Models\Discord_Account;
-use App\Models\User;
 
 class ApprovalsPageController extends Controller
 {
