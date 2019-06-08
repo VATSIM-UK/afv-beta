@@ -19,7 +19,7 @@ class CreateDiscordAccountsTable extends Migration
             $table->unsignedBigInteger('id')->unique();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
