@@ -39,7 +39,7 @@ class DiscordOAuth2Controller extends Controller
     {
         $options = [
             'scope' => $this->scopes,
-            'permissions' => 470019126
+            'permissions' => 470019126,
         ];
         $authUrl = $this->provider->getAuthorizationUrl($options);
         //$authUrl = $this->provider->getAuthorizationUrl();
