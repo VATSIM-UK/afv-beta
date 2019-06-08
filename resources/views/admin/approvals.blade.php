@@ -55,10 +55,14 @@
 					<!-- NAV TOP -->
                     <ul class="bg-blue nav nav-pills nav-justified rounded text-left select-none mb-0" id="pills-tab" role="tablist">
                       <li class="nav-item border-left">
-                    	<a class="nav-link text-white h-100 {{ (!session()->has('approve')) ? 'active' : '' }}" id="approved-tab" data-toggle="pill" href="#approved" role="tab" aria-controls="approved" aria-selected="false">APPROVED</a>
+                    	<a class="nav-link text-white h-100 {{ (!session()->has('approve')) ? 'active' : '' }}" id="approved-tab" data-toggle="pill" href="#approved" role="tab" aria-controls="approved" aria-selected="false">
+                            APPROVED ({{ count($approvals['approved']) }})
+                        </a>
                       </li>
                       <li class="nav-item border-left">
-                    	<a class="nav-link text-white h-100 {{ (session()->has('approve')) ? 'active' : '' }}" id="pending-tab" data-toggle="pill" href="#pending" role="tab" aria-controls="pending" aria-selected="false">PENDING</a>
+                    	<a class="nav-link text-white h-100 {{ (session()->has('approve')) ? 'active' : '' }}" id="pending-tab" data-toggle="pill" href="#pending" role="tab" aria-controls="pending" aria-selected="false">
+                            PENDING ({{ count($approvals['pending']) }})
+                        </a>
                       </li>
                     </ul>
                     <!-- #END# NAV TOP -->
