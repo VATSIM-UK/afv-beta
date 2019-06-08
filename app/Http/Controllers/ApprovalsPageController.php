@@ -18,7 +18,7 @@ class ApprovalsPageController extends Controller
         $discord = [];
 
         foreach ($discord_accs as $user) {
-            $discord[] = ["cid" => $user->id, "name" => $user->name_first . ' ' . $user->name_last];
+            $discord[] = ['cid' => $user->id, 'name' => $user->name_first.' '.$user->name_last];
         }
 
         return view('admin.approvals')->withApprovals($data)->withDiscord($discord);
