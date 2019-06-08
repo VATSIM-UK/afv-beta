@@ -64,6 +64,11 @@
                             PENDING ({{ count($approvals['pending']) }})
                         </a>
                       </li>
+                      <li class="nav-item border-left">
+                    	<a class="nav-link text-white h-100" id="discord-tab" data-toggle="pill" href="#discord" role="tab" aria-controls="discord" aria-selected="false">
+                            DISCORD ACCs ({{ count($discord) }})
+                        </a>
+                      </li>
                     </ul>
                     <!-- #END# NAV TOP -->
 					
@@ -123,7 +128,26 @@
                                     </div>
 								</div>
 								
-								
+								<div class="tab-pane fade" id="discord" role="tabpanel" aria-labelledby="discord-tab">
+                                    <div class="row px-4">
+                                        @forelse($discord as $account)
+                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="card col-12 h-100 text-black">
+                                              <div class="card-body">
+                                                <h5 class="card-title mb-0">{{ $account['cid'] }}</h5>
+                                                <hr />
+                                                <p class="card-text"><i>{{ $account['name'] }}</i></p>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        @empty
+                                        <div class="mx-auto m-2 col-12 text-danger">
+                                            NO ACCOUNTS LINKED
+                                        </div>
+                                        @endforelse
+                                    </div>
+								</div>
+
 							</div>
 						</div>
                     </div>
