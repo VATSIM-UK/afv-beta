@@ -14,7 +14,7 @@ class CreateDiscordAccountsTable extends Migration
     public function up()
     {
         Schema::create('discord__accounts', function (Blueprint $table) {
-            $table->unsignedInteger('user_id')->unique();
+            $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('id')->unique();
         });
