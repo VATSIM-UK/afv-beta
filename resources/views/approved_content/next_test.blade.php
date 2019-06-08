@@ -6,10 +6,6 @@
 	<i><b>Departures:</b> RDU, MSY, ATL & MIA<br/>
 	<b>Arrivals:</b> MCO<br/></i>
 	<hr />
-	<b>Day:</b> Saturday, 8th June<br/>
-	<b>Start:</b> 1330z<br/>
-	<b>Ending:</b> 2100z<br/>
-	<hr />
 	<b>Day:</b> Sunday, 9th June<br/>
 	<b>Start:</b> 1330z<br/>
 	<b>Ending:</b> 1900z<br/>
