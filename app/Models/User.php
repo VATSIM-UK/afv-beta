@@ -37,10 +37,10 @@ class User extends Authenticatable
 
     public function getFullNameAttribute()
     {
-        try{
+        try {
             return $this->name_first.' '.$this->name_last;
-        } catch (Exception $e){
-            return "Unknown";
+        } catch (Exception $e) {
+            return 'Unknown';
         }
     }
 
