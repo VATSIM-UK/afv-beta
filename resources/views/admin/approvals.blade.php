@@ -17,7 +17,7 @@
 
 <div class="flex flex-col justify-between min-h-screen">
     <div class="flex items-center h-full min-h-screen text-white sm:mb-4 lg:mb-0">
-        <div class="col-8 mx-auto text-center pt-4">
+        <div class="col-12 mx-auto text-center pt-4">
 
             <div class="select-none">
                 <img src="images/logo.png" class="h-32"/>
@@ -72,14 +72,14 @@
                     </ul>
                     <!-- #END# NAV TOP -->
 					
-                    <div class="col-12 rounded-b overflow-hidden shadow-lg bg-black opacity-90">
+                    <div class="col-14 rounded-b overflow-hidden shadow-lg bg-black opacity-90">
 						<div class="px-6 py-4">
 							<div class="tab-content" id="pills-tabContent">
 								
 								<div class="tab-pane fade {{ (!session()->has('approve')) ? 'show active' : '' }}" id="approved" role="tabpanel" aria-labelledby="approved-tab">
                                     <div class="row px-4">
                                         @forelse($approvals['approved'] as $approval)
-                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-6 col-lg-3">
                                             <div class="card col-12 h-100 text-black">
                                               <div class="card-body">
                                                 <h5 class="card-title mb-0">{{ $approval->user_id }}</h5>
