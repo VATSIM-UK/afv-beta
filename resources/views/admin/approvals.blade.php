@@ -79,7 +79,7 @@
 								<div class="tab-pane fade {{ (!session()->has('approve')) ? 'show active' : '' }}" id="approved" role="tabpanel" aria-labelledby="approved-tab">
                                     <div class="row px-4">
                                         @forelse($approvals['approved'] as $approval)
-                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-6 col-lg-3">
+                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-2">
                                             <div class="card col-12 h-100 text-black">
                                               <div class="card-body">
                                                 <h5 class="card-title mb-0">{{ $approval->user_id }}</h5>
@@ -105,7 +105,7 @@
                                 <div class="tab-pane fade {{ (session()->has('approve')) ? 'show active' : '' }}" id="pending" role="tabpanel" aria-labelledby="pending-tab">
                                     <div class="row px-4">
                                         @forelse($approvals['pending'] as $approval)
-                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-2">
                                             <div class="card col-12 h-100 text-black">
                                                 <div class="card-body">
                                                   <h5 class="card-title mb-0">{{ $approval->user_id }}</h5>
@@ -131,7 +131,7 @@
 								<div class="tab-pane fade" id="discord" role="tabpanel" aria-labelledby="discord-tab">
                                     <div class="row px-4">
                                         @forelse($discord as $account)
-                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-2">
                                             <div class="card col-12 h-100 text-black">
                                               <div class="card-body">
                                                 <h5 class="card-title mb-0">{{ $account['cid'] }}</h5>
