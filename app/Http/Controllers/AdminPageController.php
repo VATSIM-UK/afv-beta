@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Approval;
 use App\Models\Discord_Account;
 
-class ApprovalsPageController extends Controller
+class AdminPageController extends Controller
 {
     public function __invoke()
     {

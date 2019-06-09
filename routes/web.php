@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
 // Admin Endpoint
 //--------------------------------------------------------------------------
 Route::middleware('admin')->group(function () {
-    Route::get('admin', 'ApprovalsPageController')->name('admin');
+    Route::get('admin', 'AdminPageController')->name('admin');
     Route::patch('users/{cid}/approval', 'ApprovalController@approve')->name('users.approve');
     Route::delete('users/{cid}/approval', 'ApprovalController@revoke')->name('users.revoke');
 });
@@ -42,6 +42,11 @@ Route::middleware('admin')->group(function () {
 // Prefile prefill and submission
 Route::get('/prefile', 'FPLPrefileController@get')->name('prefile');
 Route::post('/prefile', 'FPLPrefileController@post')->name('prefile.submit');
+
+// Discord Accounts
+Route::get('discord/accounts', 'DiscordUsersAPIController');
+
+
 
 //--------------------------------------------------------------------------
 // Dataserver-NG
