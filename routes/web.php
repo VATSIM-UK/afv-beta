@@ -46,8 +46,6 @@ Route::post('/prefile', 'FPLPrefileController@post')->name('prefile.submit');
 // Discord Accounts
 Route::get('discord/accounts', 'DiscordUsersAPIController');
 
-
-
 //--------------------------------------------------------------------------
 // Dataserver-NG
 //--------------------------------------------------------------------------
