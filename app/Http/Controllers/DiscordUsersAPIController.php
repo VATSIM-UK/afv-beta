@@ -14,7 +14,7 @@ class DiscordUsersAPIController extends Controller
 
         foreach ($linked as $link) {
             $user = User::where('id', $link->user_id)->first();
-            $name = mb_convert_case(mb_strtolower($user->full_name . ' - ' . $user->id), MB_CASE_TITLE, "UTF-8");
+            $name = mb_convert_case(mb_strtolower($user->full_name.' - '.$user->id), MB_CASE_TITLE, 'UTF-8');
 
             $approval = $user->approval;
             if (! $approval) {
