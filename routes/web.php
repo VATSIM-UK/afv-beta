@@ -47,7 +47,6 @@ Route::get('vatsim-data', function () {
 });
 //--------------------------------------------------------------------------
 
-
 // Test
 //Route::get('approve/{cid}', 'AFVAuthController@approveCID');
 //Route::get('revoke/{cid}', 'AFVAuthController@revokeCID');
