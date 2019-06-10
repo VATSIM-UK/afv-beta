@@ -14,7 +14,7 @@ class AdminPageController extends Controller
         $data['approved'] = Approval::approved()->orderBy('user_id', 'ASC')->get();
         $data['pending'] = Approval::pending()->orderBy('user_id', 'ASC')->get();
 
-        $discord_accs = Discord_Account::all();
+        $discord_accs = Discord_Account::all()->orderBy('user_id', 'ASC');
 
         $discord = [];
         $discord['linked'] = [];
