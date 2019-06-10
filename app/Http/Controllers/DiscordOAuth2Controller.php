@@ -88,7 +88,7 @@ class DiscordOAuth2Controller extends Controller
         Discord_Account::updateOrCreate(
             ['user_id' => Auth::user()->id],
             [
-                'id' => $discord_id = $user->getId(),
+                'id' => $user->getId(),
             ]
         );
 

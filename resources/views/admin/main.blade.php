@@ -66,7 +66,7 @@
                       </li>
                       <li class="nav-item border-left">
                     	<a class="nav-link text-white h-100" id="discord-tab" data-toggle="pill" href="#discord" role="tab" aria-controls="discord" aria-selected="false">
-                            DISCORD ACCs ({{ count($discord) }})
+                            DISCORD ACCs
                         </a>
                       </li>
                     </ul>
@@ -155,13 +155,19 @@
 								
 								<div class="tab-pane fade" id="discord" role="tabpanel" aria-labelledby="discord-tab">
                                     <div class="row px-4">
-                                        @forelse($discord as $account)
+                                        @forelse($discord['linked'] as $account)
                                         <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
                                             <div class="card col-12 h-100 text-black">
                                               <div class="card-body">
                                                 <h5 class="card-title mb-0">{{ $account['cid'] }}</h5>
+                                                <p class="card-text py-1"><i>{{ $account['name'] }}</i></p>
                                                 <hr />
-                                                <p class="card-text"><i>{{ $account['name'] }}</i></p>
+                                                <p class="col-12">ID</p>
+                                                {{ Form::open(array('url' => route('users.discord', ['cid' => $account['cid']]), 'class' => 'mx-auto col-12 text-center')) }}
+                                                    <input name="_method" type="hidden" value="PATCH">
+                                                    {{ Form::number('id', $account['id'], ['class' => 'col-12 text-center border border-secondary my-1']) }}
+                                                    {{ Form::submit('Modify', ['class' => 'card-link mt-2 btn btn-outline-warning text-xs']) }}
+                                                {{ Form::close() }}
                                               </div>
                                             </div>
                                         </div>

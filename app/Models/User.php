@@ -53,4 +53,5 @@ class User extends Authenticatable
     {
         return $this->has_request && ! $this->approved;
     }
+    
 }

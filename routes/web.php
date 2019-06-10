@@ -27,9 +27,14 @@ Route::middleware('auth')->group(function () {
 //--------------------------------------------------------------------------
 Route::middleware('admin')->group(function () {
     Route::get('admin', 'AdminPageController')->name('admin');
+
+    // Approvals
     Route::patch('user/random/approval', 'ApprovalController@random')->name('users.random'); // Approve qty random users
     Route::patch('user/{cid}/approval', 'ApprovalController@approve')->name('users.approve');
     Route::delete('user/{cid}/approval', 'ApprovalController@revoke')->name('users.revoke');
+
+    // Discord Accounts
+    Route::patch('user/{cid}/discord', 'DiscordAccountController@update')->name('users.discord');
 });
 
 // Prefile prefill and submission
