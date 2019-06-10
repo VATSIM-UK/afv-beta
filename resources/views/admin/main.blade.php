@@ -104,6 +104,24 @@
 
                                 <div class="tab-pane fade {{ (session()->has('approve')) ? 'show active' : '' }}" id="pending" role="tabpanel" aria-labelledby="pending-tab">
                                     <div class="row px-4">
+                                       
+                                        <div class="mx-auto col-12">
+                                            <div class="col-12 text-white underline">
+                                                RANDOM APPROVALS (WIP)
+                                            </div>
+                                            {{ Form::open(array('url' => route('users.random'), 'class' => 'mx-auto my-3 col-12 col-sm-12 col-md-4 col-lg-4 text-center')) }}
+                                                <input name="_method" type="hidden" value="PATCH">
+                                                <div class="mx-auto col-12">
+                                                    {{ Form::number('qty', '0', ['class' => 'bg-secondary text-white text-center']) }}
+                                                </div>
+                                                {{ Form::submit('Rock it!', ['class' => 'card-link mt-3 btn btn-success text-white text-sm disabled', 'disabled' => 'disabled']) }}
+                                            {{ Form::close() }}
+                                        </div>
+
+                                        <div class="mx-auto col-12 text-white">
+                                            <hr style="border-color: #fff;"/>
+                                        </div>
+                                        
                                         @forelse($approvals['pending'] as $approval)
                                         <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
                                             <div class="card col-12 h-100 text-black">

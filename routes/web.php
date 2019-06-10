@@ -6,14 +6,6 @@ Route::get('verify-login', 'Auth\LoginController@verifyLogin')->name('auth.login
 Route::get('complete-login', 'Auth\LoginController@completeLogin')->name('auth.login.complete');
 Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout');
 
-// Not sure if it's needed. Commented out in case it is
-/*
-Route::middleware('web')->group(function () {
-    Route::resource('requests', 'UserRequestController')->only(['store']);
-    Route::patch('users/{user}/approval', 'ApprovalController@store')->name('users.approve');
-});
-*/
-
 // Landing/Main Page
 Route::get('/', 'LandingController')->name('landing');
 
@@ -35,8 +27,9 @@ Route::middleware('auth')->group(function () {
 //--------------------------------------------------------------------------
 Route::middleware('admin')->group(function () {
     Route::get('admin', 'AdminPageController')->name('admin');
-    Route::patch('users/{cid}/approval', 'ApprovalController@approve')->name('users.approve');
-    Route::delete('users/{cid}/approval', 'ApprovalController@revoke')->name('users.revoke');
+    Route::patch('user/random/approval', 'ApprovalController@random')->name('users.random'); // Approve qty random users
+    Route::patch('user/{cid}/approval', 'ApprovalController@approve')->name('users.approve');
+    Route::delete('user/{cid}/approval', 'ApprovalController@revoke')->name('users.revoke');
 });
 
 // Prefile prefill and submission
@@ -53,3 +46,8 @@ Route::get('vatsim-data', function () {
     return response(Storage::get('vatsim-data.json'))->header('Content-Type', 'application/json');
 });
 //--------------------------------------------------------------------------
+
+
+// Test
+//Route::get('approve/{cid}', 'AFVAuthController@approveCID');
+//Route::get('revoke/{cid}', 'AFVAuthController@revokeCID');

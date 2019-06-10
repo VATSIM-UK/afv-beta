@@ -21,6 +21,6 @@ class AdminPageController extends Controller
             $discord[] = ['cid' => $user->id, 'name' => $user->name_first.' '.$user->name_last];
         }
 
-        return view('admin.approvals')->withApprovals($data)->withDiscord($discord);
+        return view('admin.main')->withApprovals($data)->withDiscord($discord);
     }
 }
