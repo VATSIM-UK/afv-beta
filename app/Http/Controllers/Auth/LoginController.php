@@ -56,17 +56,17 @@ class LoginController extends Controller
     public function verifyLogin(Request $request)
     {
         $session = $request->session()->get('vatsimauth');
-        $intended = route('landing');
+        $main = route('landing');
 
         return $this->sso->validate(
             $session['key'],
             $session['secret'],
             Input::get('oauth_verifier'),
-            function ($user) use ($request, $intended) {
+            function ($user) use ($request, $main) {
                 $request->session()->forget('vatsimauth');
                 $this->completeLogin($user);
 
-                return redirect($intended);
+                return redirect()->intended($main);
             },
             function ($error) use ($request) {
                 throw $error;
@@ -97,6 +97,6 @@ class LoginController extends Controller
     {
         auth()->logout();
 
-        return redirect(route('landing'));
+        return redirect(route('landing'))->withSuccess(['Logout', 'You have been successfully logged out']);
     }
 }
