@@ -18,7 +18,7 @@ class DiscordOAuth2Controller extends Controller
      */
     private $provider;
 
-    private $scopes = ['identify', 'guilds'];
+    private $scopes = ['identify'];
 
     /**
      * DiscordOAuth2Controller constructor.
@@ -79,8 +79,7 @@ class DiscordOAuth2Controller extends Controller
         }
 
         if ( // If the user hasn't granted us the permissions we need, we ignore the token and return an error.
-            ! strstr($token->getValues()['scope'], 'identify') ||
-            ! strstr($token->getValues()['scope'], 'guilds')
+            ! strstr($token->getValues()['scope'], 'identify')
         ) {
             return redirect()->route('landing')->withError(['Oops...', 'Something went wrong. Please try again']);
         }
