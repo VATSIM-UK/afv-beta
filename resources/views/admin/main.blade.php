@@ -106,16 +106,23 @@
                                     <div class="row px-4">
                                        
                                         <div class="mx-auto col-12">
-                                            <div class="col-12 text-white underline">
-                                                RANDOM APPROVALS (WIP)
-                                            </div>
-                                            {{ Form::open(array('url' => route('users.random'), 'class' => 'mx-auto my-3 col-12 col-sm-12 col-md-4 col-lg-4 text-center')) }}
-                                                <input name="_method" type="hidden" value="PATCH">
-                                                <div class="mx-auto col-12">
-                                                    {{ Form::number('qty', '0', ['class' => 'bg-secondary text-white text-center']) }}
+                                            <div class="mx-auto my-2 col-12 col-sm-12 col-md-6 col-lg-4">
+                                                <div class="card col-12 h-100 text-black">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title mb-0">
+                                                            RANDOM APPROVALS (WIP)
+                                                        </h5>
+                                                        <hr />
+                                                        {{ Form::open(array('url' => route('users.random'), 'class' => 'mx-auto col-12 text-center')) }}
+                                                            <input name="_method" type="hidden" value="PATCH">
+                                                            <div class="col-12">
+                                                                {{ Form::number('qty', '0', ['class' => 'bg-secondary text-white text-center col-10 col-sm-10 col-md-10 col-lg-8']) }}
+                                                            </div>
+                                                            {{ Form::submit('Rock it!', ['class' => 'card-link mt-3 btn btn-success text-white text-sm disabled', 'disabled' => 'disabled']) }}
+                                                        {{ Form::close() }}
+                                                    </div>
                                                 </div>
-                                                {{ Form::submit('Rock it!', ['class' => 'card-link mt-3 btn btn-success text-white text-sm disabled', 'disabled' => 'disabled']) }}
-                                            {{ Form::close() }}
+                                            </div>
                                         </div>
 
                                         <div class="mx-auto col-12 text-white">
