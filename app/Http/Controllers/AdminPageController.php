@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Approval;
 use App\Models\User;
+use App\Models\Approval;
 use App\Models\Discord_Account;
 
 class AdminPageController extends Controller
