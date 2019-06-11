@@ -51,7 +51,3 @@ Route::get('vatsim-data', function () {
     return response(Storage::get('vatsim-data.json'))->header('Content-Type', 'application/json');
 });
 //--------------------------------------------------------------------------
-
-// Test
-//Route::get('approve/{cid}', 'AFVAuthController@approveCID');
-//Route::get('revoke/{cid}', 'AFVAuthController@revokeCID');
