@@ -30,6 +30,7 @@ Route::middleware('admin')->group(function () {
 
     // Approvals
     Route::patch('user/random/approval', 'ApprovalController@random')->name('users.random'); // Approve qty random users
+    Route::patch('user/all/approval', 'ApprovalController@sync')->name('users.sync');
     Route::patch('user/{cid}/approval', 'ApprovalController@approve')->name('users.approve');
     Route::delete('user/{cid}/approval', 'ApprovalController@revoke')->name('users.revoke');
 

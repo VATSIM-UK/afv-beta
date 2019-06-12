@@ -69,6 +69,11 @@
                             DISCORD ACCs
                         </a>
                       </li>
+                      <li class="nav-item border-left">
+                    	<a class="nav-link text-white h-100" id="misc-tab" data-toggle="pill" href="#misc" role="tab" aria-controls="misc" aria-selected="false">
+                            MISC
+                        </a>
+                      </li>
                     </ul>
                     <!-- #END# NAV TOP -->
 					
@@ -176,6 +181,25 @@
                                             NO ACCOUNTS LINKED
                                         </div>
                                         @endforelse
+                                    </div>
+								</div>
+
+
+                                <div class="tab-pane fade" id="misc" role="tabpanel" aria-labelledby="misc-tab">
+                                    <div class="row px-4">
+                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="card col-12 h-100 text-black">
+                                              <div class="card-body">
+                                                <h5 class="card-title mb-0">AFV Auth</h5>
+                                                <p class="card-text py-1">Send all database users</p>
+                                                <hr />
+                                                {{ Form::open(array('url' => route('users.sync'), 'class' => 'mx-auto col-12 text-center')) }}
+                                                    <input name="_method" type="hidden" value="PATCH">
+                                                    {{ Form::submit('Send', ['class' => 'card-link mt-2 btn btn-success text-sm']) }}
+                                                {{ Form::close() }}
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
 								</div>
 
