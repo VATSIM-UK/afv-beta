@@ -15,7 +15,7 @@ class SendApprovalNotification
      */
     public function handle(UserApproved $event)
     {
-        if ($event->approval->user){ // FIX for imported Approvals from FSExpo with no User
+        if ($event->approval->user) { // FIX for imported Approvals from FSExpo with no User
             $event->approval->user->notify(new ApprovalWelcomeEmail());
         }
     }
