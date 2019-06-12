@@ -5,7 +5,14 @@
 	Got any questions for the developers? Wanna have a chat with the rest of the testing team? Join us on Discord!<br />
 </p>
 
-<div class="row col-14 pt-4">
+<div class="col-14 alert alert-danger text-left mt-4">
+	<h4 class="alert-heading">Servers Offline</h4>
+	<hr/>
+	The AFV servers are currently offline for development purposes.<br/>
+	Stay tuned here and on Discord for further notices when they are back up!
+</div>
+
+<div class="row col-14 pt-2">
 	<div class="col-xs-14 col-sm-14 col-md-6 col-lg-6 mb-xs-4 mb-sm-4 mb-md-0 mb-lg-0">
 		@include('approved_content.next_test')
 	</div>
