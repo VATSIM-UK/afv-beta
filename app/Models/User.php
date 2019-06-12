@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -52,5 +53,19 @@ class User extends Authenticatable
     public function getPendingAttribute()
     {
         return $this->has_request && ! $this->approved;
+    }
+
+    public function scopePending(Builder $query)
+    {
+        return $query->whereDoesntHave('approval')->orWhereHas('approval', function (Builder $query2){
+            $query2->whereNull('approved_at');
+        });
+    }
+
+    public function scopeApproved(Builder $query)
+    {
+        return $query->whereHas('approval', function (Builder $query2){
+            $query2->whereNotNull('approved_at');
+        });
     }
 }
