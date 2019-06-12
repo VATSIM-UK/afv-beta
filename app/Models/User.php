@@ -57,14 +57,14 @@ class User extends Authenticatable
 
     public function scopePending(Builder $query)
     {
-        return $query->whereDoesntHave('approval')->orWhereHas('approval', function (Builder $query2){
+        return $query->whereDoesntHave('approval')->orWhereHas('approval', function (Builder $query2) {
             $query2->whereNull('approved_at');
         });
     }
 
     public function scopeApproved(Builder $query)
     {
-        return $query->whereHas('approval', function (Builder $query2){
+        return $query->whereHas('approval', function (Builder $query2) {
             $query2->whereNotNull('approved_at');
         });
     }
