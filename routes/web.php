@@ -36,6 +36,9 @@ Route::middleware('admin')->group(function () {
 
     // Discord Accounts
     Route::patch('user/{cid}/discord', 'DiscordAccountController@update')->name('users.discord');
+
+    // Admin Users
+    Route::post('user/admin/add', 'AdminController@add')->name('admin.add');
 });
 
 // Prefile prefill and submission

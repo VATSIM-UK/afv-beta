@@ -200,6 +200,21 @@
                                               </div>
                                             </div>
                                         </div>
+                                        <hr />
+                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="card col-12 h-100 text-black">
+                                              <div class="card-body">
+                                                <h5 class="card-title mb-0">Add Admin</h5>
+                                                <p class="card-text py-1">Add User as Admin</p>
+                                                <hr />
+                                                {{ Form::open(array('url' => route('admin.add'), 'class' => 'mx-auto col-12 text-center')) }}
+                                                    <input name="_method" type="hidden" value="POST">
+                                                    {{ Form::number('id', 0, ['class' => 'col-12 text-center border border-secondary my-1']) }}
+                                                    {{ Form::submit('Add', ['class' => 'card-link mt-2 btn btn-success text-sm']) }}
+                                                {{ Form::close() }}
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
 								</div>
 
