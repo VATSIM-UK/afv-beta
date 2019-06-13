@@ -187,17 +187,19 @@
 
                                 <div class="tab-pane fade" id="misc" role="tabpanel" aria-labelledby="misc-tab">
                                     <div class="row px-4">
-                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
-                                            <div class="card col-12 h-100 text-black">
-                                              <div class="card-body">
-                                                <h5 class="card-title mb-0">AFV Auth</h5>
-                                                <p class="card-text py-1">Send all database users</p>
-                                                <hr />
-                                                {{ Form::open(array('url' => route('users.sync'), 'class' => 'mx-auto col-12 text-center')) }}
-                                                    <input name="_method" type="hidden" value="PATCH">
-                                                    {{ Form::submit('Send', ['class' => 'card-link mt-2 btn btn-success text-sm']) }}
-                                                {{ Form::close() }}
-                                              </div>
+                                        <div class="col-12">
+                                            <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+                                                <div class="card col-12 h-100 text-black">
+                                                  <div class="card-body">
+                                                    <h5 class="card-title mb-0">AFV Auth</h5>
+                                                    <p class="card-text py-1">Send all database users</p>
+                                                    <hr />
+                                                    {{ Form::open(array('url' => route('users.sync'), 'class' => 'mx-auto col-12 text-center')) }}
+                                                        <input name="_method" type="hidden" value="PATCH">
+                                                        {{ Form::submit('Send', ['class' => 'card-link mt-2 btn btn-success text-sm']) }}
+                                                    {{ Form::close() }}
+                                                  </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <hr />
@@ -208,9 +210,23 @@
                                                 <p class="card-text py-1">Add User as Admin</p>
                                                 <hr />
                                                 {{ Form::open(array('url' => route('admin.add'), 'class' => 'mx-auto col-12 text-center')) }}
-                                                    <input name="_method" type="hidden" value="POST">
+                                                    <input name="_method" type="hidden" value="PATCH">
                                                     {{ Form::number('id', 0, ['class' => 'col-12 text-center border border-secondary my-1']) }}
                                                     {{ Form::submit('Add', ['class' => 'card-link mt-2 btn btn-success text-sm']) }}
+                                                {{ Form::close() }}
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="card col-12 h-100 text-black">
+                                              <div class="card-body">
+                                                <h5 class="card-title mb-0">Remove Admin</h5>
+                                                <p class="card-text py-1">Remove User as Admin</p>
+                                                <hr />
+                                                {{ Form::open(array('url' => route('admin.remove'), 'class' => 'mx-auto col-12 text-center')) }}
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    {{ Form::number('id', 0, ['class' => 'col-12 text-center border border-secondary my-1']) }}
+                                                    {{ Form::submit('Remove', ['class' => 'card-link mt-2 btn btn-alert text-sm']) }}
                                                 {{ Form::close() }}
                                               </div>
                                             </div>
