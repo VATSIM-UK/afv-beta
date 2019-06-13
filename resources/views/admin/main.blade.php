@@ -226,7 +226,7 @@
                                                 {{ Form::open(array('url' => route('admin.remove'), 'class' => 'mx-auto col-12 text-center')) }}
                                                     <input name="_method" type="hidden" value="DELETE">
                                                     {{ Form::number('id', 0, ['class' => 'col-12 text-center border border-secondary my-1']) }}
-                                                    {{ Form::submit('Remove', ['class' => 'card-link mt-2 btn btn-alert text-sm']) }}
+                                                    {{ Form::submit('Remove', ['class' => 'card-link mt-2 btn btn-danger text-sm']) }}
                                                 {{ Form::close() }}
                                               </div>
                                             </div>
