@@ -39,7 +39,7 @@ Route::middleware('admin')->group(function () {
 
     // Admin Users
     Route::patch('user/admin', 'AdminController@add')->name('admin.add');
-    Route::delete('user/admin', 'AdminController@remove')->name('admin.remove');            
+    Route::delete('user/admin', 'AdminController@remove')->name('admin.remove');
 });
 
 // Prefile prefill and submission
