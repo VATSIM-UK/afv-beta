@@ -32,7 +32,7 @@ class ApprovalController extends Controller
 
         $afvAuth = new AFVAuthController();
         $afvAuth = $afvAuth->approveCID($cid);
-        if ($afvAuth !== TRUE){
+        if ($afvAuth !== true) {
             return redirect()->back()->withError($afvAuth['message'])->withApprove('');
         }
 
@@ -66,8 +66,8 @@ class ApprovalController extends Controller
 
         $afvAuth = new AFVAuthController();
         $afvAuth = $afvAuth->revokeCID($cid);
-        if ($afvAuth !== TRUE){
-            return redirect()->back()->withError($afvAuth['code'] . ' - ' . $afvAuth['message']);
+        if ($afvAuth !== true) {
+            return redirect()->back()->withError($afvAuth['code'].' - '.$afvAuth['message']);
         }
 
         $approval->setAsPending();
@@ -101,27 +101,28 @@ class ApprovalController extends Controller
             if (! $approval->user) {
                 continue;
             } // If it doesn't belong to any user, it will fail when trying to find who to send mail to
-            
+
             $afvAuth = new AFVAuthController();
             $afvAuth = $afvAuth->approveCID($cid);
-            if ($afvAuth !== TRUE){
+            if ($afvAuth !== true) {
                 continue;
             }
-            
+
             $approval->setAsApproved();
-            ++$approved;
+            $approved++;
         }
 
         return redirect()->back()->withSuccess("Successfully approved $approved users")->withApprove('');
     }
 
-
-    public function sync(){
+    public function sync()
+    {
         $afvAuth = new AFVAuthController();
         $afvAuth = $afvAuth->syncApprovals();
-        if ($afvAuth !== TRUE){
-            return redirect()->back()->withError($afvAuth['code'] . ' - ' . $afvAuth['message']);
+        if ($afvAuth !== true) {
+            return redirect()->back()->withError($afvAuth['code'].' - '.$afvAuth['message']);
         }
-        return redirect()->back()->withSuccess("Users successfully submitted");
+
+        return redirect()->back()->withSuccess('Users successfully submitted');
     }
 }
