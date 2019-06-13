@@ -124,10 +124,10 @@ class AFVAuthController extends Controller
             $data[] = ["Username" => (string)$cid, "Enabled" => true];
         }
 
-        $nApproved = User::pending()->pluck('id');
+        /*$nApproved = User::pending()->pluck('id');
         foreach($nApproved as $cid){
             $data[] = ["Username" => (string)$cid, "Enabled" => false];
-        }
+        }*/
 
         return self::doPUT($data);
     }
