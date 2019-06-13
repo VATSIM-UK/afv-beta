@@ -25,17 +25,21 @@ class AdminController extends Controller
         return redirect()->back()->withSuccess('User approved as admin');
     }
 
-    public function remove(Request $request){
+    public function remove(Request $request)
+    {
         $cid = $request->input('id', '');
-        if (strlen($cid) <= 0)
-            return redirect()->back()->withError("User invalid");
+        if (strlen($cid) <= 0) {
+            return redirect()->back()->withError('User invalid');
+        }
 
-        if (! User::where('id', $cid)->exists())
+        if (! User::where('id', $cid)->exists()) {
             return redirect()->back()->withError("User doesn't exist");
+        }
 
         $user = User::where('id', $cid)->first();
         $user->admin = false;
         $user->save();
-        return redirect()->back()->withSuccess("User revoked as admin");
+
+        return redirect()->back()->withSuccess('User revoked as admin');
     }
 }
