@@ -20,6 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/discord/login', 'DiscordOAuth2Controller@login')->name('discord.login');
     Route::get('/discord/validate', 'DiscordOAuth2Controller@validateLogin');
     // --
+    // Prefile prefill and submission
+    Route::get('/prefile', 'FPLPrefileController@get')->name('prefile');
+    Route::post('/prefile', 'FPLPrefileController@post')->name('prefile.submit');
+    // --
 });
 
 //--------------------------------------------------------------------------
@@ -41,10 +45,6 @@ Route::middleware('admin')->group(function () {
     Route::patch('user/admin', 'AdminController@add')->name('admin.add');
     Route::delete('user/admin', 'AdminController@remove')->name('admin.remove');
 });
-
-// Prefile prefill and submission
-Route::get('/prefile', 'FPLPrefileController@get')->name('prefile');
-Route::post('/prefile', 'FPLPrefileController@post')->name('prefile.submit');
 
 // Discord Accounts
 Route::get('discord/accounts', 'DiscordUsersAPIController');

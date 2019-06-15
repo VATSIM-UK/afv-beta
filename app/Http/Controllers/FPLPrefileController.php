@@ -213,12 +213,6 @@ class FPLPrefileController extends Controller
 
         $fp_data = $this->FP;
 
-        if (! Auth::check()) {
-            $error = 'You must be logged in to prefile';
-
-            return view('prefile.form', compact('fp_data', 'error'));
-        }
-
         if (! auth()->user()->approved) {
             $error = 'You don\'t seem to be approved for the beta';
 
