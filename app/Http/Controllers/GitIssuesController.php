@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Michelf\Markdown;
+
 class GitIssuesController extends Controller
 {
     public static function getIssues()
@@ -34,11 +36,14 @@ class GitIssuesController extends Controller
             } // Issue has no milestone set
 
             $open = ($issue->state == 'open') ? true : false;
+            $body = str_replace("\r\n", "<br/>", $issue->body);
+            $body = Markdown::defaultTransform($body);
+            $body = str_replace(['<p>', '</p>'], '', $body);
 
             if ($issue->milestone->number == 2) { // Knowledge base milestone
-                $output['knowledge_base'][] = ['title' => $issue->title, 'body' => $issue->body, 'open' => $open];
+                $output['knowledge_base'][] = ['title' => $issue->title, 'body' => $body, 'open' => $open];
             } elseif ($issue->milestone->number == 1) { // Known Issues
-                $output['issues'][] = ['title' => $issue->title, 'body' => $issue->body, 'open' => $open];
+                $output['issues'][] = ['title' => $issue->title, 'body' => $body, 'open' => $open];
             }
         }
 

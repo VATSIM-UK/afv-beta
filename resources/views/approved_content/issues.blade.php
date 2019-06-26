@@ -21,8 +21,12 @@
         @if ($issue['open'])
         <div class="card">
           <div class="card-body text-grey-darker text-base text-left">
-            <h6 class="card-title font-bold">{{ $issue['title'] }}</h6>
-            <p class="card-text">{{ $issue['body'] }}</p>
+            <h6 class="card-title font-bold">
+              <u>{{ $issue['title'] }}</u>
+            </h6>
+            <p class="card-text">
+              {!! $issue['body'] !!}
+            </p>
           </div>
         </div>
         @endif
@@ -44,8 +48,12 @@
     @if ($issue['open'])
     <div class="card">
       <div class="card-body text-grey-darker text-base text-left">
-        <h6 class="card-title font-bold">{{ $issue['title'] }}</h6>
-        <p class="card-text">{{ $issue['body'] }}</p>
+        <h6 class="card-title font-bold">
+          <u>{{ $issue['title'] }}</u>
+        </h6>
+        <p class="card-text">
+          {!! $issue['body'] !!}
+        </p>
       </div>
     </div>
     @endif
