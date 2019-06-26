@@ -36,7 +36,7 @@ class GitIssuesController extends Controller
             } // Issue has no milestone set
 
             $open = ($issue->state == 'open') ? true : false;
-            $body = str_replace("\r\n", "<br/>", $issue->body);
+            $body = str_replace("\r\n", '<br/>', $issue->body);
             $body = Markdown::defaultTransform($body);
             $body = str_replace(['<p>', '</p>'], '', $body);
 
