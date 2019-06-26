@@ -34,7 +34,7 @@
                     <div class="row col-14 justify-content-center">
 					    <!-- Live MAP -->
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2 text-right">
-					    	<a href="https://afv-map.vatsim.net/" class="no-underline">
+					    	<a href="https://afv-map.vatsim.net/" class="no-underline" target="_blank">
 					    		<p class="btn btn-outline-light text-md w-100">Live Map</p>
 					    	</a>
 					    </div>
@@ -42,7 +42,7 @@
 
                         <!-- PREFILE -->
 					    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2 text-left">
-					    	<a href="{{ route('prefile') }}" class="no-underline">
+					    	<a href="{{ route('prefile') }}" class="no-underline" target="blank">
 					    		<p class="btn btn-outline-light text-md w-100">Prefile</p>
 					    	</a>
 					    </div>
