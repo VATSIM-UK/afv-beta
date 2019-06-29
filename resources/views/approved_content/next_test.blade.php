@@ -5,9 +5,9 @@
 		No further dates have been planned yet.<br/>
 		<button class="btn btn-sm btn-primary my-2" type="button" data-toggle="collapse" data-target="#whyNoTest" aria-expanded="false" aria-controls="whyNoTest">Why not?</button>
 	</div>
-	<div class="collapse multi-collapse mt-2" id="whyNoTest">
+	<div class="collapse multi-collapse" id="whyNoTest">
 		<img src="/images/one_does_not_simply_develop.jpg" class="w-auto" alt="One Does Not Simply 'Develop' the New Codec">
-		<div class="text-xs text-grey-darkest text-right mx-2"><i>Credit: Unya</i></div>
+		<div class="text-xs text-grey-darkest text-right mr-2"><i>Credit: Unya</i></div>
     </div>
 	<!--Fill <a href="https://forms.gle/y4aXMWCGm7xxC6cW6">THIS FORM</a> in so we can organize the next one.-->
 	<!--<i><b>Departures:</b> RDU, MSY, ATL & MIA<br/>
