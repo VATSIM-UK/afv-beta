@@ -1,11 +1,9 @@
 <div class="alert alert-primary h-full">
 	<div class="text-left">
-		<p class="my-1">
-			<h4 class="alert-heading">Upcoming Tests</h4>
-			<hr/>
-			No further dates have been planned yet.<br/>
-		</p>
-		<button class="btn btn-primary my-2" type="button" data-toggle="collapse" data-target="#whyNoTest" aria-expanded="false" aria-controls="whyNoTest">Why not?</button>
+		<h4 class="alert-heading">Upcoming Tests</h4>
+		<hr/>
+		No further dates have been planned yet.<br/>
+		<button class="btn btn-sm btn-primary my-2" type="button" data-toggle="collapse" data-target="#whyNoTest" aria-expanded="false" aria-controls="whyNoTest">Why not?</button>
 	</div>
 	<div class="collapse multi-collapse mt-2" id="whyNoTest">
 		<img src="/images/one_does_not_simply_develop.jpg" class="w-auto" alt="One Does Not Simply 'Develop' the New Codec">
