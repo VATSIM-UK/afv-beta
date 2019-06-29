@@ -1,6 +1,16 @@
 <div class="font-bold text-2xl mb-2 text-grey-darkest underline" id="issues">ISSUES</div>
 
-<br />
+<!-- Reporting Issues -->
+<p>
+  <ul class="text-grey-darker text-base text-left">
+    <li>For issues requiring immediate support, join us on Discord (link in the <i>HOME</i> section).</li>
+    <li>For bug reporting and issues which do not require live support fill <i><a href="https://forms.gle/rQ4LChwn4EvSCLWZ9" class="text-grey-darker underline">THIS FORM</a></i> in.
+    If there was any popup with error details, please copy-paste them in the 'details' field.</li>
+  </ul>
+</p>
+<!-- #END# Reporting Issues -->
+
+<br/>
 
 <!-- Known Issues -->
 <div class="card">
@@ -60,15 +70,3 @@
 @endforeach
 @endif
 <!-- #END# Known Issues -->
-
-<br />
-
-<!-- Reporting Issues -->
-<p class="text-black font-bold text-lg text-left italic" id="reportingIssues">
-    Reporting Issues
-</p>
-<p class="text-grey-darker text-base text-left">
-    For live support please contact us via the Discord link <a href="#welcome">at the top of this page</a>.<br />
-    We also have a feedback form <a href="https://forms.gle/rQ4LChwn4EvSCLWZ9">Here</a> for you to report issues and post your thoughts on AFV.<br />
-</p>
-<!-- #END# Reporting Issues -->
