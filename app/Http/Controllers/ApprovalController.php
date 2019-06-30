@@ -64,11 +64,11 @@ class ApprovalController extends Controller
             $approval = $approval->first();
         } // Get the approval
 
-        $afvAuth = new AFVAuthController();
+        /*$afvAuth = new AFVAuthController();
         $afvAuth = $afvAuth->revokeCID($cid);
         if ($afvAuth !== true) {
             return redirect()->back()->withError($afvAuth['code'].' - '.$afvAuth['message']);
-        }
+        }*/
 
         $approval->setAsPending();
 
