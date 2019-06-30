@@ -25,25 +25,7 @@
             </div>
 
             @auth
-                <div class="py-4">					
-                    <div class="row col-14 justify-content-center">
-					    <!-- Live MAP -->
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2 text-right">
-					    	<a href="https://afv-map.vatsim.net/" class="no-underline">
-					    		<p class="btn btn-outline-light text-md w-100">Live Map</p>
-					    	</a>
-					    </div>
-					    <!-- #END# LIVE MAP -->
-
-                        <!-- PREFILE -->
-					    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2 text-left">
-					    	<a href="{{ route('prefile') }}" class="no-underline">
-					    		<p class="btn btn-outline-light text-md w-100">Prefile</p>
-					    	</a>
-					    </div>
-					    <!-- #END# PREFILE -->
-					</div>
-
+                <div class="py-4">
                     <div class="row col-14 justify-content-center">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2">
                             <a href="{{ route('landing') }}" class="no-underline">
