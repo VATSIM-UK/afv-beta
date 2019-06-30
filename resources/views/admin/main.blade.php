@@ -192,11 +192,10 @@
                                                 <div class="card col-12 h-100 text-black">
                                                   <div class="card-body">
                                                     <h5 class="card-title mb-0">Sync Auth DB</h5>
-                                                    <p class="card-text py-1">Sync the users in the AFV Auth Database</p>
                                                     <hr />
                                                     {{ Form::open(array('url' => route('users.sync'), 'class' => 'mx-auto col-12 text-center')) }}
                                                         <input name="_method" type="hidden" value="PATCH">
-                                                        {{ Form::submit('Send', ['class' => 'card-link mt-2 btn btn-success text-sm']) }}
+                                                        {{ Form::submit('Sync', ['class' => 'card-link mt-2 btn btn-success text-sm']) }}
                                                     {{ Form::close() }}
                                                   </div>
                                                 </div>
