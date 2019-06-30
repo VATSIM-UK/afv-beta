@@ -191,8 +191,8 @@
                                             <div class="mx-auto my-2 col-12 col-sm-6 col-md-4 col-lg-3">
                                                 <div class="card col-12 h-100 text-black">
                                                   <div class="card-body">
-                                                    <h5 class="card-title mb-0">AFV Auth</h5>
-                                                    <p class="card-text py-1">Send all database users</p>
+                                                    <h5 class="card-title mb-0">Sync Auth DB</h5>
+                                                    <p class="card-text py-1">Sync the users in the AFV Auth Database</p>
                                                     <hr />
                                                     {{ Form::open(array('url' => route('users.sync'), 'class' => 'mx-auto col-12 text-center')) }}
                                                         <input name="_method" type="hidden" value="PATCH">
