@@ -59,7 +59,7 @@ class MetarController extends Controller
                 try {
                     echo $metar->sanitized.'<br>';
                 } catch (Exception $e) {
-                    echo $icao . ' - No METAR available';
+                    echo $icao.' - No METAR available';
                 }
             }
         } else {
