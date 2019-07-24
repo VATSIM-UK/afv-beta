@@ -6,9 +6,8 @@ class MetarController extends Controller
 {
     public function __invoke($icao)
     {
-        echo "<html><body style=\"background-color: indigo;color: aqua;\">";
-        if ($icao == 'LIXX')
-        {
+        echo '<html><body style="background-color: indigo;color: aqua;">';
+        if ($icao == 'LIXX') {
             $icaos = [
                 'LMML',
                 'LIRQ',
@@ -31,40 +30,50 @@ class MetarController extends Controller
                     continue;
                 }
                 $metar = json_decode($metar);
-                try{ echo $metar->sanitized . '<br>'; }
-                catch (Exception $e){ echo "Couldn't find $icao METAR"; }
+                try {
+                    echo $metar->sanitized.'<br>';
+                } catch (Exception $e) {
+                    echo "Couldn't find $icao METAR";
+                }
             }
-        }
-        else if($icao == 'ENXX'){
+        } elseif ($icao == 'ENXX') {
             $icaos = [
                 'ENGM',
                 'ENTO',
                 'ENRY',
                 'ENNO',
                 'ENGK',
-                'ENCN'
+                'ENCN',
             ];
 
-            foreach ($icaos as $icao)
-            {
+            foreach ($icaos as $icao) {
                 $metar = @file_get_contents("https://avwx.rest/api/metar/$icao?options=&format=json&onfail=cache");
-                if(! $metar) continue;
+                if (! $metar) {
+                    continue;
+                }
                 $metar = json_decode($metar);
                 if (array_key_exists('error', $metar)){
                     echo "Couldn't find $icao METAR" . '<br>';
                     continue;
                 }
-                try{ echo $metar->sanitized . '<br>'; }
-                catch (Exception $e){ echo "Couldn't find $icao METAR" . '<br>'; }
+                try {
+                    echo $metar->sanitized.'<br>';
+                } catch (Exception $e) {
+                    echo "Couldn't find $icao METAR".'<br>';
+                }
+            }
+        } else {
+            $metar = @file_get_contents("https://avwx.rest/api/metar/$icao?options=&format=json&onfail=cache");
+            if (! $metar) {
+                echo "Couldn't find METAR";
+            }
+            $metar = json_decode($metar);
+            try {
+                echo $metar->sanitized.'<br>';
+            } catch (Exception $e) {
+                echo "Couldn't find METAR";
             }
         }
-        else{
-            $metar = @file_get_contents("https://avwx.rest/api/metar/$icao?options=&format=json&onfail=cache");
-            if(! $metar) echo "Couldn't find METAR";
-            $metar = json_decode($metar);
-            try{ echo $metar->sanitized . '<br>'; }
-            catch (Exception $e) { echo "Couldn't find METAR"; }
-        }
-        echo "</body></html>";
+        echo '</body></html>';
     }
 }
