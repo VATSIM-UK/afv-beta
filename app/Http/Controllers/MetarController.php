@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class MetarController extends Controller
 {
     public function __invoke($icao)
@@ -24,13 +22,14 @@ class MetarController extends Controller
                 'LICR',
                 'LICC',
                 'LICA',
-                'LICJ'
+                'LICJ',
             ];
 
-            foreach ($icaos as $icao)
-            {
+            foreach ($icaos as $icao) {
                 $metar = @file_get_contents("https://avwx.rest/api/metar/$icao?options=&format=json&onfail=cache");
-                if(! $metar) continue;
+                if (! $metar) {
+                    continue;
+                }
                 $metar = json_decode($metar);
                 try{ echo $metar->sanitized . '<br>'; }
                 catch (Exception $e){ echo "Couldn't find $icao METAR"; }
