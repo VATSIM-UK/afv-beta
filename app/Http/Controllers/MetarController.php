@@ -52,7 +52,9 @@ class MetarController extends Controller
                     continue;
                 }
                 $metar = json_decode($metar);
-                if (array_key_exists('error', $metar)) continue;
+                if (array_key_exists('error', $metar)) {
+                    continue;
+                }
                 try {
                     echo $metar->sanitized."\r\n";
                 } catch (Exception $e) {
