@@ -50,6 +50,10 @@ class MetarController extends Controller
                 $metar = @file_get_contents("https://avwx.rest/api/metar/$icao?options=&format=json&onfail=cache");
                 if(! $metar) continue;
                 $metar = json_decode($metar);
+                if (array_key_exists('error', $metar)){
+                    echo "Couldn't find $icao METAR" . '<br>';
+                    continue;
+                }
                 try{ echo $metar->sanitized . '<br>'; }
                 catch (Exception $e){ echo "Couldn't find $icao METAR" . '<br>'; }
             }
