@@ -52,11 +52,11 @@ class MetarController extends Controller
                     continue;
                 }
                 $metar = json_decode($metar);
-                if (array_key_exists('error', $metar)) continue;
+                if (array_key_exists('error', $metar)) echo $icao . ' - No METAR available';
                 try {
-                    echo $metar->sanitized."\r\n";
+                    echo $metar->sanitized.'<br>';
                 } catch (Exception $e) {
-                    //
+                    echo $icao . ' - No METAR available';
                 }
             }
         } else {
