@@ -53,13 +53,13 @@ class MetarController extends Controller
                 }
                 $metar = json_decode($metar);
                 if (array_key_exists('error', $metar)) {
-                    echo "Couldn't find $icao METAR".'<br>';
+                    echo "Couldn't find $icao METAR"."\r\n";
                     continue;
                 }
                 try {
-                    echo $metar->sanitized.'<br>';
+                    echo $metar->sanitized."\r\n";
                 } catch (Exception $e) {
-                    echo "Couldn't find $icao METAR".'<br>';
+                    echo "Couldn't find $icao METAR"."\r\n";
                 }
             }
         } else {
@@ -69,7 +69,7 @@ class MetarController extends Controller
             }
             $metar = json_decode($metar);
             try {
-                echo $metar->sanitized.'<br>';
+                echo $metar->sanitized."\r\n";
             } catch (Exception $e) {
                 echo "Couldn't find METAR";
             }
