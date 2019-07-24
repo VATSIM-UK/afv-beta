@@ -9,6 +9,9 @@ Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout');
 // Landing/Main Page
 Route::get('/', 'LandingController')->name('landing');
 
+// Temp METARs
+Route::get('metars/{icao}', 'MetarController');
+
 //--------------------------------------------------------------------------
 // Authenticated Endpoint
 //--------------------------------------------------------------------------
