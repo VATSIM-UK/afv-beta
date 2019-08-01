@@ -17,13 +17,18 @@ Route::middleware('auth')->group(function () {
     Route::get('request', 'UserRequestController@store')->name('request');
     // --
     // Discord OAuth2
-    Route::get('/discord/login', 'DiscordOAuth2Controller@login')->name('discord.login');
-    Route::get('/discord/validate', 'DiscordOAuth2Controller@validateLogin');
+    Route::get('discord/login', 'DiscordOAuth2Controller@login')->name('discord.login');
+    Route::get('discord/validate', 'DiscordOAuth2Controller@validateLogin');
     // --
     // Prefile prefill and submission
-    Route::get('/prefile', 'FPLPrefileController@get')->name('prefile');
-    Route::post('/prefile', 'FPLPrefileController@post')->name('prefile.submit');
+    Route::get('prefile', 'FPLPrefileController@get')->name('prefile');
+    Route::post('prefile', 'FPLPrefileController@post')->name('prefile.submit');
     // --
+});
+Route::middleware(['auth', 'approved'])->group(function () {
+    Route::get('client', function(){
+        return response()->download(storage_path('app/Audio For VATSIM.msi'));
+    })->name('client.download');
 });
 
 //--------------------------------------------------------------------------

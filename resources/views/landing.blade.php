@@ -172,8 +172,8 @@
 @if(session()->has("error"))
     <script language="javascript">
         Swal.fire({
-            title: 'Error!',
-            html: "{!! session("error") !!}",
+            title: "{!! session('error')[0] !!}",
+            html: "{!! session('error')[1] !!}",
             type: 'error'
         })
     </script>

@@ -47,12 +47,12 @@ class User extends Authenticatable
 
     public function getApprovedAttribute()
     {
-        return optional($this->approval()->first())->approved;
+        return (bool) optional($this->approval()->first())->approved;
     }
 
     public function getPendingAttribute()
     {
-        return $this->has_request && ! $this->approved;
+        return (bool) $this->has_request && ! $this->approved;
     }
 
     public function scopePending(Builder $query)

@@ -2,7 +2,7 @@
     VRC, vSTARS, vERAM
 </p>
 <p class="text-grey-darker text-base text-left">
-    1) Download the standalone voice client from <a href="https://s3.ca-central-1.amazonaws.com/vatsim/Audio+For+VATSIM.msi">Here</a>.
+    1) Download the standalone voice client from <a href="{{ route('client.download') }}">Here</a>.
        Run it and follow the instructions to setup AFV.<br />
     2) Use the beta installer for your ATC client:<br />
 </p>
@@ -16,7 +16,7 @@
     3) After installation, you will see new shortcuts on your desktop. To connect to the beta server launch vSTARS (AFV Beta) or vERAM (AFV Beta).<br />
 </p>
 
-<img src="/images/demos/vClients.jpeg" class="w-auto rounded py-4">
+<img src="{{ asset('images/demos/vClients.jpeg') }}" class="w-auto rounded py-4">
 
 <p class="text-grey-darker text-base text-left">
     4) Select any server to connect as they all connect to the AFV Beta Server (ie. USA-C).  Connect to the server and prime <b>your frequency only</b>. Do not select any other audio options on the communications panel.<br />
