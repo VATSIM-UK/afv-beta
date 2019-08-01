@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
     // --
 });
 Route::middleware(['auth', 'approved'])->group(function () {
-    Route::get('client', function(){
+    Route::get('client', function () {
         return response()->download(storage_path('app/Audio For VATSIM.msi'));
     })->name('client.download');
 });
