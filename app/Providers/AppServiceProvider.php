@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::if('approved', function () {
+            return auth()->user()->approved;
+        });
+
+        Blade::if('pending', function () {
+            return auth()->user()->pending;
+        });
+
+        Blade::if('hasnorequest', function () {
+            return (! auth()->user()->has_request);
+        });
+
+        Blade::if('admin', function () {
+            return (bool) auth()->user()->admin;
+        });
     }
 }

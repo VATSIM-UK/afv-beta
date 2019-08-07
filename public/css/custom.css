@@ -1,4 +1,32 @@
-iframe {
-    display:block;
-    width:100%;
+body{
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+}
+
+.content-wrapper {
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 5px;
+}
+
+.main-footer .logo .logo-lg {
+    width: 8%;
+}
+
+.main-sidebar {
+    overflow-x: hidden;
+}
+
+.nav-sidebar .nav-header:not(:first-of-type){
+    padding: 0.5rem;
+}
+
+.nav-sidebar .nav-header{
+    border-bottom: solid 1px white;
+    margin-bottom: 0.5rem;
 }

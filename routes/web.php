@@ -1,31 +1,49 @@
 <?php
 
-// To-Do: Apply Middleware?
-Route::get('login', 'Auth\LoginController@login')->name('auth.login');
-Route::get('verify-login', 'Auth\LoginController@verifyLogin')->name('auth.login.verify');
-Route::get('complete-login', 'Auth\LoginController@completeLogin')->name('auth.login.complete');
-Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout');
-
 // Landing/Main Page
-Route::get('/', 'LandingController')->name('landing');
+Route::get('/', 'MainPageController')->name('home');
+
+//--------------------------------------------------------------------------
+// Guest Endpoint
+//--------------------------------------------------------------------------
+Route::middleware('guest')->group(function () {
+    Route::get('login', 'Auth\LoginController@login')->name('auth.login');
+    Route::get('verify-login', 'Auth\LoginController@verifyLogin')->name('auth.login.verify');
+    // Route::get('complete-login', 'Auth\LoginController@completeLogin')->name('auth.login.complete');
+});
 
 //--------------------------------------------------------------------------
 // Authenticated Endpoint
 //--------------------------------------------------------------------------
 Route::middleware('auth')->group(function () {
-    // User submits request
     Route::get('request', 'UserRequestController@store')->name('request');
-    // --
+    Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout');    
+});
+
+//--------------------------------------------------------------------------
+// Approved Users Endpoint
+//--------------------------------------------------------------------------
+Route::middleware(['auth', 'approved'])->group(function () {
+    // Pilot Clients
+    Route::get('pilots/vpilot', 'PilotClientsController@vPilot')->name('pilots.vpilot');
+    Route::get('pilots/others', 'PilotClientsController@others')->name('pilots.others');
+
+    // ATC Clients
+    Route::get('atc/euroscope', 'ATCClientsController@euroscope')->name('atc.euroscope');
+    Route::get('atc/vrc-vstars-veram', 'ATCClientsController@vrc_vstars_veram')->name('atc.vrc_vstars_veram');
+
+    // ATIS Clients
+    Route::get('atis/euroscope', 'ATISClientsController@euroscope')->name('atis.euroscope');
+    Route::get('atis/vatis', 'ATISClientsController@vatis')->name('atis.vatis');
+
     // Discord OAuth2
     Route::get('discord/login', 'DiscordOAuth2Controller@login')->name('discord.login');
     Route::get('discord/validate', 'DiscordOAuth2Controller@validateLogin');
-    // --
-    // Prefile prefill and submission
+
+    // Prefiling
     Route::get('prefile', 'FPLPrefileController@get')->name('prefile');
     Route::post('prefile', 'FPLPrefileController@post')->name('prefile.submit');
-    // --
-});
-Route::middleware(['auth', 'approved'])->group(function () {
+
     Route::get('client', function () {
         return response()->download(storage_path('app/Audio For VATSIM.msi'));
     })->name('client.download');

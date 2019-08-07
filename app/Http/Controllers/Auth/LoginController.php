@@ -56,7 +56,7 @@ class LoginController extends Controller
     public function verifyLogin(Request $request)
     {
         $session = $request->session()->get('vatsimauth');
-        $main = route('landing');
+        $main = route('home');
 
         return $this->sso->validate(
             $session['key'],
@@ -97,6 +97,6 @@ class LoginController extends Controller
     {
         auth()->logout();
 
-        return redirect(route('landing'))->withSuccess(['Logout', 'You have been successfully logged out']);
+        return redirect(route('home'))->withSuccess(['Logout', 'You have been successfully logged out']);
     }
 }

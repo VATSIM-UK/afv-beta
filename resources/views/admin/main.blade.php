@@ -28,7 +28,7 @@
                 <div class="py-4">
                     <div class="row col-14 justify-content-center">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-4 mx-2">
-                            <a href="{{ route('landing') }}" class="no-underline">
+                            <a href="{{ route('home') }}" class="no-underline">
 					        	<p class="btn btn-outline-warning text-md w-100">Back</p>
 					        </a>
                         </div>

@@ -18,7 +18,7 @@ class UserRequestController extends Controller
     public function store(Request $request)
     {
         if (auth()->user()->has_request) {
-            return redirect('/')->withError('You have already made a request to signup to the beta.');
+            return redirect()->route('home')->withError(['Nope!', 'You already have a request to join the beta.']);
         }
 
         // create an approval which is pending
@@ -26,8 +26,6 @@ class UserRequestController extends Controller
 
         event(new UserExpressedInterest($approval));
 
-        return redirect()
-            ->back()
-            ->withSuccess(['Thanks For Registering!', 'If you are selected to take part in testing, we will send you an email. <br /> <br /> Come back here to check the progress of your registration.']);
+        return redirect()->route('home')->withSuccess(['Registration complete!', 'Your request has been saved.']);
     }
 }
