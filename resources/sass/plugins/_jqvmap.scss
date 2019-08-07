@@ -14,10 +14,10 @@
     width: 15px;
     height: 15px;
 
-  &:hover,
-  &:active,
-  &.hover {
-    color: darken($button-default-color, 10%);
-    background-color: darken($button-default-background-color, 5%);
-  }
+    &:hover,
+    &:active,
+    &.hover {
+        color: darken($button-default-color, 10%);
+        background-color: darken($button-default-background-color, 5%);
+    }
 }

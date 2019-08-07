@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class ATCClientsController extends Controller
 {
     public function euroscope()

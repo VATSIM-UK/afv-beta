@@ -16,7 +16,7 @@
 //     color: #FFF;
 //     padding-right: 0.5em;
 //     margin: auto 0.5em auto -1.5em;
-// }        
+// }
 // #toast-container > .toast-warning .toast-message:before {
 //     content: "\f06a";
 // }
@@ -30,20 +30,19 @@
 //     content: "\f058";
 // }
 
-
 // Background color
 .toast {
-  background-color: $primary;
+    background-color: $primary;
 }
 .toast-success {
-  background-color: $success;
+    background-color: $success;
 }
 .toast-error {
-  background-color: $danger;
+    background-color: $danger;
 }
 .toast-info {
-  background-color: $info;
+    background-color: $info;
 }
 .toast-warning {
-  background-color: $warning;
+    background-color: $warning;
 }

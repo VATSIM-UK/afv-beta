@@ -5,21 +5,19 @@
 
 // Style override
 .slider {
-  &.slider-vertical {
-    height: 100%;
-  }
-  &.slider-horizontal {
-    width: 100%;
-  }
+    &.slider-vertical {
+        height: 100%;
+    }
+    &.slider-horizontal {
+        width: 100%;
+    }
 }
 
 // Colors
 @each $name, $color in $colors {
-  .slider-#{$name} .slider {
-    .slider-selection {
-      background: $color;
+    .slider-#{$name} .slider {
+        .slider-selection {
+            background: $color;
+        }
     }
-  }
 }
-
-

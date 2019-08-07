@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class PilotClientsController extends Controller
 {
     public function vPilot()

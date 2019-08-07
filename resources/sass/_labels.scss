@@ -3,26 +3,26 @@
  * ----------------
  */
 .label-default {
-  background-color: $gray-500;
-  color: #444;
+    background-color: $gray-500;
+    color: #444;
 }
 
 .label-danger {
-  @extend .bg-danger;
+    @extend .bg-danger;
 }
 
 .label-info {
-  @extend .bg-info;
+    @extend .bg-info;
 }
 
 .label-warning {
-  @extend .bg-warning;
+    @extend .bg-warning;
 }
 
 .label-primary {
-  @extend .bg-primary;
+    @extend .bg-primary;
 }
 
 .label-success {
-  @extend .bg-success;
+    @extend .bg-success;
 }
