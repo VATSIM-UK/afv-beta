@@ -21,9 +21,7 @@
                 <tbody>
                     <tr>
                         <td colspan="2" align="center">
-                            <a href="{{ route('landing') }}">
-                                <img src="/images/logo.png" width="175" height="64">
-                            </a>
+                            <img src="{{ asset('images/logo.png') }}" width="175" height="64">
                         </td>
                         <td colspan="5">
                             <table width="100%" border="0">

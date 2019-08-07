@@ -92,6 +92,6 @@ class DiscordOAuth2Controller extends Controller
             ]
         );
 
-        return redirect()->route('landing')->withSuccess(['Aye!', 'Discord account successfully linked!']);
+        return redirect()->route('home')->withSuccess(['Aye!', 'Discord account successfully linked!']);
     }
 }
