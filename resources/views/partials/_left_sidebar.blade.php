@@ -46,7 +46,7 @@
 
         <li class="nav-item has-treeview menu-{{ Request::is('clients/atc*') ? 'open' : 'closed' }}">
           <a href="#" class="nav-link {{ Request::is('clients/atc*') ? 'active' : null }}">
-            <i class="nav-icon fas fa-broadcast-tower"></i>
+            <i class="nav-icon fas fa-satellite-dish"></i>
             <p>ATC Clients<i class="right fa fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
@@ -111,32 +111,27 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link disabled text-secondary {{ Request::is('admin*') ? 'active' : null }}">
+            <i class="nav-icon fas fa-broadcast-tower"></i>
+            <p>
+              Transceivers
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link disabled text-secondary {{ Request::is('admin*') ? 'active' : null }}">
+            <i class="nav-icon fas fa-headset"></i>
+            <p>
+              Positions
+            </p>
+          </a>
+        </li>
         @endadmin
 
         @endauth
-
-        {{--@if( auth()->user()->admin )
-        <li class="nav-item has-treeview menu-{{ Request::is('admin*') ? 'open' : 'closed' }}">
-          <a href="#" class="nav-link {{ Request::is('admin*') ? 'active' : 'text-danger' }}">
-            <i class="nav-icon fa fa-tachometer"></i>
-            <p>
-              ADMIN
-              <i class="right fa fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : null }}">
-              <p>
-                Users
-              </p>
-            </a>
-          </li>
-          </ul>
-        </li>
-        @endif
-        --}}
-
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
