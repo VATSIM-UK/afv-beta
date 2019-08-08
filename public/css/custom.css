@@ -12,7 +12,7 @@ body{
     height: 100%;
 }
 
-.discord-widget {
+.discord-widget{
     border: none;
     min-height: 300px;
 }
