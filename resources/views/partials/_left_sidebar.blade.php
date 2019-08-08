@@ -3,7 +3,7 @@
   <!-- Brand Logo -->
   <a href="{{ route('home') }}" class="brand-link">
     <img src="{{ asset('favicon.ico') }}" alt="Logo" class="brand-image" style="opacity: .8">
-    <span class="brand-text font-weight-light">AFV Beta</span>
+    <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
   </a>
 
   <!-- Sidebar -->
