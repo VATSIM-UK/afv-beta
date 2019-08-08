@@ -12,11 +12,6 @@ body{
     height: 100%;
 }
 
-.discord-widget{
-    border: none;
-    min-height: 300px;
-}
-
 .main-footer {
     text-align: center;
     padding: 5px;
