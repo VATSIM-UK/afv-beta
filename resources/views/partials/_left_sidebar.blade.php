@@ -82,15 +82,23 @@
           </ul>
         </li>
 
-        {{-- <li class="nav-header">ISSUES</li>
+        <li class="nav-header">ISSUES</li>
         <li class="nav-item">
-          <a href="#" class="nav-link {{ Request::is('issues*') ? 'active' : null }}">
+          <a href="{{ route('issues') }}" class="nav-link {{ Request::is('issues*') ? 'active' : null }}">
             <i class="nav-icon fas fa-poop"></i>
             <p>
               Reporting Issues
             </p>
           </a>
-        </li> --}}
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('knowledge_base') }}" class="nav-link {{ Request::is('knowledge-base*') ? 'active' : null }}">
+            <i class="nav-icon fas fa-book-open"></i>
+            <p>
+              Knowledge Base
+            </p>
+          </a>
+        </li>
         @endapproved
         
         @admin

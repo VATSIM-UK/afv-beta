@@ -24,21 +24,18 @@ Route::middleware('auth')->group(function () {
 // Approved Users Endpoint
 //--------------------------------------------------------------------------
 Route::middleware(['auth', 'approved'])->group(function () {
-    // Pilot Clients
+    Route::get('knowledge-base', 'PageController@knowledgeBase')->name('knowledge_base');
     Route::get('clients/pilots/vpilot', 'PageController@vPilot')->name('pilots.vpilot');
     Route::get('clients/pilots/others', 'PageController@otherPilotClients')->name('pilots.others');
-    // ATC Clients
     Route::get('clients/atc/euroscope-client', 'PageController@euroscope')->name('atc.euroscope');
     Route::get('clients/atc/vrc-vstars-veram', 'PageController@vrc_vstars_veram')->name('atc.vrc_vstars_veram');
-    // ATIS Clients
     Route::get('clients/atis/euroscope', 'PageController@euroscopeAtis')->name('atis.euroscope');
     Route::get('clients/atis/vatis', 'PageController@vatis')->name('atis.vatis');
+    Route::get('issues', 'PageController@issues')->name('issues');
 
-    // Discord OAuth2
     Route::get('discord/login', 'DiscordOAuth2Controller@login')->name('discord.login');
     Route::get('discord/validate', 'DiscordOAuth2Controller@validateLogin');
-
-    // Prefiling
+    
     Route::get('prefile', 'FPLPrefileController@get')->name('prefile');
     Route::post('prefile', 'FPLPrefileController@post')->name('prefile.submit');
 

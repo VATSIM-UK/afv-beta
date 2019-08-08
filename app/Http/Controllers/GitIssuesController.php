@@ -6,13 +6,11 @@ use Michelf\Markdown;
 
 class GitIssuesController extends Controller
 {
-    public static function getIssues()
-    {
-        $output = [
-            'issues' => [],
-            'knowledge_base' => [],
-        ];
+    
+    protected $data = array();
 
+    public function __construct()
+    {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_USERAGENT, config('github.UserAgent'));
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -20,33 +18,38 @@ class GitIssuesController extends Controller
         curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/goliver1984/afv-issues/issues');
         $file = curl_exec($ch);
         curl_close($ch);
-
-        if (! $file) {
-            return $output;
+        if ($file) {
+            $this->data = json_decode($file);
         }
-
-        $issues = json_decode($file);
-        if (! $issues) {
-            return $output;
-        }
-
-        foreach ($issues as $issue) {
-            if (empty($issue->milestone)) {
-                continue;
-            } // Issue has no milestone set
-
-            $open = ($issue->state == 'open') ? true : false;
+    }
+    
+    public function getIssues()
+    {
+        $temp = array();
+        foreach ($this->data as $issue) {
+            if (empty($issue->milestone)) continue; // Issue has no milestone set
+            // If not in the "Issues" milestone or already solved, ignore it
+            if ($issue->milestone->number != 1 || $issue->state != 'open') continue;
             $body = str_replace("\r\n", '<br/>', $issue->body);
             $body = Markdown::defaultTransform($body);
             $body = str_replace(['<p>', '</p>'], '', $body);
-
-            if ($issue->milestone->number == 2) { // Knowledge base milestone
-                $output['knowledge_base'][] = ['title' => $issue->title, 'body' => $body, 'open' => $open];
-            } elseif ($issue->milestone->number == 1) { // Known Issues
-                $output['issues'][] = ['title' => $issue->title, 'body' => $body, 'open' => $open];
-            }
+            $temp[] = ['title' => $issue->title, 'body' => $body];
         }
+        return $temp;
+    }
 
-        return $output;
+    public function getKnowledgeBase()
+    {
+        $temp = array();
+        foreach ($this->data as $knowledge) {
+            if (empty($knowledge->milestone)) continue; // Issue has no milestone set
+            // If not in the "KnowledgeBase" milestone or already solved, ignore it
+            if ($knowledge->milestone->number != 2 || $knowledge->state != 'open') continue;
+            $body = str_replace("\r\n", '<br/>', $knowledge->body);
+            $body = Markdown::defaultTransform($body);
+            $body = str_replace(['<p>', '</p>'], '', $body);
+            $temp[] = ['title' => $knowledge->title, 'body' => $body];
+        }
+        return $temp;
     }
 }
