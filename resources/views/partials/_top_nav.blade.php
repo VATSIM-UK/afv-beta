@@ -15,6 +15,11 @@
         <a href="{{ route('prefile') }}" target="_blank" class="nav-link">Prefile</a>
       </li>
       @endapproved
+      @admin
+      <li class="nav-item d-sm-inline-block">
+        <a href="{{ route('admin') }}" class="nav-link">Admin</a>
+      </li>
+      @endadmin
     @endauth
   </ul>
   <!-- #END# Left navbar links -->

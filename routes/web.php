@@ -1,7 +1,7 @@
 <?php
 
 // Landing/Main Page
-Route::get('/', 'MainPageController')->name('home');
+Route::get('/', 'PageController@home')->name('home');
 
 //--------------------------------------------------------------------------
 // Guest Endpoint
@@ -25,16 +25,14 @@ Route::middleware('auth')->group(function () {
 //--------------------------------------------------------------------------
 Route::middleware(['auth', 'approved'])->group(function () {
     // Pilot Clients
-    Route::get('pilots/vpilot', 'PilotClientsController@vPilot')->name('pilots.vpilot');
-    Route::get('pilots/others', 'PilotClientsController@others')->name('pilots.others');
-
+    Route::get('clients/pilots/vpilot', 'PageController@vPilot')->name('pilots.vpilot');
+    Route::get('clients/pilots/others', 'PageController@otherPilotClients')->name('pilots.others');
     // ATC Clients
-    Route::get('atc/euroscope', 'ATCClientsController@euroscope')->name('atc.euroscope');
-    Route::get('atc/vrc-vstars-veram', 'ATCClientsController@vrc_vstars_veram')->name('atc.vrc_vstars_veram');
-
+    Route::get('clients/atc/euroscope-client', 'PageController@euroscope')->name('atc.euroscope');
+    Route::get('clients/atc/vrc-vstars-veram', 'PageController@vrc_vstars_veram')->name('atc.vrc_vstars_veram');
     // ATIS Clients
-    Route::get('atis/euroscope', 'ATISClientsController@euroscope')->name('atis.euroscope');
-    Route::get('atis/vatis', 'ATISClientsController@vatis')->name('atis.vatis');
+    Route::get('clients/atis/euroscope', 'PageController@euroscopeAtis')->name('atis.euroscope');
+    Route::get('clients/atis/vatis', 'PageController@vatis')->name('atis.vatis');
 
     // Discord OAuth2
     Route::get('discord/login', 'DiscordOAuth2Controller@login')->name('discord.login');
@@ -44,7 +42,7 @@ Route::middleware(['auth', 'approved'])->group(function () {
     Route::get('prefile', 'FPLPrefileController@get')->name('prefile');
     Route::post('prefile', 'FPLPrefileController@post')->name('prefile.submit');
 
-    Route::get('client', function () {
+    Route::get('client-download', function () {
         return response()->download(storage_path('app/Audio For VATSIM.msi'));
     })->name('client.download');
 });
@@ -52,7 +50,7 @@ Route::middleware(['auth', 'approved'])->group(function () {
 //--------------------------------------------------------------------------
 // Admin Endpoint
 //--------------------------------------------------------------------------
-Route::middleware('admin')->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin', 'AdminPageController')->name('admin');
 
     // Approvals

@@ -25,57 +25,57 @@
         @auth
         @if(auth()->user()->approved)
         <li class="nav-header">CLIENTS</li>
-        <li class="nav-item has-treeview menu-{{ Request::is('pilots*') ? 'open' : 'closed' }}">
-          <a href="#" class="nav-link {{ Request::is('pilots*') ? 'active' : null }}">
+        <li class="nav-item has-treeview menu-{{ Request::is('clients/pilots*') ? 'open' : 'closed' }}">
+          <a href="#" class="nav-link {{ Request::is('clients/pilots*') ? 'active' : null }}">
             <i class="nav-icon fa fa-plane"></i>
             <p>Pilot Clients<i class="right fa fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ route('pilots.vpilot') }}" class="nav-link {{ Request::is('pilots/vpilot*') ? 'active' : null }}">
+              <a href="{{ route('pilots.vpilot') }}" class="nav-link {{ Request::is('clients/pilots/vpilot*') ? 'active' : null }}">
                 <p>vPilot</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ route('pilots.others') }}" class="nav-link {{ Request::is('pilots/others*') ? 'active' : null }}">
+              <a href="{{ route('pilots.others') }}" class="nav-link {{ Request::is('clients/pilots/others*') ? 'active' : null }}">
                 <p>Others</p>
               </a>
             </li>
           </ul>
         </li>
 
-        <li class="nav-item has-treeview menu-{{ Request::is('atc*') ? 'open' : 'closed' }}">
-          <a href="#" class="nav-link {{ Request::is('atc*') ? 'active' : null }}">
+        <li class="nav-item has-treeview menu-{{ Request::is('clients/atc*') ? 'open' : 'closed' }}">
+          <a href="#" class="nav-link {{ Request::is('clients/atc*') ? 'active' : null }}">
             <i class="nav-icon fas fa-broadcast-tower"></i>
             <p>ATC Clients<i class="right fa fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ route('atc.euroscope') }}" class="nav-link {{ Request::is('atc/euroscope*') ? 'active' : null }}">
+              <a href="{{ route('atc.euroscope') }}" class="nav-link {{ Request::is('clients/atc/euroscope*') ? 'active' : null }}">
                 <p>Euroscope</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ route('atc.vrc_vstars_veram') }}" class="nav-link {{ Request::is('atc/vrc-vstars-veram*') ? 'active' : null }}">
+              <a href="{{ route('atc.vrc_vstars_veram') }}" class="nav-link {{ Request::is('clients/atc/vrc-vstars-veram*') ? 'active' : null }}">
                 <p>VRC, vSTARS, vERAM</p>
               </a>
             </li>
           </ul>
         </li>
 
-        <li class="nav-item has-treeview menu-{{ Request::is('atis*') ? 'open' : 'closed' }}">
-          <a href="#" class="nav-link {{ Request::is('atis*') ? 'active' : null }}">
+        <li class="nav-item has-treeview menu-{{ Request::is('clients/atis*') ? 'open' : 'closed' }}">
+          <a href="#" class="nav-link {{ Request::is('clients/atis*') ? 'active' : null }}">
             <i class="nav-icon fas fa-cloud-sun"></i>
             <p>ATIS Clients<i class="right fa fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ route('atis.euroscope') }}" class="nav-link {{ Request::is('atis/euroscope*') ? 'active' : null }}">
+              <a href="{{ route('atis.euroscope') }}" class="nav-link {{ Request::is('clients/atis/euroscope*') ? 'active' : null }}">
                 <p>Euroscope</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ route('atis.vatis') }}" class="nav-link {{ Request::is('atis/vatis*') ? 'active' : null }}">
+              <a href="{{ route('atis.vatis') }}" class="nav-link {{ Request::is('clients/atis/vatis*') ? 'active' : null }}">
                 <p>vATIS</p>
               </a>
             </li>
