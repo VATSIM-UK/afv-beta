@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Exception;
 use Carbon\Carbon;
 use App\Models\User;
 use Vatsim\OAuth\SSO;
