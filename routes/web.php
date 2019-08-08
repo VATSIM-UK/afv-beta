@@ -35,7 +35,7 @@ Route::middleware(['auth', 'approved'])->group(function () {
 
     Route::get('discord/login', 'DiscordOAuth2Controller@login')->name('discord.login');
     Route::get('discord/validate', 'DiscordOAuth2Controller@validateLogin');
-    
+
     Route::get('prefile', 'FPLPrefileController@get')->name('prefile');
     Route::post('prefile', 'FPLPrefileController@post')->name('prefile.submit');
 

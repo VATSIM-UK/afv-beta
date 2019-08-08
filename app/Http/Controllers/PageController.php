@@ -17,6 +17,7 @@ class PageController extends Controller
     public function knowledgeBase()
     {
         $knowledgeBase = (new GitIssuesController)->getKnowledgeBase();
+
         return view('sections.knowledgeBase')->withKnowledgeBase($knowledgeBase);
     }
 
@@ -53,6 +54,7 @@ class PageController extends Controller
     public function issues()
     {
         $issues = (new GitIssuesController)->getIssues();
+
         return view('sections.issues')->withIssues($issues);
     }
 }
