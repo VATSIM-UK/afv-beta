@@ -45,7 +45,7 @@
     <div class="content flex-fill d-flex pb-4">
       <div class="row w-100 mx-auto">
         <div class="col">
-          <iframe src="https://discordapp.com/widget?id=551514966058860544&theme=light" class="h-100 w-100" style="border: none; min-height: 300px;"></iframe>
+          <iframe src="https://discordapp.com/widget?id=551514966058860544&theme=light" class="h-100 w-100"></iframe>
         </div>
         <!-- /.col -->
       </div>
