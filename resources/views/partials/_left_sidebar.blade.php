@@ -23,7 +23,7 @@
         </li>
 
         @auth
-        @if(auth()->user()->approved)
+        @approved
         <li class="nav-header">CLIENTS</li>
         <li class="nav-item has-treeview menu-{{ Request::is('clients/pilots*') ? 'open' : 'closed' }}">
           <a href="#" class="nav-link {{ Request::is('clients/pilots*') ? 'active' : null }}">
@@ -91,7 +91,20 @@
             </p>
           </a>
         </li> --}}
-        @endif
+        @endapproved
+        
+        @admin
+        <li class="nav-header">ADMIN</li>
+        <li class="nav-item">
+          <a href="{{ route('admin') }}" class="nav-link {{ Request::is('admin*') ? 'active' : null }}">
+            <i class="nav-icon fas fa-user-shield"></i>
+            <p>
+              Admin Console
+            </p>
+          </a>
+        </li>
+        @endadmin
+
         @endauth
 
         {{--@if( auth()->user()->admin )
