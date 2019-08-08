@@ -2,10 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
 use Closure;
 
-class AFVAdmin
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -16,10 +15,10 @@ class AFVAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->admin) { // User is admin
+        if (auth()->user()->admin) {
             return $next($request);
         }
 
-        return redirect(route('landing'));
+        return redirect(route('home'));
     }
 }
