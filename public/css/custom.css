@@ -7,6 +7,14 @@ body{
     background-image: url('/images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+}
+
+.discord-widget {
+    border: none;
+    min-height: 300px;
 }
 
 .main-footer {
