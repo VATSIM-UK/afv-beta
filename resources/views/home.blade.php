@@ -62,6 +62,4 @@
   </div>
   @endapproved
   @endauth
-  </div>
-  <!-- /.row -->
 @endsection
