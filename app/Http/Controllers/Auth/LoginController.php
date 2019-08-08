@@ -49,7 +49,7 @@ class LoginController extends Controller
 
             return redirect($url);
         }, function ($error) {
-            throw new Exception('Could not authenticate: '.$error['message']);
+            return redirect()->route('home')->withError(['Login failed', $error]);
         });
     }
 
@@ -69,7 +69,7 @@ class LoginController extends Controller
                 return redirect()->intended($main);
             },
             function ($error) use ($request) {
-                throw $error;
+                return redirect()->route('home')->withError(['Login failed', $error]);
             }
         );
     }
