@@ -26,7 +26,6 @@
         @yield('content')
       </div>
       <!-- /.content-wrapper -->
-      @include('partials._right_sidebar')
       @include('partials._footer')
     </div>
     <!-- ./wrapper -->
