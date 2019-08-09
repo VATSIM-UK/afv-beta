@@ -88,7 +88,7 @@
           <!-- /.row -->
           <div class="row">
             <div class="col text-center">
-              <button type="submit" class="btn btn-success btn-sm text-sm">Create</button>
+              <button type="submit" class="btn btn-success disabled btn-sm text-sm" disabled>Create</button>
             </div>
           </div>
           <!-- /.row -->
@@ -105,14 +105,14 @@
         var map = L.map('map').setView([30.0, 0], 2);
 
         // Map Layers
-        var basic = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            subdomains: 'abcd'
+        var streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map),
         satellite = L.tileLayer(
             'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
              attribution: '&copy; ' + '<a href="http://www.esri.com/">Esri</a>'
         });
-        var maps = {"Basic": basic, "Satellite": satellite};
+        var maps = {"Streets": streets, "Satellite": satellite};
         L.control.layers(maps).addTo(map);
 
         // Marker Setup

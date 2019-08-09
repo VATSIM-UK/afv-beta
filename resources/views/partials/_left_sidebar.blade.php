@@ -109,7 +109,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link disabled text-secondary {{ Request::is('transceivers*') ? 'active' : null }}">
+          <a href="{{ route('transceivers.create') }}" class="nav-link disabled text-secondary {{ Request::is('transceivers*') ? 'active' : null }}">
             <i class="nav-icon fas fa-broadcast-tower"></i>
             <p>
               Transceivers
