@@ -8,11 +8,9 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
-
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
         <li class="nav-item">
           <a href="{{ route('home') }}" class="nav-link {{ Request::is('/') ? 'active' : null }}">
             <i class="nav-icon fas fa-home"></i>
@@ -21,7 +19,6 @@
             </p>
           </a>
         </li>
-
         @auth
         @approved
         <li class="nav-header">CLIENTS</li>
@@ -43,7 +40,6 @@
             </li>
           </ul>
         </li>
-
         <li class="nav-item has-treeview menu-{{ Request::is('clients/atc*') ? 'open' : 'closed' }}">
           <a href="#" class="nav-link {{ Request::is('clients/atc*') ? 'active' : null }}">
             <i class="nav-icon fas fa-satellite-dish"></i>
@@ -113,7 +109,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link disabled text-secondary {{ Request::is('admin*') ? 'active' : null }}">
+          <a href="#" class="nav-link disabled text-secondary {{ Request::is('transceivers*') ? 'active' : null }}">
             <i class="nav-icon fas fa-broadcast-tower"></i>
             <p>
               Transceivers
@@ -122,7 +118,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link disabled text-secondary {{ Request::is('admin*') ? 'active' : null }}">
+          <a href="#" class="nav-link disabled text-secondary {{ Request::is('positions*') ? 'active' : null }}">
             <i class="nav-icon fas fa-headset"></i>
             <p>
               Positions

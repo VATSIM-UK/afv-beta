@@ -49,22 +49,19 @@ Route::middleware(['auth', 'approved'])->group(function () {
 //--------------------------------------------------------------------------
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin', 'AdminPageController')->name('admin');
-
-    // Approvals
-    Route::patch('user/random/approval', 'ApprovalController@random')->name('users.random'); // Approve qty random users
+    Route::patch('user/random/approval', 'ApprovalController@random')->name('users.random');
     Route::patch('user/all/approval', 'ApprovalController@sync')->name('users.sync');
     Route::patch('user/{cid}/approval', 'ApprovalController@approve')->name('users.approve');
     Route::delete('user/{cid}/approval', 'ApprovalController@revoke')->name('users.revoke');
-
-    // Discord Accounts
     Route::patch('user/{cid}/discord', 'DiscordAccountController@update')->name('users.discord');
-
-    // Admin Users
     Route::patch('user/admin', 'AdminController@add')->name('admin.add');
     Route::delete('user/admin', 'AdminController@remove')->name('admin.remove');
+    Route::resource('transceivers', 'TransceiverController')->only(['create', 'store']);
 });
 
+//--------------------------------------------------------------------------
 // Discord Accounts
+//--------------------------------------------------------------------------
 Route::get('discord/accounts', 'DiscordUsersAPIController');
 
 //--------------------------------------------------------------------------
@@ -73,4 +70,3 @@ Route::get('discord/accounts', 'DiscordUsersAPIController');
 Route::get('vatsim-data', function () {
     return response(Storage::get('vatsim-data.json'))->header('Content-Type', 'application/json');
 });
-//--------------------------------------------------------------------------
